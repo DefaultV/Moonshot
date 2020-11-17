@@ -16,6 +16,19 @@ export var max_speed = 0.75;
 var dir : Vector2 = Vector2.ZERO;
 var movetopos = Vector2.ZERO;
 var cinematic = false;
+
+var Inventory:PoolStringArray = [];
+
+func getItemFromInventory(search_item:String) -> bool: 
+	for item in Inventory:
+		if item == search_item:
+			return true;
+	return false;
+
+func appendItem(item:String):
+	if not (getItemFromInventory(item)):
+		Inventory.append(item);
+
 func input(delta):
 	walking = (linear_velocity.length() > 3);
 	$walk.stream_paused = !walking;
@@ -28,24 +41,27 @@ func input(delta):
 			map.hide();
 		else:
 			map.show();
-	if Input.is_action_pressed("m0"):
-		movetopos = get_global_mouse_position();
-	else:
-		movetopos = position;
-	#if Input.is_action_pressed("w"):
-	#	force += Vector2.UP * delta * speed;
-	#if Input.is_action_pressed("a"):
-	#	force += Vector2.LEFT * delta * speed;
-	#if Input.is_action_pressed("s"):
-	#	force += Vector2.DOWN * delta * speed;
-	#if Input.is_action_pressed("d"):
-	#	force += Vector2.RIGHT * delta * speed;
-	
-	#apply_central_impulse(force.normalized() * max_speed * delta);
-	if (movetopos.distance_to(position) > 5 and movetopos != Vector2.ZERO):
-		dir = movetopos - position;
-		apply_central_impulse(dir.normalized() * max_speed * delta)
-	#move_and_slide(force);
+
+	if Input.is_action_pressed("w"):
+		force += Vector2.UP * delta * speed;
+	if Input.is_action_pressed("a"):
+		force += Vector2.LEFT * delta * speed;
+	if Input.is_action_pressed("s"):
+		force += Vector2.DOWN * delta * speed;
+	if Input.is_action_pressed("d"):
+		force += Vector2.RIGHT * delta * speed;
+
+	apply_central_impulse(force.normalized() * max_speed * delta);
+
+	## MOUSE CONTROLS ##
+	#if Input.is_action_pressed("m0"):
+	#	movetopos = get_global_mouse_position();
+	#else:
+	#	movetopos = position;
+	#if (movetopos.distance_to(position) > 5 and movetopos != Vector2.ZERO):
+	#	dir = movetopos - position;
+	#	apply_central_impulse(dir.normalized() * max_speed * delta)
+	####################
 
 func playchimes():
 	if not $Chimes.playing:

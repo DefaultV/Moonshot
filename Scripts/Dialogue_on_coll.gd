@@ -37,8 +37,10 @@ func _process(delta):
 				ply.cinematic = false;
 				cam.hook_free();
 
+export var item_fetch:String;
 export var hook_zoom_amount: Vector2;
 export var speech: String;
+export var speech_fetch: String;
 export var speech_array:PoolStringArray = []
 var adds = ["\n[center][color=white][shake rate=3 level=5]", "[/shake][/color][/center]"]
 func _on_Mullar_tut_body_entered(body):
@@ -50,7 +52,10 @@ func _on_Mullar_tut_body_entered(body):
 		visited = false;
 		speech_idx = 1;
 	if visited:
-		dialogue.bbcode_text = adds[0] + speech + adds[1];
+		if (ply.getItemFromInventory(item_fetch)):
+			dialogue.bbcode_text = adds[0] + speech_fetch + adds[1];
+		else:
+			dialogue.bbcode_text = adds[0] + speech + adds[1];
 	else:
 		dialogue.bbcode_text = adds[0] + speech_array[0] + adds[1];
 	this = true;

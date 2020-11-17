@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -50,6 +50,8 @@
 [ext_resource path="res://Uncategorized/1x1white.png" type="Texture" id=48]
 [ext_resource path="res://Uncategorized/water.png" type="Texture" id=49]
 [ext_resource path="res://Uncategorized/rough_patch.png" type="Texture" id=50]
+[ext_resource path="res://Scenes/FetchItem.gd" type="Script" id=51]
+[ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=52]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -603,7 +605,17 @@ animations = [ {
 [sub_resource type="OccluderPolygon2D" id=14]
 polygon = PoolVector2Array( 8.6236, 13.7312, 11.2894, 13.17, 14.3762, 11.4863, 17.6033, 7.13672, 18.1075, 1.39032, 17.6866, -3.80109, 15.2312, -11.3076, 14.249, -14.8152, 10.1801, -11.9389, 4.21704, -10.8165, 1.55115, -12.1494, 4.56781, -1.7666, 3.72595, -0.784454, -3.71039, -6.6774, -13.3214, -10.8165, -3.92084, -4.92355, 2.81396, 1.88138, 2.95422, 4.82785, 4.21704, 5.45923, 5.05884, 6.16077, 4.21704, 7.84448, 0.989929, 9.87894, 1.20038, 10.9312, 2.39301, 11.4925, 4.49762, 11.4223, 6.74255, 11.2119, 8.77704, 10.7909, 9.68903, 10.5805, 7.37396, 12.8955, 7.58441, 13.5269 )
 
-[sub_resource type="TileSet" id=15]
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0, 0.189189, 0.832432, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 17.4214, 16.1535 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 26.3247, 26.8811 )
+
+[sub_resource type="TileSet" id=18]
 0/name = "shadow.png 0"
 0/texture = ExtResource( 41 )
 0/tex_offset = Vector2( 0, 0 )
@@ -619,32 +631,28 @@ polygon = PoolVector2Array( 8.6236, 13.7312, 11.2894, 13.17, 14.3762, 11.4863, 1
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=19]
 offsets = PoolRealArray( 0, 0.329032, 0.529032, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.317413, 0.401831, 0.427673, 1, 0.808594, 0.808594, 0.808594, 1, 0.727692, 0.921224, 0.980469, 1 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
 
-[sub_resource type="Gradient" id=18]
+[sub_resource type="Gradient" id=21]
 offsets = PoolRealArray( 0, 0.227027, 0.675676, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 108.867, 51.7431 )
 
-[sub_resource type="Gradient" id=20]
-offsets = PoolRealArray( 0, 0.189189, 0.832432, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 )
-
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=23]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=22]
+[sub_resource type="ShaderMaterial" id=24]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -658,7 +666,7 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=25]
 size = 50
 font_data = ExtResource( 1 )
 
@@ -819,8 +827,10 @@ position = Vector2( 48.9172, -2.68689 )
 scale = Vector2( 0.9, 0.9 )
 z_index = 1
 script = ExtResource( 3 )
+item_fetch = "fishingbait"
 hook_zoom_amount = Vector2( 0.2, 0.2 )
 speech = "I wonder when they will bite!"
+speech_fetch = "You found some bait! Oh I cannot express how grateful i am! Thank you!"
 speech_array = PoolStringArray( "Oh hello! I really enjoy fishing, I hope to catch something!", "If you\'d like, you\'re welcome to do me a favor.", "Find me some extraordinary fishing bait, it might help me to catch the most incredible fish!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Fiskemullar/Mullar_tut"]
@@ -836,7 +846,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 10
+frame = 2
 speed_scale = 0.5
 playing = true
 
@@ -849,11 +859,50 @@ attenuation = 0.353554
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Interactives/Fiskemullar/Mullar_tut"]
 occluder = SubResource( 14 )
 
+[node name="firefly" type="CPUParticles2D" parent="Interactives"]
+modulate = Color( 1, 0.952941, 0.462745, 1 )
+position = Vector2( 961.269, 65.8196 )
+z_index = 5
+amount = 4
+speed_scale = 0.3
+explosiveness = 0.24
+texture = ExtResource( 46 )
+direction = Vector2( 0, -1 )
+spread = 59.66
+gravity = Vector2( 0, 40 )
+initial_velocity = 50.0
+initial_velocity_random = 0.38
+scale_amount = 0.05
+scale_amount_random = 0.04
+color_ramp = SubResource( 15 )
+
+[node name="Area2D" type="Area2D" parent="Interactives/firefly"]
+script = ExtResource( 51 )
+Item_to_give = "fishingbait"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/firefly/Area2D"]
+shape = SubResource( 16 )
+
+[node name="Svampemullar" type="Area2D" parent="Interactives"]
+position = Vector2( 2769.8, -97.046 )
+script = ExtResource( 3 )
+item_fetch = "book"
+speech = "I don't know which ones I've already picked!"
+speech_fetch = "You found it! I'm so happy! Thank you so much!"
+speech_array = PoolStringArray( "You look very friendly! I\'m trying to pick some mushrooms!", "If you\'d like, you can help me out with it!", "I have lost my shroom-book, it has all my findings.", "It has a big mushroom on it! You can\'t miss it!" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Svampemullar"]
+shape = SubResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/Svampemullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
 [node name="Tilemaps_front" type="Node2D" parent="."]
 
 [node name="Shadow" type="TileMap" parent="Tilemaps_front"]
 mode = 1
-tile_set = SubResource( 15 )
+tile_set = SubResource( 18 )
 cell_size = Vector2( 142, 65 )
 cell_half_offset = 0
 cell_tile_origin = 1
@@ -906,7 +955,7 @@ position = Vector2( 20.2043, 11.2246 )
 rotation = -1.5708
 scale = Vector2( 1, 2500 )
 z_index = -10
-texture = SubResource( 17 )
+texture = SubResource( 20 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 position = Vector2( -1033.34, -584.674 )
@@ -932,7 +981,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.01
 scale_amount_random = 0.07
-color_ramp = SubResource( 18 )
+color_ramp = SubResource( 21 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -984,7 +1033,7 @@ z_index = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent7/Area2D"]
 position = Vector2( -11.785, -4.12482 )
 z_index = 2
-shape = SubResource( 19 )
+shape = SubResource( 22 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent7"]
 position = Vector2( 30, 90 )
@@ -997,23 +1046,6 @@ visible = false
 position = Vector2( -393.299, -969.023 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
-
-[node name="firefly" type="CPUParticles2D" parent="Objects"]
-modulate = Color( 1, 0.952941, 0.462745, 1 )
-position = Vector2( 442.436, 274.362 )
-z_index = 5
-amount = 4
-speed_scale = 0.3
-explosiveness = 0.24
-texture = ExtResource( 46 )
-direction = Vector2( 0, -1 )
-spread = 59.66
-gravity = Vector2( 0, 40 )
-initial_velocity = 50.0
-initial_velocity_random = 0.38
-scale_amount = 0.05
-scale_amount_random = 0.04
-color_ramp = SubResource( 20 )
 
 [node name="Inside_overlay" type="Node2D" parent="."]
 visible = false
@@ -1077,7 +1109,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 23 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1089,7 +1121,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 22 )
+material = SubResource( 24 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 48 )
@@ -1105,7 +1137,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 25 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1115,6 +1147,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+skip_intro = true
 
 [node name="Map" type="TextureRect" parent="UI"]
 visible = false
