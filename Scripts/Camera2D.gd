@@ -14,6 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 export var lerpspeed = 1
 export var zoomspeed = 0.1;
+export var zoom_clamp:Vector2;
 var zoomed = Vector2.ONE * 0.5;
 
 func _process(delta):
@@ -27,8 +28,8 @@ func _process(delta):
 		zoomed += Vector2.ONE * zoomspeed;
 	if Input.is_action_just_released("mwup"):
 		zoomed -= Vector2.ONE * zoomspeed;
-	zoomed.x = clamp(zoomed.x, .4, 1);
-	zoomed.y = clamp(zoomed.y, .4, 1);
+	zoomed.x = clamp(zoomed.x, zoom_clamp.x, zoom_clamp.y);
+	zoomed.y = clamp(zoomed.y, zoom_clamp.x, zoom_clamp.y);
 	zoom = lerp(zoom, (zoomed), delta * lerpspeed * 2);
 	ply.setwalkdb(int(-zoom.x * 10) - 25);
 #	pass

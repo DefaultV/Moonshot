@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -52,6 +52,7 @@
 [ext_resource path="res://Uncategorized/rough_patch.png" type="Texture" id=50]
 [ext_resource path="res://Scenes/FetchItem.gd" type="Script" id=51]
 [ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=52]
+[ext_resource path="res://Scenes/Tent_enter.gd" type="Script" id=53]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -846,7 +847,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 2
+frame = 5
 speed_scale = 0.5
 playing = true
 
@@ -887,6 +888,7 @@ shape = SubResource( 16 )
 position = Vector2( 2769.8, -97.046 )
 script = ExtResource( 3 )
 item_fetch = "book"
+hook_zoom_amount = Vector2( 0.2, 0.2 )
 speech = "I don't know which ones I've already picked!"
 speech_fetch = "You found it! I'm so happy! Thank you so much!"
 speech_array = PoolStringArray( "You look very friendly! I\'m trying to pick some mushrooms!", "If you\'d like, you can help me out with it!", "I have lost my shroom-book, it has all my findings.", "It has a big mushroom on it! You can\'t miss it!" )
@@ -937,7 +939,7 @@ format = 1
 tile_data = PoolIntArray( -2359292, 13, 0, -2359291, 13, 0, -2293757, 13, 0, -2293756, 20, 0, -2293755, 20, 0, -2293754, 13, 0, -2228221, 13, 0, -2228219, 20, 0, -2228218, 20, 0, -2228217, 13, 0, -2228216, 13, 0, -2162686, 20, 0, -2162685, 20, 0, -2162684, 20, 0, -2162683, 13, 0, -2162682, 13, 0, -2162681, 13, 0, -2162680, 13, 0, -2097150, 13, 0, -2097149, 13, 0, -2097148, 20, 0, -2097147, 13, 0, -2097146, 20, 0, -2097145, 13, 0, -2097144, 13, 0, -2097143, 13, 0, -2031615, 13, 0, -2031613, 13, 0, -2031612, 20, 0, -2031609, 20, 0, -2031607, 20, 0, -2031606, 13, 0, -1966078, 13, 0, -1966077, 13, 0, -1966070, 13, 0, -1966069, 20, 0, -1966068, 13, 0, -1900543, 13, 0, -1900542, 20, 0, -1900541, 20, 0, -1900539, 20, 0, -1900537, 20, 0, -1900534, 20, 0, -1900533, 20, 0, -1900532, 13, 0, -1835007, 13, 0, -1835006, 13, 0, -1835002, 20, 0, -1834998, 19, 0, -1834997, 13, 0, -1834995, 13, 0, -1834994, 13, 0, -1769471, 13, 0, -1769470, 13, 0, -1769467, 20, 0, -1769462, 13, 0, -1769460, 13, 0, -1703933, 13, 0, -1703932, 13, 0, -1703931, 19, 0, -1703927, 20, 0, -1703926, 13, 0, -1703925, 13, 0, -1703924, 13, 0, -1638397, 13, 0, -1638396, 13, 0, -1638395, 13, 0, -1638394, 20, 0, -1638393, 20, 0, -1638392, 20, 0, -1638390, 13, 0, -1638389, 13, 0, -1572859, 13, 0, -1572858, 13, 0, -1572857, 13, 0, -1572856, 13, 0, -1572854, 13, 0, -1572853, 13, 0, -1507323, 13, 0, -1507322, 13, 0, -1507321, 13, 0, -1507319, 13, 0, -1441784, 13, 0, -1441783, 13, 0, -1441782, 13, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 762.871, 562.68 )
+position = Vector2( 634.819, 470.117 )
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -948,6 +950,8 @@ max_speed = 75.0
 current = true
 script = ExtResource( 8 )
 lerpspeed = 3
+zoomspeed = 0.025
+zoom_clamp = Vector2( 0.4, 0.8 )
 
 [node name="Background" type="Sprite" parent="Camera2D"]
 visible = false
@@ -1002,6 +1006,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [node name="Tent3" type="Sprite" parent="Objects"]
+visible = false
 position = Vector2( 2886.76, -191.353 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 24 )
@@ -1041,6 +1046,27 @@ position = Vector2( 30, 90 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Tent7/StaticBody2D"]
 polygon = PoolVector2Array( 46.3868, 79.5316, 151.505, 20.5762, 123.599, -47.6184, 71.4163, -80.6491, -7.80542, -102.419, -83.2035, -77.8683, -126.835, -54.1002, -182.759, 26.138, -116.017, 47.8291, -115.05, 31.3419, -158.066, 17.1998, -96.5503, -47.2782, -7.21606, -82.3844, 95.333, -43.941, 130.67, 24.2709, 41.1029, 64.9295, -29.8082, 45.6044, -45.9376, 67.2955 )
 
+[node name="Tent8" type="Sprite" parent="Objects"]
+position = Vector2( 2862, -185 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="Objects/Tent8"]
+position = Vector2( 30, 90 )
+z_index = 2
+script = ExtResource( 53 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent8/Area2D"]
+position = Vector2( -11.785, -4.12482 )
+z_index = 2
+shape = SubResource( 22 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent8"]
+position = Vector2( 30, 90 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Tent8/StaticBody2D"]
+polygon = PoolVector2Array( 46.3868, 79.5316, 151.505, 20.5762, 123.599, -47.6184, 71.4163, -80.6491, -7.80542, -102.419, -83.2035, -77.8683, -126.835, -54.1002, -182.759, 26.138, -116.017, 47.8291, -115.05, 31.3419, -158.066, 17.1998, -96.5503, -47.2782, -7.21606, -82.3844, 95.333, -43.941, 130.67, 24.2709, 41.1029, 64.9295, -29.8082, 45.6044, -45.9376, 67.2955 )
+
 [node name="Tent2" type="Sprite" parent="Objects"]
 visible = false
 position = Vector2( -393.299, -969.023 )
@@ -1053,7 +1079,8 @@ script = ExtResource( 5 )
 
 [node name="Inside_black" type="Sprite" parent="Inside_overlay"]
 self_modulate = Color( 0, 0, 0, 0.960784 )
-scale = Vector2( 4096, 4096 )
+position = Vector2( 1689, -723.855 )
+scale = Vector2( 8000, 4000 )
 z_index = 4
 texture = ExtResource( 48 )
 
@@ -1069,6 +1096,20 @@ show_behind_parent = true
 texture = ExtResource( 22 )
 
 [node name="Sprite2" type="Sprite" parent="Inside_overlay/Tent8"]
+texture = ExtResource( 25 )
+
+[node name="Tent9" type="Sprite" parent="Inside_overlay"]
+position = Vector2( 2862, -185 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 4
+texture = ExtResource( 23 )
+
+[node name="Sprite" type="Sprite" parent="Inside_overlay/Tent9"]
+self_modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
+show_behind_parent = true
+texture = ExtResource( 22 )
+
+[node name="Sprite2" type="Sprite" parent="Inside_overlay/Tent9"]
 texture = ExtResource( 25 )
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -1165,3 +1206,5 @@ __meta__ = {
 [connection signal="body_exited" from="Interactives/Fiskemullar/Mullar_tut" to="Interactives/Fiskemullar/Mullar_tut" method="_on_Mullar_tut_body_exited"]
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]

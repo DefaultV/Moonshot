@@ -17,6 +17,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	enterState(true, body);
+	print("Entered tent")
 
 
 func _on_Area2D_body_exited(body):
@@ -30,6 +31,7 @@ func enterState(state:bool, body):
 			ply.max_speed = SPEED_OUTSIDE;
 			cam.hook_free();
 		else:
+			print("Show inside")
 			show();
 			ply.z_index = 5;
 			ply.playtent(true);
