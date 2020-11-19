@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -53,7 +53,8 @@
 [ext_resource path="res://Scenes/FetchItem.gd" type="Script" id=51]
 [ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=52]
 [ext_resource path="res://Scenes/Tent_enter.gd" type="Script" id=53]
-[ext_resource path="res://river.ogg" type="AudioStream" id=54]
+[ext_resource path="res://SFX/Ambient/river 3.ogg" type="AudioStream" id=54]
+[ext_resource path="res://SFX/Ambient/wind1.ogg" type="AudioStream" id=55]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -679,7 +680,7 @@ position = Vector2( -2, 0 )
 position = Vector2( -1056, -16 )
 
 [node name="bg" type="Sprite" parent="Background"]
-position = Vector2( 692, 344 )
+position = Vector2( 692, 345.811 )
 z_index = -4
 texture = ExtResource( 39 )
 
@@ -849,7 +850,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 6
+frame = 10
 speed_scale = 0.5
 playing = true
 
@@ -990,13 +991,15 @@ scale_amount_random = 0.07
 color_ramp = SubResource( 21 )
 
 [node name="Objects" type="Node2D" parent="."]
+position = Vector2( 4.00452, 0 )
 
 [node name="Bridge" type="Sprite" parent="Objects"]
 position = Vector2( 1772.5, 21.3604 )
 scale = Vector2( 0.444762, 0.444762 )
 texture = ExtResource( 14 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Objects/Bridge"]
+[node name="river sound" type="AudioStreamPlayer2D" parent="Objects/Bridge"]
+position = Vector2( 0, 1.0611 )
 stream = ExtResource( 54 )
 autoplay = true
 max_distance = 851.0
@@ -1174,10 +1177,10 @@ __meta__ = {
 material = SubResource( 24 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.05182
-margin_top = 1.05179
-margin_right = -1.05188
-margin_bottom = 1.05176
+margin_left = 49.7576
+margin_top = -0.360808
+margin_right = 49.7576
+margin_bottom = -0.36084
 texture = ExtResource( 48 )
 expand = true
 stretch_mode = 7
@@ -1215,6 +1218,18 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Localized sounds" type="Node" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Localized sounds"]
+position = Vector2( 952.65, 111.993 )
+
+[node name="Wind foliage 1" type="AudioStreamPlayer2D" parent="Localized sounds/Sprite"]
+stream = ExtResource( 55 )
+autoplay = true
+max_distance = 1602.0
+attenuation = 0.189465
+bus = "wind foliages"
 [connection signal="body_entered" from="Interactives/Fiskemullar/Mullar_tut" to="Interactives/Fiskemullar/Mullar_tut" method="_on_Mullar_tut_body_entered"]
 [connection signal="body_exited" from="Interactives/Fiskemullar/Mullar_tut" to="Interactives/Fiskemullar/Mullar_tut" method="_on_Mullar_tut_body_exited"]
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]

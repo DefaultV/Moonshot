@@ -1,9 +1,21 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectReverb" id=1]
+resource_name = "Reverb"
+hipass = 0.44
 
 [resource]
 bus/1/name = "river"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -20.3764
+bus/1/volume_db = -6.24739
 bus/1/send = "Master"
+bus/2/name = "wind foliages"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -7.63485
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 1 )
+bus/2/effect/0/enabled = true
