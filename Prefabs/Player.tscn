@@ -15,15 +15,6 @@
 [ext_resource path="res://SFX/Objects/tent_close.wav" type="AudioStream" id=13]
 [ext_resource path="res://SFX/Objects/tent_open.wav" type="AudioStream" id=14]
 
-
-
-
-
-
-
-
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [  ],

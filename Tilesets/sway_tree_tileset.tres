@@ -47,6 +47,11 @@ points = PoolVector2Array( 24.7222, 139.981, 44.9768, 133.229, 57.9977, 118.279,
 0/tile_mode = 0
 0/occluder_offset = Vector2( 32, -115 )
 0/navigation_offset = Vector2( 32, -115 )
+0/shape_offset = Vector2( 32, -115 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 32, -115 )
+0/shape = SubResource( 4 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -64,6 +69,11 @@ points = PoolVector2Array( 24.7222, 139.981, 44.9768, 133.229, 57.9977, 118.279,
 1/tile_mode = 0
 1/occluder_offset = Vector2( 24, -64 )
 1/navigation_offset = Vector2( 24, -64 )
+1/shape_offset = Vector2( 24, -64 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 24, -64 )
+1/shape = SubResource( 8 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
