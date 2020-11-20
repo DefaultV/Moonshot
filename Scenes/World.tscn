@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://spacey's space/leaf.png" type="Texture" id=10]
 [ext_resource path="res://Sprites_textures/iso_grass.png" type="Texture" id=11]
 [ext_resource path="res://Sprites_textures/grass.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/region_audio.gd" type="Script" id=13]
 [ext_resource path="res://Sprites_textures/bridge_broken.png" type="Texture" id=14]
 [ext_resource path="res://Sprites_textures/mouse_right.png" type="Texture" id=15]
 [ext_resource path="res://Sprites_textures/iso_dirt.png" type="Texture" id=16]
@@ -33,7 +34,6 @@
 [ext_resource path="res://Experimental_tiles/tile_grass4.png" type="Texture" id=32]
 [ext_resource path="res://Experimental_tiles/tile_grass.png" type="Texture" id=33]
 [ext_resource path="res://Tilesets/tileset.tres" type="TileSet" id=34]
-[ext_resource path="res://Tilesets/sway_tree_tileset.tres" type="TileSet" id=35]
 [ext_resource path="res://Scripts/Shaders/multishader.shader" type="Shader" id=36]
 [ext_resource path="res://Uncategorized/dialogue_rect.png" type="Texture" id=37]
 [ext_resource path="res://Uncategorized/light_intense.png" type="Texture" id=38]
@@ -49,10 +49,13 @@
 [ext_resource path="res://Uncategorized/1x1white.png" type="Texture" id=48]
 [ext_resource path="res://Uncategorized/water.png" type="Texture" id=49]
 [ext_resource path="res://Uncategorized/rough_patch.png" type="Texture" id=50]
-[ext_resource path="res://Scenes/FetchItem.gd" type="Script" id=51]
+[ext_resource path="res://Scripts/FetchItem.gd" type="Script" id=51]
 [ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=52]
-[ext_resource path="res://Scenes/Tent_enter.gd" type="Script" id=53]
-[ext_resource path="res://Tilesets/spacey_tiles.tres" type="TileSet" id=54]
+[ext_resource path="res://Scripts/Tent_enter.gd" type="Script" id=53]
+[ext_resource path="res://SFX/Ambient/river 3.ogg" type="AudioStream" id=54]
+[ext_resource path="res://SFX/Ambient/wind1.ogg" type="AudioStream" id=55]
+[ext_resource path="res://Tilesets/spacey_tiles.tres" type="TileSet" id=56]
+[ext_resource path="res://Scenes/Trigger_areasound.gd" type="Script" id=57]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -473,15 +476,15 @@ polygon = PoolVector2Array( 96, 112, 96, 112, 96, 96, 96, 80, 128, 80, 160, 64, 
 5/shapes = [  ]
 5/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 16.438, 16.0108 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 46.5475, 26.016 )
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 42 ) ],
 "loop": true,
@@ -489,20 +492,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="OccluderPolygon2D" id=14]
+[sub_resource type="OccluderPolygon2D" id=13]
 polygon = PoolVector2Array( 8.6236, 13.7312, 11.2894, 13.17, 14.3762, 11.4863, 17.6033, 7.13672, 18.1075, 1.39032, 17.6866, -3.80109, 15.2312, -11.3076, 14.249, -14.8152, 10.1801, -11.9389, 4.21704, -10.8165, 1.55115, -12.1494, 4.56781, -1.7666, 3.72595, -0.784454, -3.71039, -6.6774, -13.3214, -10.8165, -3.92084, -4.92355, 2.81396, 1.88138, 2.95422, 4.82785, 4.21704, 5.45923, 5.05884, 6.16077, 4.21704, 7.84448, 0.989929, 9.87894, 1.20038, 10.9312, 2.39301, 11.4925, 4.49762, 11.4223, 6.74255, 11.2119, 8.77704, 10.7909, 9.68903, 10.5805, 7.37396, 12.8955, 7.58441, 13.5269 )
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=14]
 offsets = PoolRealArray( 0, 0.189189, 0.832432, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 17.4214, 16.1535 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 26.3247, 26.8811 )
 
-[sub_resource type="TileSet" id=18]
+[sub_resource type="TileSet" id=17]
 0/name = "shadow.png 0"
 0/texture = ExtResource( 41 )
 0/tex_offset = Vector2( 0, 0 )
@@ -518,28 +521,28 @@ extents = Vector2( 26.3247, 26.8811 )
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="Gradient" id=19]
+[sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0, 0.329032, 0.529032, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.317413, 0.401831, 0.427673, 1, 0.808594, 0.808594, 0.808594, 1, 0.727692, 0.921224, 0.980469, 1 )
 
-[sub_resource type="GradientTexture" id=20]
-gradient = SubResource( 19 )
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
 
-[sub_resource type="Gradient" id=21]
+[sub_resource type="Gradient" id=20]
 offsets = PoolRealArray( 0, 0.227027, 0.675676, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 108.867, 51.7431 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=22]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=24]
+[sub_resource type="ShaderMaterial" id=23]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -553,22 +556,32 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=25]
+[sub_resource type="DynamicFont" id=24]
 size = 50
 font_data = ExtResource( 1 )
 
+[sub_resource type="CircleShape2D" id=25]
+radius = 1036.56
+
+[sub_resource type="CircleShape2D" id=26]
+radius = 703.624
+
+[sub_resource type="CircleShape2D" id=27]
+radius = 976.967
+
 [node name="World" type="Node2D"]
+position = Vector2( -2, 0 )
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2( -1056, -16 )
 
 [node name="bg" type="Sprite" parent="Background"]
-position = Vector2( 692, 344 )
+position = Vector2( 692, 345.811 )
 z_index = -4
 texture = ExtResource( 39 )
 
 [node name="bg4" type="Sprite" parent="Background"]
-position = Vector2( 4788, 344 )
+position = Vector2( 4759.15, 346.645 )
 z_index = -4
 texture = ExtResource( 39 )
 
@@ -644,7 +657,7 @@ tile_data = PoolIntArray( -5963704, 12, 0, -5963701, 12, 0, -5832627, 12, 0, -58
 [node name="grass_2" type="TileMap" parent="Tilemaps_behind"]
 scale = Vector2( 0.4, 0.4 )
 mode = 1
-tile_set = ExtResource( 54 )
+tile_set = ExtResource( 56 )
 cell_size = Vector2( 220, 128 )
 cell_tile_origin = 1
 centered_textures = true
@@ -654,7 +667,7 @@ tile_data = PoolIntArray( -5308427, 4, 0, -5308426, 4, 0, -5308425, 4, 0, -52428
 [node name="FOil2" type="TileMap" parent="Tilemaps_behind"]
 scale = Vector2( 0.4, 0.4 )
 mode = 1
-tile_set = ExtResource( 54 )
+tile_set = ExtResource( 56 )
 cell_size = Vector2( 110, 64 )
 cell_tile_origin = 1
 centered_textures = true
@@ -665,7 +678,7 @@ tile_data = PoolIntArray( 196629, 2, 0, 196630, 2, 0, 196631, 1, 0, 262166, 8, 0
 visible = false
 scale = Vector2( 0.4, 0.4 )
 mode = 1
-tile_set = ExtResource( 54 )
+tile_set = ExtResource( 56 )
 cell_size = Vector2( 220, 128 )
 cell_tile_origin = 1
 centered_textures = true
@@ -683,7 +696,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_forest"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Sign_kingdom" type="Area2D" parent="Interactives"]
 position = Vector2( 481.883, -362.236 )
@@ -695,7 +708,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_kingdom"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Fiskemullar" type="Area2D" parent="Interactives"]
 position = Vector2( 477.209, 325.454 )
@@ -706,7 +719,7 @@ script = ExtResource( 4 )
 position = Vector2( 55.6246, -0.374573 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Fiskemullar/StaticBody2D"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="Light2D" type="Light2D" parent="Interactives/Fiskemullar"]
 position = Vector2( 3.53552, 1.76776 )
@@ -744,7 +757,7 @@ speech_fetch = "You found some bait! Oh I cannot express how grateful i am! Than
 speech_array = PoolStringArray( "Oh hello! I really enjoy fishing, I hope to catch something!", "If you\'d like, you\'re welcome to do me a favor.", "Find me some extraordinary fishing bait, it might help me to catch the most incredible fish!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Fiskemullar/Mullar_tut"]
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="shadow" type="Sprite" parent="Interactives/Fiskemullar/Mullar_tut"]
 position = Vector2( 9.34399, 9.67761 )
@@ -755,7 +768,8 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
-frames = SubResource( 13 )
+frames = SubResource( 12 )
+frame = 6
 speed_scale = 0.5
 playing = true
 
@@ -766,7 +780,7 @@ max_distance = 100.0
 attenuation = 0.353554
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Interactives/Fiskemullar/Mullar_tut"]
-occluder = SubResource( 14 )
+occluder = SubResource( 13 )
 
 [node name="firefly" type="CPUParticles2D" parent="Interactives"]
 modulate = Color( 1, 0.952941, 0.462745, 1 )
@@ -783,14 +797,14 @@ initial_velocity = 50.0
 initial_velocity_random = 0.38
 scale_amount = 0.05
 scale_amount_random = 0.04
-color_ramp = SubResource( 15 )
+color_ramp = SubResource( 14 )
 
 [node name="Area2D" type="Area2D" parent="Interactives/firefly"]
 script = ExtResource( 51 )
 Item_to_give = "fishingbait"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/firefly/Area2D"]
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 
 [node name="Svampemullar" type="Area2D" parent="Interactives"]
 position = Vector2( 2769.8, -97.046 )
@@ -802,7 +816,7 @@ speech_fetch = "You found it! I'm so happy! Thank you so much!"
 speech_array = PoolStringArray( "You look very friendly! I\'m trying to pick some mushrooms!", "If you\'d like, you can help me out with it!", "I have lost my shroom-book, it has all my findings.", "It has a big mushroom on it! You can\'t miss it!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Svampemullar"]
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/Svampemullar"]
 scale = Vector2( 0.04, 0.04 )
@@ -817,14 +831,14 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/bærmullar"]
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/bærmullar"]
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 742.836, 547.305 )
+position = Vector2( 764.265, 551.306 )
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -835,7 +849,7 @@ max_speed = 75.0
 
 [node name="Shadow" type="TileMap" parent="Tilemaps_front"]
 mode = 1
-tile_set = SubResource( 18 )
+tile_set = SubResource( 17 )
 cell_size = Vector2( 142, 65 )
 cell_half_offset = 0
 cell_tile_origin = 1
@@ -844,24 +858,11 @@ centered_textures = true
 format = 1
 tile_data = PoolIntArray( 7, 0, 0, 65542, 0, 0, 131079, 0, 0 )
 
-[node name="Trees2" type="TileMap" parent="Tilemaps_front"]
-visible = false
-z_index = 2
-mode = 1
-tile_set = ExtResource( 35 )
-cell_size = Vector2( 142, 65 )
-cell_half_offset = 0
-cell_tile_origin = 1
-cell_y_sort = true
-centered_textures = true
-format = 1
-tile_data = PoolIntArray( -1507317, 1, 0, -1441781, 1, 0, -1441780, 0, 0, -1376245, 1, 0, -1376243, 1, 0, -1376242, 1, 0, -1310710, 1, 0, -1310709, 1, 0, -1310706, 1, 0, -1245171, 0, 0, -1245170, 1, 0, -1179637, 1, 0, -1179634, 1, 0, -1179633, 0, 0, -1114101, 0, 0, -1114099, 0, 0, -1048565, 0, 0, -1048561, 0, 0, -983030, 0, 0, -983026, 1, 0, -917493, 0, 0, -917490, 0, 0, -917489, 0, 0, -720887, 0, 0, -655352, 0, 0, -655351, 0, 0, -655350, 0, 0, -589816, 0, 0, -524280, 0, 0, -458745, 0, 0, -458740, 1, 0, -458739, 1, 0, -393209, 1, 0, -393208, 1, 0, -393204, 1, 0, -327669, 1, 0, 7, 0, 0, 19, 0, 0, 65541, 0, 0, 65549, 0, 0, 131079, 0, 0, 131087, 0, 0, 327694, 1, 0 )
-
 [node name="Trees3" type="TileMap" parent="Tilemaps_front"]
 scale = Vector2( 0.4, 0.4 )
 z_index = 2
 mode = 1
-tile_set = ExtResource( 54 )
+tile_set = ExtResource( 56 )
 cell_size = Vector2( 108, 64 )
 cell_quadrant_size = 8
 cell_tile_origin = 1
@@ -896,7 +897,7 @@ position = Vector2( 20.2043, 11.2246 )
 rotation = -1.5708
 scale = Vector2( 1, 2500 )
 z_index = -10
-texture = SubResource( 20 )
+texture = SubResource( 19 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 position = Vector2( -1033.34, -584.674 )
@@ -922,14 +923,23 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.03
 scale_amount_random = 0.15
-color_ramp = SubResource( 21 )
+color_ramp = SubResource( 20 )
 
 [node name="Objects" type="Node2D" parent="."]
+position = Vector2( 4.00452, 0 )
 
 [node name="Bridge" type="Sprite" parent="Objects"]
-position = Vector2( 1772.5, 22.0278 )
+position = Vector2( 1772.5, 21.3604 )
 scale = Vector2( 0.444762, 0.444762 )
 texture = ExtResource( 14 )
+
+[node name="river sound" type="AudioStreamPlayer2D" parent="Objects/Bridge"]
+position = Vector2( 0, 1.0611 )
+stream = ExtResource( 54 )
+autoplay = true
+max_distance = 851.0
+attenuation = 2.14355
+bus = "river"
 
 [node name="Bridge2" type="Sprite" parent="Objects"]
 position = Vector2( 1835.03, -439.042 )
@@ -967,6 +977,7 @@ texture = ExtResource( 19 )
 position = Vector2( 426.141, 222.644 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
+script = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Tent7"]
 position = Vector2( 30, 90 )
@@ -975,7 +986,7 @@ z_index = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent7/Area2D"]
 position = Vector2( -11.785, -4.12482 )
 z_index = 2
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent7"]
 position = Vector2( 30, 90 )
@@ -996,7 +1007,7 @@ script = ExtResource( 53 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent8/Area2D"]
 position = Vector2( -11.785, -4.12482 )
 z_index = 2
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent8"]
 position = Vector2( 30, 90 )
@@ -1087,7 +1098,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 22 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1099,9 +1110,13 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 24 )
+material = SubResource( 23 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 49.7576
+margin_top = -0.360808
+margin_right = 49.7576
+margin_bottom = -0.36084
 texture = ExtResource( 48 )
 expand = true
 stretch_mode = 7
@@ -1115,7 +1130,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 25 )
+custom_fonts/normal_font = SubResource( 24 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1139,8 +1154,62 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="Interactives/Fiskemullar/Mullar_tut" to="Interactives/Fiskemullar/Mullar_tut" method="_on_Mullar_tut_body_entered"]
-[connection signal="body_exited" from="Interactives/Fiskemullar/Mullar_tut" to="Interactives/Fiskemullar/Mullar_tut" method="_on_Mullar_tut_body_exited"]
+
+[node name="region_audio" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="Start" type="Area2D" parent="region_audio"]
+position = Vector2( 635.688, 335.621 )
+script = ExtResource( 57 )
+area = "Start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
+shape = SubResource( 25 )
+
+[node name="Forest" type="Area2D" parent="region_audio"]
+position = Vector2( 2607.81, -16.9705 )
+script = ExtResource( 57 )
+area = "Forest"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
+shape = SubResource( 25 )
+
+[node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio/Forest"]
+stream = ExtResource( 55 )
+autoplay = true
+bus = "wind foliages"
+
+[node name="Garden" type="Area2D" parent="region_audio"]
+position = Vector2( 1470.78, -972.979 )
+script = ExtResource( 57 )
+area = "Garden"
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
+shape = SubResource( 26 )
+
+[node name="Kingdom" type="Area2D" parent="region_audio"]
+position = Vector2( -690.136, -1046.52 )
+script = ExtResource( 57 )
+area = "Kingdom"
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
+shape = SubResource( 25 )
+
+[node name="Desert" type="Area2D" parent="region_audio"]
+position = Vector2( 920.693, -2171.56 )
+script = ExtResource( 57 )
+area = "Desert"
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
+shape = SubResource( 27 )
+
+[node name="Village" type="Area2D" parent="region_audio"]
+position = Vector2( 2831.92, -1803.29 )
+script = ExtResource( 57 )
+area = "Village"
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
+shape = SubResource( 25 )
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
