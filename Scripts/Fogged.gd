@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -6,15 +6,18 @@ extends Area2D
 # var b = "text"
 
 var ply;
+var found = false;
 export var rate = 0.03;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ply = get_node("/root/World/Player")
 
-var max_dist = 150;
+var max_dist = 120;
 var min_dist = 50;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if found:
+		return;
 	if rate >= 0:
 		rate -= delta
 		return
@@ -27,6 +30,8 @@ func _process(delta):
 	var norm = (dist - min_dist) / (max_dist - min_dist);
 	norm = (1 - norm)
 	#print(norm)
+	if norm >= 1:
+		found = true;
 	modulate.a = norm
 	rate = 0.03;
 
