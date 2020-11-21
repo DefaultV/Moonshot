@@ -17,7 +17,10 @@ func _ready():
 
 export (String, "fishingbait", "leaf", "bread", "book") var Item_to_give;
 
+var found = false;
 func _on_body_enter(body):
-	if body.name == "Player":
+	if body.name == "Player" and not found:
 		body.appendItem(Item_to_give);
 		print("Gave player item: " + Item_to_give)
+		hide();
+		found = true;
