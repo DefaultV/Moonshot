@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Experimental_tiles/tile_grass4.png" type="Texture" id=32]
 [ext_resource path="res://Experimental_tiles/tile_grass.png" type="Texture" id=33]
 [ext_resource path="res://Tilesets/tileset.tres" type="TileSet" id=34]
+[ext_resource path="res://SFX/Ambient/wind and trees/wind.ogg" type="AudioStream" id=35]
 [ext_resource path="res://Scripts/Shaders/multishader.shader" type="Shader" id=36]
 [ext_resource path="res://Uncategorized/dialogue_rect.png" type="Texture" id=37]
 [ext_resource path="res://Uncategorized/light_intense.png" type="Texture" id=38]
@@ -53,9 +54,11 @@
 [ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=52]
 [ext_resource path="res://Scripts/Tent_enter.gd" type="Script" id=53]
 [ext_resource path="res://SFX/Ambient/river 3.ogg" type="AudioStream" id=54]
-[ext_resource path="res://SFX/Ambient/wind1.ogg" type="AudioStream" id=55]
+[ext_resource path="res://SFX/Ambient/wind and trees/folliage3.ogg" type="AudioStream" id=55]
 [ext_resource path="res://Tilesets/spacey_tiles.tres" type="TileSet" id=56]
 [ext_resource path="res://Scenes/Trigger_areasound.gd" type="Script" id=57]
+[ext_resource path="res://SFX/Ambient/wind and trees/folliage2.ogg" type="AudioStream" id=58]
+[ext_resource path="res://SFX/Ambient/wind and trees/foliage1.ogg" type="AudioStream" id=59]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -581,7 +584,7 @@ z_index = -4
 texture = ExtResource( 39 )
 
 [node name="bg4" type="Sprite" parent="Background"]
-position = Vector2( 4759.15, 346.645 )
+position = Vector2( 4760.27, 346.084 )
 z_index = -4
 texture = ExtResource( 39 )
 
@@ -769,7 +772,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 12 )
-frame = 6
+frame = 11
 speed_scale = 0.5
 playing = true
 
@@ -1172,12 +1175,45 @@ script = ExtResource( 57 )
 area = "Forest"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
+position = Vector2( -0.561035, 0 )
 shape = SubResource( 25 )
 
 [node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio/Forest"]
+stream = ExtResource( 35 )
+autoplay = true
+bus = "wind "
+
+[node name="tree1" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
+position = Vector2( -538.221, -15.7145 )
+stream = ExtResource( 59 )
+autoplay = true
+max_distance = 497.0
+attenuation = 0.615572
+bus = "trees"
+
+[node name="tree2" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
+position = Vector2( -757.662, -112.246 )
+stream = ExtResource( 59 )
+autoplay = true
+max_distance = 500.0
+attenuation = 0.757859
+bus = "trees"
+
+[node name="tree3" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
+position = Vector2( -281.177, -151.532 )
+stream = ExtResource( 58 )
+autoplay = true
+max_distance = 500.0
+attenuation = 0.615573
+bus = "trees"
+
+[node name="tree4" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
+position = Vector2( -397.352, -263.217 )
 stream = ExtResource( 55 )
 autoplay = true
-bus = "wind foliages"
+max_distance = 500.0
+attenuation = 0.784585
+bus = "trees"
 
 [node name="Garden" type="Area2D" parent="region_audio"]
 position = Vector2( 1470.78, -972.979 )
