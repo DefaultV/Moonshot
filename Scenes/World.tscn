@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -63,6 +63,7 @@
 [ext_resource path="res://spacey's space/book.png" type="Texture" id=61]
 [ext_resource path="res://spacey's space/butterfly net.png" type="Texture" id=62]
 [ext_resource path="res://Sprites_textures/Mullar_wisdom.png" type="Texture" id=63]
+[ext_resource path="res://Scripts/TriggerInnerMonologue.gd" type="Script" id=64]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -570,14 +571,17 @@ colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 108.867, 51.7431 )
 
-[sub_resource type="DynamicFont" id=25]
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 150, 150 )
+
+[sub_resource type="DynamicFont" id=26]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=26]
+[sub_resource type="ShaderMaterial" id=27]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -591,17 +595,17 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=27]
+[sub_resource type="DynamicFont" id=28]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=28]
+[sub_resource type="CircleShape2D" id=29]
 radius = 1036.56
 
-[sub_resource type="CircleShape2D" id=29]
+[sub_resource type="CircleShape2D" id=30]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=30]
+[sub_resource type="CircleShape2D" id=31]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -810,7 +814,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 13
+frame = 3
 speed_scale = 0.5
 playing = true
 
@@ -855,7 +859,7 @@ shape = SubResource( 15 )
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
 
-[node name="NOQ_mullar2" type="Area2D" parent="Interactives"]
+[node name="King_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -669.433, -1195.49 )
 script = ExtResource( 3 )
 hook_zoom_amount = Vector2( 0.2, 0.2 )
@@ -863,10 +867,38 @@ speech_array = PoolStringArray( "I\'m very important, no need in speaking to you
 replay_dialogue = true
 chimeorshake = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/NOQ_mullar2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/King_mullar"]
 shape = SubResource( 15 )
 
-[node name="Sprite" type="Sprite" parent="Interactives/NOQ_mullar2"]
+[node name="Sprite" type="Sprite" parent="Interactives/King_mullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="Queen_mullar" type="Area2D" parent="Interactives"]
+position = Vector2( -630.542, -1189.93 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Queen_mullar"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/Queen_mullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="RoyalSon_mullar" type="Area2D" parent="Interactives"]
+position = Vector2( -692.847, -1174.46 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/RoyalSon_mullar"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/RoyalSon_mullar"]
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
 
@@ -952,7 +984,7 @@ scale = Vector2( 0.4, 0.8 )
 texture = ExtResource( 38 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 623.875, 291.006 )
+position = Vector2( 369.371, -442.268 )
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -1174,6 +1206,52 @@ texture = ExtResource( 22 )
 [node name="Sprite2" type="Sprite" parent="Inside_overlay/Tent9"]
 texture = ExtResource( 25 )
 
+[node name="Inner_monologue_areas" type="Node2D" parent="."]
+
+[node name="To_kingdom" type="Area2D" parent="Inner_monologue_areas"]
+position = Vector2( 151.191, -592.163 )
+script = ExtResource( 64 )
+monologue = PoolStringArray( "And so I went, to the kingdom!", "I wonder what they are doing there\?" )
+
+[node name="guide" type="Node2D" parent="Inner_monologue_areas/To_kingdom"]
+position = Vector2( -326.268, -260.678 )
+
+[node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_kingdom"]
+shape = SubResource( 25 )
+
+[node name="To_forest" type="Area2D" parent="Inner_monologue_areas"]
+position = Vector2( 2054.98, -188.533 )
+script = ExtResource( 64 )
+monologue = PoolStringArray( "After being cast out, I crossed paths with the forest!", "I wonder if I can find help..." )
+
+[node name="guide" type="Node2D" parent="Inner_monologue_areas/To_forest"]
+position = Vector2( 595.354, -94.1806 )
+
+[node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
+shape = SubResource( 25 )
+
+[node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
+position = Vector2( 316.29, -1801.23 )
+script = ExtResource( 64 )
+monologue = PoolStringArray( "Desert placeholder text" )
+
+[node name="guide" type="Node2D" parent="Inner_monologue_areas/To_desert"]
+position = Vector2( 539.918, -154.657 )
+
+[node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
+shape = SubResource( 25 )
+
+[node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
+position = Vector2( 3073, 683.333 )
+script = ExtResource( 64 )
+monologue = PoolStringArray( "Village placeholder text" )
+
+[node name="guide" type="Node2D" parent="Inner_monologue_areas/To_village"]
+position = Vector2( 287.934, -2831.35 )
+
+[node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village"]
+shape = SubResource( 25 )
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Dialogue_rect" type="TextureRect" parent="UI"]
@@ -1211,7 +1289,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 25 )
+custom_fonts/normal_font = SubResource( 26 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1223,7 +1301,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 26 )
+material = SubResource( 27 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.360808
@@ -1255,7 +1333,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 28 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1299,7 +1377,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Forest" type="Area2D" parent="region_audio"]
 position = Vector2( 2607.81, -16.9705 )
@@ -1309,7 +1387,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 35 )
@@ -1355,7 +1433,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="Kingdom" type="Area2D" parent="region_audio"]
 position = Vector2( -690.136, -1046.52 )
@@ -1364,7 +1442,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Desert" type="Area2D" parent="region_audio"]
 position = Vector2( 920.693, -2171.56 )
@@ -1373,7 +1451,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="Village" type="Area2D" parent="region_audio"]
 position = Vector2( 2831.92, -1803.29 )
@@ -1382,7 +1460,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]

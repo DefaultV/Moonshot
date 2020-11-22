@@ -86,3 +86,14 @@ func playtextblurp():
 
 func setwalkdb(arg):
 	$walk.volume_db = arg;
+
+func setpos(pos:Vector2):
+	reset_state = true;
+	newpos = pos;
+
+var reset_state = false;
+var newpos = Vector2.ZERO;
+func _integrate_forces(state):
+	if reset_state:
+		state.transform = Transform2D(0.0, newpos)
+		reset_state = false
