@@ -26,8 +26,8 @@ void fragment(){
 	vec2 uv_def = vec2(UV.x + pow((1.-UV.y) * grad, 2.) * sin(TIME * wind_speed) * wind_strength, UV.y);
 	vec4 col = texture(TEXTURE, uv_def);
 	//float d = min(dist((vec2(1.-SCREEN_UV.x, 0.5-SCREEN_UV.y*0.01)),SCREEN_UV)*4.,1);
-	vec4 d = texture(vig, vec2(2.-SCREEN_UV.x*3., 1.5-SCREEN_UV.y*2.))*1.2;
-	d = vec4(pow(d.a, 6.));
+	vec4 d = texture(vig, vec2(2.-SCREEN_UV.x*3., 1.5-SCREEN_UV.y*2.))*1.5;
+	d = vec4(pow(d.a, 12.));
 	//col.a = SCREEN_UV.x-0.5 + SCREEN_UV.y-0.5;
 	//col.a = d;
 	COLOR = col * min((d + 1.-grad),1);

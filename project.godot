@@ -17,7 +17,9 @@ _global_script_class_icons={
 
 config/name="Moonshot"
 run/main_scene="res://Scenes/World.tscn"
-boot_splash/image="res://Sprites_textures/Mullar_1.png"
+boot_splash/image="res://Uncategorized/1x1white.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://Sprites_textures/Mullar_1.png"
 
 [display]
@@ -103,5 +105,5 @@ map={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"
