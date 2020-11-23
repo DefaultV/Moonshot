@@ -82,6 +82,7 @@ func set_text(arg:String):
 var monologue_pos:Vector2;
 var str_array_external:PoolStringArray;
 func newInnerDialogue(stringarray:PoolStringArray, pos:Vector2):
+	ply.playchimes();
 	monologue_pos = pos;
 	show();
 	custom = true;

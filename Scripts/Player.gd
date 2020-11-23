@@ -29,9 +29,21 @@ func appendItem(item:String):
 	if not (getItemFromInventory(item)):
 		Inventory.append(item);
 
+func switch_animation(arg:String):
+	if arg == "i" and not $Idle.visible:
+		$Idle.show();
+		$Run_anim.hide();
+	if arg == "v" and not $Run_anim.visible:
+		$Idle.hide();
+		$Run_anim.show();
+
 func input(delta):
 	walking = (linear_velocity.length() > 3);
 	$walk.stream_paused = !walking;
+	if walking:
+		switch_animation("v");
+	else:
+		switch_animation("i");
 	if cinematic:
 		return;
 	var force = Vector2.ZERO;
@@ -46,10 +58,12 @@ func input(delta):
 		force += Vector2.UP * delta * speed;
 	if Input.is_action_pressed("a"):
 		force += Vector2.LEFT * delta * speed;
+		$Run_anim.flip_h = true;
 	if Input.is_action_pressed("s"):
 		force += Vector2.DOWN * delta * speed;
 	if Input.is_action_pressed("d"):
 		force += Vector2.RIGHT * delta * speed;
+		$Run_anim.flip_h = false;
 
 	apply_central_impulse(force.normalized() * max_speed * delta);
 

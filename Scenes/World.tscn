@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -514,6 +514,9 @@ polygon = PoolVector2Array( 8.6236, 13.7312, 11.2894, 13.17, 14.3762, 11.4863, 1
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 26.3247, 26.8811 )
 
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 65.2896, 10 )
+
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 9.37006, 9.49643 )
 
@@ -814,7 +817,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 3
+frame = 8
 speed_scale = 0.5
 playing = true
 
@@ -848,7 +851,7 @@ texture = ExtResource( 52 )
 position = Vector2( -471.877, -925.856 )
 script = ExtResource( 3 )
 hook_zoom_amount = Vector2( 0.2, 0.2 )
-speech_array = PoolStringArray( "This place is so nice, everyone loves sharing the world with eachother!", "I\'m just picking berries for my friends!", "Have you noticed, some of us have been acting differently\?", "I don\'t think I understand why! This place is all I could ever ask for!" )
+speech_array = PoolStringArray( "This place is so nice, everyone loves sharing the world with eachother!", "I\'m just picking berries for my friends!", "Have you noticed, some of us have been acting differently\?", "I don\'t think I understand why! This place is all I could ever ask for!", "If you want to participate in the meeting, you are free to do so!" )
 replay_dialogue = true
 chimeorshake = false
 
@@ -858,6 +861,137 @@ shape = SubResource( 15 )
 [node name="Sprite" type="Sprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
+
+[node name="STATIC_mullar" type="Area2D" parent="Interactives"]
+position = Vector2( -567.112, -1114.84 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar8" type="Area2D" parent="Interactives"]
+position = Vector2( -583.968, -1111.09 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar8"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar8"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar2" type="Area2D" parent="Interactives"]
+position = Vector2( -574.978, -1101.35 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar2"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar2"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar3" type="Area2D" parent="Interactives"]
+position = Vector2( -558.497, -1096.11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar3"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar3"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar4" type="Area2D" parent="Interactives"]
+position = Vector2( -643.9, -1103.97 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar4"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar4"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar9" type="Area2D" parent="Interactives"]
+position = Vector2( -660.756, -1098.35 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar9"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar9"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar10" type="Area2D" parent="Interactives"]
+position = Vector2( -639.405, -1088.62 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar10"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar10"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar5" type="Area2D" parent="Interactives"]
+position = Vector2( -651.392, -1082.62 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar5"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar5"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar6" type="Area2D" parent="Interactives"]
+position = Vector2( -666.375, -1074.76 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar6"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar6"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="STATIC_mullar7" type="Area2D" parent="Interactives"]
+position = Vector2( -642.027, -1069.51 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/STATIC_mullar7"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/STATIC_mullar7"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="NOQ_mullar2" type="Area2D" parent="Interactives"]
+position = Vector2( 366.103, -459.602 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Are you going to the kingdom\? I was just there!", "I want to get away for a bit, there has been some weird happenings.", "I\'ve heard the forest is lovely this time of year! I might go there!", "Some of us has called a meeting in the Kingdom, you\'re also invited! I just want to be elsewhere and that\'s ok!" )
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/NOQ_mullar2"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/NOQ_mullar2"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="Speak_zone" type="Area2D" parent="Interactives"]
+position = Vector2( -608.767, -1103.63 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "We have found these nice things! We feel like we are imporant now.", "" )
+zoom_guide = true
+replay_dialogue = true
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/Speak_zone"]
+position = Vector2( -59.9614, -89.5732 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Speak_zone"]
+rotation = -0.246016
+shape = SubResource( 32 )
 
 [node name="King_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -669.433, -1195.49 )
@@ -878,6 +1012,8 @@ texture = ExtResource( 52 )
 position = Vector2( -630.542, -1189.93 )
 script = ExtResource( 3 )
 hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Hmm!" )
+speaks = false
 replay_dialogue = true
 chimeorshake = false
 
@@ -892,6 +1028,8 @@ texture = ExtResource( 52 )
 position = Vector2( -692.847, -1174.46 )
 script = ExtResource( 3 )
 hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "I don\'t feel like speaking..." )
+speaks = false
 replay_dialogue = true
 chimeorshake = false
 
@@ -984,12 +1122,12 @@ scale = Vector2( 0.4, 0.8 )
 texture = ExtResource( 38 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 369.371, -442.268 )
+position = Vector2( 733.696, 530.852 )
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 3.0
-max_speed = 75.0
+max_speed = 100.0
 
 [node name="Tilemaps_front" type="Node2D" parent="."]
 
