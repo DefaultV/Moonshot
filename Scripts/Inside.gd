@@ -2,7 +2,7 @@ extends Node2D
 
 
 const SPEED_INSIDE = 50;
-const SPEED_OUTSIDE = 75;
+const SPEED_OUTSIDE = 100;
 
 var ply;
 var cam;

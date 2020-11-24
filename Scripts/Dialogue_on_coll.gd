@@ -42,12 +42,17 @@ export var hook_zoom_amount: Vector2;
 export var speech: String;
 export var speech_fetch: String;
 export var speech_array:PoolStringArray = []
+export var zoom_guide:bool = false;
+export var speaks:bool = true;
 var adds = ["\n[center][color=white][shake rate=3 level=5]", "[/shake][/color][/center]"]
 func _on_Mullar_tut_body_entered(body):
-	if body.name != "Player":
+	if body.name != "Player" or not speaks:
 		return;
 	print(body.name + " entered")
-	cam.hook_zoom(global_position, hook_zoom_amount);
+	if not zoom_guide:
+		cam.hook_zoom(global_position, hook_zoom_amount);
+	else:
+		cam.hook_zoom(get_child(0).global_position, hook_zoom_amount);
 	if visited and replay_dialogue:
 		visited = false;
 		speech_idx = 1;
