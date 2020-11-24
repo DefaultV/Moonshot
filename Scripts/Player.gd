@@ -54,14 +54,14 @@ func input(delta):
 		else:
 			map.show();
 
-	if Input.is_action_pressed("w"):
+	if Input.is_action_pressed("w") or Input.is_action_pressed("ui_up"):
 		force += Vector2.UP * delta * speed;
-	if Input.is_action_pressed("a"):
+	if Input.is_action_pressed("a") or Input.is_action_pressed("ui_left"):
 		force += Vector2.LEFT * delta * speed;
 		$Run_anim.flip_h = true;
-	if Input.is_action_pressed("s"):
+	if Input.is_action_pressed("s") or Input.is_action_pressed("ui_down"):
 		force += Vector2.DOWN * delta * speed;
-	if Input.is_action_pressed("d"):
+	if Input.is_action_pressed("d") or Input.is_action_pressed("ui_right"):
 		force += Vector2.RIGHT * delta * speed;
 		$Run_anim.flip_h = false;
 

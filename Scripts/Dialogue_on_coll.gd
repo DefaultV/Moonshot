@@ -30,13 +30,16 @@ func dialogue_state(vis):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ply.cinematic:
-		if Input.is_action_just_released("m1") and this:
+		if Input.is_action_just_released("space") and this:
 			ply.playtextblurp()
 			if not next_dialogue_part() or visited:
 				dialogue_state(false)
 				ply.cinematic = false;
 				cam.hook_free();
+				if (len(endMonologue) > 0):
+					get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(endMonologue, get_child(1).get_global_position());
 
+export var endMonologue:PoolStringArray;
 export var item_fetch:String;
 export var hook_zoom_amount: Vector2;
 export var speech: String;
