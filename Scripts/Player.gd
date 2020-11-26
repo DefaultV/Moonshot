@@ -31,17 +31,25 @@ func appendItem(item:String):
 
 func switch_animation(arg:String):
 	if arg == "i" and not $Idle.visible:
+		$Front_run_anim.hide();
 		$Idle.show();
 		$Run_anim.hide();
 	if arg == "v" and not $Run_anim.visible:
+		$Front_run_anim.hide();
 		$Idle.hide();
 		$Run_anim.show();
-
+	if arg == "h" and not $Front_run_anim.visible:
+		$Front_run_anim.show();
+		$Idle.hide();
+		$Run_anim.hide();
+var front_run:bool = false;
 func input(delta):
 	walking = (linear_velocity.length() > 3);
 	$walk.stream_paused = !walking;
-	if walking:
+	if walking and not front_run:
 		switch_animation("v");
+	elif front_run:
+		switch_animation("h");
 	else:
 		switch_animation("i");
 	if cinematic:
@@ -56,14 +64,18 @@ func input(delta):
 
 	if Input.is_action_pressed("w") or Input.is_action_pressed("ui_up"):
 		force += Vector2.UP * delta * speed;
+		front_run = false;
 	if Input.is_action_pressed("a") or Input.is_action_pressed("ui_left"):
 		force += Vector2.LEFT * delta * speed;
 		$Run_anim.flip_h = true;
+		front_run = false;
 	if Input.is_action_pressed("s") or Input.is_action_pressed("ui_down"):
 		force += Vector2.DOWN * delta * speed;
+		front_run = true;
 	if Input.is_action_pressed("d") or Input.is_action_pressed("ui_right"):
 		force += Vector2.RIGHT * delta * speed;
 		$Run_anim.flip_h = false;
+		front_run = false;
 
 	apply_central_impulse(force.normalized() * max_speed * delta);
 

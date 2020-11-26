@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -24,6 +24,16 @@
 [ext_resource path="res://MC_frames/løb3.png" type="Texture" id=22]
 [ext_resource path="res://MC_frames/løb5.png" type="Texture" id=23]
 [ext_resource path="res://MC_frames/løb1.png" type="Texture" id=24]
+[ext_resource path="res://MC_frames/run-front3.png" type="Texture" id=25]
+[ext_resource path="res://MC_frames/run-front2.png" type="Texture" id=26]
+[ext_resource path="res://MC_frames/run-front9.png" type="Texture" id=27]
+[ext_resource path="res://MC_frames/run-front7.png" type="Texture" id=28]
+[ext_resource path="res://MC_frames/run-front8.png" type="Texture" id=29]
+[ext_resource path="res://MC_frames/run-front10.png" type="Texture" id=30]
+[ext_resource path="res://MC_frames/run-front6.png" type="Texture" id=31]
+[ext_resource path="res://MC_frames/run-front4.png" type="Texture" id=32]
+[ext_resource path="res://MC_frames/run-front5.png" type="Texture" id=33]
+[ext_resource path="res://MC_frames/run-front1.png" type="Texture" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -33,7 +43,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 34 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.748344, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
@@ -73,10 +91,18 @@ shadow_filter = 4
 shadow_filter_smooth = 5.0
 
 [node name="Run_anim" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
-frame = 9
+frame = 3
+speed_scale = 2.4
+playing = true
+
+[node name="Front_run_anim" type="AnimatedSprite" parent="."]
+position = Vector2( 1.56164e-05, -3.84055 )
+scale = Vector2( 0.045, 0.045 )
+frames = SubResource( 2 )
 speed_scale = 2.4
 playing = true
 
@@ -118,7 +144,7 @@ position = Vector2( 0, 15 )
 z_index = -1
 width = 8.0
 default_color = Color( 1, 1, 1, 1 )
-gradient = SubResource( 2 )
+gradient = SubResource( 3 )
 texture = ExtResource( 10 )
 texture_mode = 1
 script = ExtResource( 9 )
