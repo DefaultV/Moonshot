@@ -61,21 +61,19 @@ func input(delta):
 			map.hide();
 		else:
 			map.show();
-
+	front_run = false;
 	if Input.is_action_pressed("w") or Input.is_action_pressed("ui_up"):
 		force += Vector2.UP * delta * speed;
-		front_run = false;
 	if Input.is_action_pressed("a") or Input.is_action_pressed("ui_left"):
 		force += Vector2.LEFT * delta * speed;
 		$Run_anim.flip_h = true;
-		front_run = false;
+		
 	if Input.is_action_pressed("s") or Input.is_action_pressed("ui_down"):
 		force += Vector2.DOWN * delta * speed;
 		front_run = true;
 	if Input.is_action_pressed("d") or Input.is_action_pressed("ui_right"):
 		force += Vector2.RIGHT * delta * speed;
 		$Run_anim.flip_h = false;
-		front_run = false;
 
 	apply_central_impulse(force.normalized() * max_speed * delta);
 

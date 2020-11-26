@@ -95,7 +95,7 @@ visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
-frame = 3
+frame = 9
 speed_scale = 2.4
 playing = true
 
@@ -103,6 +103,7 @@ playing = true
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 2 )
+frame = 6
 speed_scale = 2.4
 playing = true
 
