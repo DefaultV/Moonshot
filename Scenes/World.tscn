@@ -702,7 +702,6 @@ light_mask = -2147483647
 scale = Vector2( 0.2, 0.2 )
 z_index = 1
 frames = SubResource( 11 )
-frame = 1
 speed_scale = 0.25
 playing = true
 
@@ -731,7 +730,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 18
+frame = 3
 speed_scale = 0.5
 playing = true
 
