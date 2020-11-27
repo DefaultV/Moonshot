@@ -22,6 +22,4 @@ func trigger_mono(body):
 		return;
 	if body.name == "Player":
 		get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(monologue, get_child(0).get_global_position());
-		print(get_child(0).name);
-		print(get_child(0).position)
 		triggered = true;

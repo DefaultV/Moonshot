@@ -36,5 +36,5 @@ func enterState(state:bool, body):
 			ply.z_index = 5;
 			ply.playtent(true);
 			ply.max_speed = SPEED_INSIDE;
-			cam.hook_zoom(body.position + Vector2(25, -10), Vector2(0.1, 0.1));
+			cam.hook_zoom(body.position + Vector2(15, -20), Vector2(0.125, 0.125));
 		ply.playtent(state);

@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=100 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -64,6 +64,8 @@
 [ext_resource path="res://spacey's space/butterfly net.png" type="Texture" id=62]
 [ext_resource path="res://Sprites_textures/Mullar_wisdom.png" type="Texture" id=63]
 [ext_resource path="res://Scripts/TriggerInnerMonologue.gd" type="Script" id=64]
+[ext_resource path="res://Sprites_textures/Love_card.png" type="Texture" id=65]
+[ext_resource path="res://Scenes/Lovecard.gd" type="Script" id=66]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -386,7 +388,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 46.5475, 26.016 )
+extents = Vector2( 12.6929, 14.6457 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
@@ -458,16 +460,19 @@ colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 extents = Vector2( 108.867, 51.7431 )
 
 [sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 11.8167, 15.4896 )
+
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 150, 150 )
 
-[sub_resource type="DynamicFont" id=27]
+[sub_resource type="DynamicFont" id=28]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=28]
+[sub_resource type="ShaderMaterial" id=29]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -481,17 +486,17 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=29]
+[sub_resource type="DynamicFont" id=30]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=30]
+[sub_resource type="CircleShape2D" id=31]
 radius = 1036.56
 
-[sub_resource type="CircleShape2D" id=31]
+[sub_resource type="CircleShape2D" id=32]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=32]
+[sub_resource type="CircleShape2D" id=33]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -600,7 +605,7 @@ cell_tile_origin = 1
 cell_y_sort = true
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( -5832766, 8, 0, -5701693, 8, 0, -4849606, 3, 0, -4849604, 2, 0, -4784072, 3, 0, -4784067, 2, 0, -4718535, 2, 0, -4653000, 3, 0, -4652994, 2, 0, -4587463, 2, 0, -4587458, 8, 0, -4587457, 1, 0, -4521926, 2, 0, -4521925, 1, 0, -4521923, 8, 0, -4521922, 2, 0, -4456387, 2, 0, -4259780, 7, 0, -4194245, 7, 0, -4194244, 6, 0, -4194243, 7, 0, -4128708, 7, 0, -4128707, 7, 0, -2228287, 3, 0, -2228285, 2, 0, -2228284, 2, 0, -2162752, 3, 0, -2162750, 8, 0, -2162749, 7, 0, -2162747, 8, 0, -2162746, 2, 0, -2162745, 3, 0, -2228187, 11, 0, -2097216, 6, 0, -2097211, 1, 0, -2097210, 2, 0, -2031681, 6, 0, -2031680, 2, 0, -2031673, 8, 0, -1966145, 3, 0, -1900608, 8, 0, -1900607, 1, 0, -1835072, 3, 0, -1835070, 7, 0, -1769534, 2, 0, -1769533, 8, 0, -1769532, 2, 0, -1769531, 8, 0, -1703995, 3, 0, -1638461, 2, 0, -1638460, 2, 0, -1638404, 11, 0, 196629, 2, 0, 196630, 2, 0, 196631, 1, 0, 262166, 8, 0, 262167, 7, 0, 262168, 2, 0, 262169, 1, 0, 327702, 2, 0, 327703, 6, 0, 393237, 2, 0, 393238, 3, 0 )
+tile_data = PoolIntArray( -5832766, 8, 0, -5701693, 8, 0, -4849606, 3, 0, -4849604, 2, 0, -4784072, 3, 0, -4784067, 2, 0, -4718535, 2, 0, -4653000, 3, 0, -4652994, 2, 0, -4587463, 2, 0, -4587458, 8, 0, -4587457, 1, 0, -4521926, 2, 0, -4521925, 1, 0, -4521923, 8, 0, -4521922, 2, 0, -4456387, 2, 0, -4259780, 7, 0, -4194245, 7, 0, -4194244, 6, 0, -4194243, 7, 0, -4128708, 7, 0, -4128707, 7, 0, -3604528, 11, 0, -2228287, 3, 0, -2228285, 2, 0, -2228284, 2, 0, -2162752, 3, 0, -2162750, 8, 0, -2162749, 7, 0, -2162747, 8, 0, -2162746, 2, 0, -2162745, 3, 0, -2228187, 11, 0, -2097216, 6, 0, -2097211, 1, 0, -2097210, 2, 0, -2031681, 6, 0, -2031680, 2, 0, -2031673, 8, 0, -1966145, 3, 0, -1900608, 8, 0, -1900607, 1, 0, -1835072, 3, 0, -1835070, 7, 0, -1769534, 2, 0, -1769533, 8, 0, -1769532, 2, 0, -1769531, 8, 0, -1703995, 3, 0, -1638461, 2, 0, -1638460, 2, 0, -1638404, 11, 0, 196629, 2, 0, 196630, 2, 0, 196631, 1, 0, 262166, 8, 0, 262167, 7, 0, 262168, 2, 0, 262169, 1, 0, 327702, 2, 0, 327703, 6, 0, 393237, 2, 0, 393238, 3, 0, 720919, 2, 0, 720923, 6, 0, 720924, 3, 0, 786460, 2, 0, 786461, 7, 0, 1179673, 2, 0, 1179676, 11, 0, 1179678, 8, 0, 1179680, 2, 0, 1245214, 7, 0, 1376282, 3, 0, 1507360, 3, 0 )
 
 [node name="FOil3" type="TileMap" parent="Tilemaps_behind"]
 visible = false
@@ -636,6 +641,30 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_kingdom"]
+shape = SubResource( 9 )
+
+[node name="Sign_spawn" type="Area2D" parent="Interactives"]
+position = Vector2( 222.345, 604.713 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech = "DEBUG"
+speech_array = PoolStringArray( "Fish are found in this area.", "They do not like leaving water.", "No, you cannot pick them up.", "Yes, they will stop being happy if you do." )
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_spawn"]
+shape = SubResource( 9 )
+
+[node name="Sign_desert" type="Area2D" parent="Interactives"]
+position = Vector2( 178.902, -1316.61 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech = "DEBUG"
+speech_array = PoolStringArray( "Proceed and find the way to the Desert" )
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_desert"]
 shape = SubResource( 9 )
 
 [node name="Fiskemullar" type="Area2D" parent="Interactives"]
@@ -689,6 +718,7 @@ speech_fetch = "You found some bait! Oh I cannot express how grateful i am! Than
 speech_array = PoolStringArray( "Oh hello! I really enjoy fishing, I hope to catch something!", "If you\'d like, you\'re welcome to do me a favor.", "Find me some extraordinary fishing bait, it might help me to catch the most incredible fish!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Fiskemullar/Mullar_tut"]
+position = Vector2( 8.62756, 0.359497 )
 shape = SubResource( 12 )
 
 [node name="shadow" type="Sprite" parent="Interactives/Fiskemullar/Mullar_tut"]
@@ -701,7 +731,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 6
+frame = 18
 speed_scale = 0.5
 playing = true
 
@@ -728,6 +758,48 @@ speech_array = PoolStringArray( "You look very friendly! I\'m trying to pick som
 shape = SubResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/Svampemullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="DesertMullar" type="Area2D" parent="Interactives"]
+position = Vector2( 645.262, -1930.97 )
+script = ExtResource( 3 )
+item_fetch = "water"
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/DesertMullar"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/DesertMullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="ZenMullar" type="Area2D" parent="Interactives"]
+position = Vector2( 1415.39, -926.258 )
+script = ExtResource( 3 )
+item_fetch = "rug"
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/ZenMullar"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/ZenMullar"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
+[node name="VillageMullar" type="Area2D" parent="Interactives"]
+position = Vector2( 2927.95, -2268.46 )
+script = ExtResource( 3 )
+item_fetch = "plan"
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/VillageMullar"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/VillageMullar"]
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
 
@@ -861,6 +933,21 @@ shape = SubResource( 15 )
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
 
+[node name="NOQ_mullar3" type="Area2D" parent="Interactives"]
+position = Vector2( 155.224, -1244.33 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Hello! I\'m trying to get to the desert, I can\'t!", "I\'m planning to visit my friends there, it\'s a lovely place for solitude!", "The storms are big and scary, I might wait a bit! You are welcome to wait with me!" )
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/NOQ_mullar3"]
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/NOQ_mullar3"]
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 52 )
+
 [node name="Speak_zone" type="Area2D" parent="Interactives"]
 position = Vector2( -608.767, -1103.63 )
 script = ExtResource( 3 )
@@ -929,7 +1016,7 @@ scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 52 )
 
 [node name="Book" type="Area2D" parent="Interactives"]
-position = Vector2( 973.699, 120.338 )
+position = Vector2( 2696.74, -100.788 )
 script = ExtResource( 51 )
 Item_to_give = "book"
 
@@ -1010,7 +1097,7 @@ scale = Vector2( 0.4, 0.8 )
 texture = ExtResource( 38 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -528.885, -1001.95 )
+position = Vector2( 104.899, 700.618 )
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -1113,6 +1200,8 @@ max_distance = 851.0
 attenuation = 2.14355
 bus = "river"
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/Bridge"]
+
 [node name="Bridge2" type="Sprite" parent="Objects"]
 position = Vector2( 1835.03, -439.042 )
 scale = Vector2( 0.444762, 0.444762 )
@@ -1142,7 +1231,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [node name="Tent6" type="Sprite" parent="Objects"]
-position = Vector2( 1236.14, -2094.08 )
+position = Vector2( 717.838, -2020.62 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
@@ -1240,6 +1329,31 @@ texture = ExtResource( 22 )
 [node name="Sprite2" type="Sprite" parent="Inside_overlay/Tent8"]
 texture = ExtResource( 25 )
 
+[node name="Area2D" type="Area2D" parent="Inside_overlay/Tent8"]
+position = Vector2( 63.7124, 111.564 )
+script = ExtResource( 66 )
+
+[node name="Love_card" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 65 )
+
+[node name="Love_card2" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
+show_behind_parent = true
+position = Vector2( 2.65161, 17.5675 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 41 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent8/Area2D"]
+position = Vector2( 2.37329, 5.22113 )
+shape = SubResource( 26 )
+
+[node name="Sprite" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
+self_modulate = Color( 1, 1, 1, 0.796078 )
+show_behind_parent = true
+position = Vector2( 2.09375, 3.29053 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 38 )
+
 [node name="Tent9" type="Sprite" parent="Inside_overlay"]
 position = Vector2( 2862, -185 )
 scale = Vector2( 0.3, 0.3 )
@@ -1279,7 +1393,7 @@ monologue = PoolStringArray( "And so I went, to the kingdom!", "I wonder what th
 position = Vector2( -326.268, -260.678 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_kingdom"]
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="To_forest" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 2054.98, -188.533 )
@@ -1290,7 +1404,7 @@ monologue = PoolStringArray( "After being cast out, I crossed paths with the for
 position = Vector2( 595.354, -94.1806 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 316.29, -1801.23 )
@@ -1301,7 +1415,7 @@ monologue = PoolStringArray( "Desert placeholder text" )
 position = Vector2( 539.918, -154.657 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 3073, 683.333 )
@@ -1312,7 +1426,7 @@ monologue = PoolStringArray( "Village placeholder text" )
 position = Vector2( 287.934, -2831.35 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village"]
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1351,7 +1465,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 28 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1363,7 +1477,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 28 )
+material = SubResource( 29 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.360808
@@ -1395,7 +1509,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 29 )
+custom_fonts/normal_font = SubResource( 30 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1439,7 +1553,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="Forest" type="Area2D" parent="region_audio"]
 position = Vector2( 2607.81, -16.9705 )
@@ -1449,7 +1563,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 35 )
@@ -1495,7 +1609,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="Kingdom" type="Area2D" parent="region_audio"]
 position = Vector2( -690.136, -1046.52 )
@@ -1504,7 +1618,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="Desert" type="Area2D" parent="region_audio"]
 position = Vector2( 920.693, -2171.56 )
@@ -1513,7 +1627,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 32 )
+shape = SubResource( 33 )
 
 [node name="Village" type="Area2D" parent="region_audio"]
 position = Vector2( 2831.92, -1803.29 )
@@ -1522,7 +1636,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=2]
+[gd_resource type="TileSet" load_steps=25 format=2]
 
 [ext_resource path="res://spacey's space/grass1.png" type="Texture" id=1]
 [ext_resource path="res://spacey's space/mush2.png" type="Texture" id=2]
@@ -31,6 +31,30 @@ shader_param/vig = ExtResource( 11 )
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 355.972, 525.278, 289.306, 510, 235.833, 514.861, 263.611, 482.222, 273.333, 437.778, 264.306, 403.75, 264.306, 360.694, 322.639, 359.306, 313.611, 398.889, 329.583, 448.889, 373.333, 501.667 )
 
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.609272 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 10 )
+shader_param/wind_speed = 1.0
+shader_param/wind_strength = 0.05
+shader_param/gradient = SubResource( 6 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.533113 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 10 )
+shader_param/wind_speed = 1.1
+shader_param/wind_strength = 0.04
+shader_param/gradient = SubResource( 9 )
+
 [resource]
 0/name = "tree"
 0/texture = ExtResource( 6 )
@@ -62,6 +86,7 @@ points = PoolVector2Array( 355.972, 525.278, 289.306, 510, 235.833, 514.861, 263
 2/name = "grass1"
 2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, -25 )
+2/material = SubResource( 7 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 179, 182 )
 2/tile_mode = 0
@@ -72,6 +97,7 @@ points = PoolVector2Array( 355.972, 525.278, 289.306, 510, 235.833, 514.861, 263
 3/name = "grass2"
 3/texture = ExtResource( 4 )
 3/tex_offset = Vector2( 0, 0 )
+3/material = SubResource( 10 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 253, 196 )
 3/tile_mode = 0

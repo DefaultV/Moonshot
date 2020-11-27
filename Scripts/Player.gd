@@ -18,7 +18,7 @@ var movetopos = Vector2.ZERO;
 var cinematic = false;
 
 var Inventory:PoolStringArray = [];
-
+var qcompleted:PoolStringArray;
 func getItemFromInventory(search_item:String) -> bool: 
 	for item in Inventory:
 		if item == search_item:
@@ -28,6 +28,18 @@ func getItemFromInventory(search_item:String) -> bool:
 func appendItem(item:String):
 	if not (getItemFromInventory(item)):
 		Inventory.append(item);
+
+func getQuest(search_quest:String) -> bool: 
+	for quest in qcompleted:
+		if quest == search_quest:
+			return true;
+	return false;
+
+func appendQuest(q:String):
+	if not (getItemFromInventory(q)):
+		qcompleted.append(q);
+
+
 
 func switch_animation(arg:String):
 	if arg == "i" and not $Idle.visible:
@@ -44,7 +56,7 @@ func switch_animation(arg:String):
 		$Run_anim.hide();
 var front_run:bool = false;
 func input(delta):
-	walking = (linear_velocity.length() > 3);
+	walking = (linear_velocity.length() > 10);
 	$walk.stream_paused = !walking;
 	if walking and not front_run:
 		switch_animation("v");
