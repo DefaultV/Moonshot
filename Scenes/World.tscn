@@ -607,17 +607,17 @@ shader_param/offset_texture = ExtResource( 47 )
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=34]
+[sub_resource type="DynamicFont" id=31]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=31]
+[sub_resource type="CircleShape2D" id=32]
 radius = 1036.56
 
-[sub_resource type="CircleShape2D" id=32]
+[sub_resource type="CircleShape2D" id=33]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=33]
+[sub_resource type="CircleShape2D" id=34]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -851,6 +851,7 @@ light_mask = -2147483647
 scale = Vector2( 0.2, 0.2 )
 z_index = 1
 frames = SubResource( 11 )
+frame = 1
 speed_scale = 0.25
 playing = true
 
@@ -879,7 +880,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 12
+frame = 11
 speed_scale = 0.5
 playing = true
 
@@ -1717,7 +1718,7 @@ anchor_left = -0.1
 anchor_top = 1.0
 anchor_right = 1.1
 anchor_bottom = 1.5
-custom_fonts/normal_font = SubResource( 34 )
+custom_fonts/normal_font = SubResource( 31 )
 bbcode_enabled = true
 bbcode_text = "[center][color=black]\"Love card\"[/color][/center]"
 text = "\"Love card\""
@@ -1743,7 +1744,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="Forest" type="Area2D" parent="region_audio"]
 position = Vector2( 2607.81, -16.9705 )
@@ -1753,7 +1754,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 35 )
@@ -1799,7 +1800,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 32 )
+shape = SubResource( 33 )
 
 [node name="Kingdom" type="Area2D" parent="region_audio"]
 position = Vector2( -690.136, -1046.52 )
@@ -1808,7 +1809,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="Desert" type="Area2D" parent="region_audio"]
 position = Vector2( 920.693, -2171.56 )
@@ -1817,7 +1818,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 33 )
+shape = SubResource( 34 )
 
 [node name="Village" type="Area2D" parent="region_audio"]
 position = Vector2( 2831.92, -1803.29 )
@@ -1826,7 +1827,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
