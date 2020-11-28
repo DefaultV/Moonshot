@@ -36,6 +36,8 @@ func _process(delta):
 				dialogue_state(false)
 				ply.cinematic = false;
 				cam.hook_free();
+				if (leave_when_spoken):
+					get_parent().leave();
 				if (len(endMonologue) > 0):
 					get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(endMonologue, get_child(1).get_global_position());
 
@@ -47,6 +49,7 @@ export var speech_fetch: String;
 export var speech_array:PoolStringArray = []
 export var zoom_guide:bool = false;
 export var speaks:bool = true;
+export var leave_when_spoken:bool = false;
 var adds = ["\n[center][color=white][shake rate=3 level=5]", "[/shake][/color][/center]"]
 func _on_Mullar_tut_body_entered(body):
 	if body.name != "Player" or not speaks:

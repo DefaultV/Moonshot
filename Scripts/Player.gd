@@ -2,12 +2,15 @@
 extends RigidBody2D
 
 func _ready():
-	pass # Replace with function body.
+	if debug_finalquest:
+		for i in range(0, 4):
+			appendQuest("test"+String(i))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+export var debug_finalquest:bool = false;
 func _process(delta):
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input(delta);
 
 export var speed = 100;
@@ -35,9 +38,16 @@ func getQuest(search_quest:String) -> bool:
 			return true;
 	return false;
 
+var fmul = preload("res://Prefabs/Final_mullar.tscn")
 func appendQuest(q:String):
-	if not (getItemFromInventory(q)):
+	if not (getQuest(q)):
 		qcompleted.append(q);
+		print(len(qcompleted))
+		if len(qcompleted) >= 5:
+			yield(get_tree().create_timer(5.0), "timeout")
+			fmul = fmul.instance();
+			fmul.position = position + Vector2(100, 100);
+			get_parent().add_child(fmul);
 
 
 
@@ -55,6 +65,7 @@ func switch_animation(arg:String):
 		$Idle.hide();
 		$Run_anim.hide();
 var front_run:bool = false;
+var side_run = 0.6;
 func input(delta):
 	walking = (linear_velocity.length() > 10);
 	$walk.stream_paused = !walking;
@@ -74,19 +85,31 @@ func input(delta):
 		else:
 			map.show();
 	front_run = false;
-	if Input.is_action_pressed("w") or Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("w"):
 		force += Vector2.UP * delta * speed;
-	if Input.is_action_pressed("a") or Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("a"):
 		force += Vector2.LEFT * delta * speed;
 		$Run_anim.flip_h = true;
 		
-	if Input.is_action_pressed("s") or Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("s"):
 		force += Vector2.DOWN * delta * speed;
 		front_run = true;
-	if Input.is_action_pressed("d") or Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("d"):
 		force += Vector2.RIGHT * delta * speed;
 		$Run_anim.flip_h = false;
 
+	if Input.is_action_pressed("a") and Input.is_action_pressed("w"):
+		force = Vector2.LEFT * delta * speed;
+		force += Vector2.UP*side_run * delta * speed;
+	if Input.is_action_pressed("d") and Input.is_action_pressed("w"):
+		force = Vector2.RIGHT* delta * speed;
+		force += Vector2.UP*side_run* delta * speed;
+	if Input.is_action_pressed("a") and Input.is_action_pressed("s"):
+		force = Vector2.LEFT* delta * speed;
+		force += Vector2.DOWN*side_run * delta * speed;
+	if Input.is_action_pressed("d") and Input.is_action_pressed("s"):
+		force = Vector2.RIGHT* delta * speed;
+		force += Vector2.DOWN*side_run * delta * speed;
 	apply_central_impulse(force.normalized() * max_speed * delta);
 
 	## MOUSE CONTROLS ##

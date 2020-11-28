@@ -14,7 +14,7 @@ func _ready():
 		return;
 	uishader.material.set_shader_param("white_fade", 1.0);
 	next_dia = NextInnerDialogue()
-	
+	ply.cinematic = true;
 	inner_pic.self_modulate.a = 0.0;
 	inner_pic.show();
 	show();
@@ -45,7 +45,7 @@ func _process(delta):
 					picfaded = true;
 			self_modulate.a += delta * 0.5;
 			fade_cd -= delta
-			print(self_modulate.a)
+			#print(self_modulate.a)
 		else:
 			self_modulate.a -= delta * 0.5;
 			if self_modulate.a <= 0:
@@ -63,6 +63,7 @@ func _process(delta):
 			fade_amount_pic -= delta;
 			uishader.material.set_shader_param("white_fade", fade_amount);
 			inner_pic.self_modulate.a = fade_amount_pic;
+			ply.cinematic = false;
 			#self_modulate.a = fade_amount;
 			#hide();
 
@@ -84,6 +85,7 @@ var monologue_pos:Vector2;
 var str_array_external:PoolStringArray;
 func newInnerDialogue(stringarray:PoolStringArray, pos:Vector2):
 	ply.playchimes();
+	ply.cinematic = true;
 	monologue_pos = pos;
 	show();
 	custom = true;
