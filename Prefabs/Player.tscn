@@ -14,16 +14,16 @@
 [ext_resource path="res://SFX/Objects/shake.wav" type="AudioStream" id=12]
 [ext_resource path="res://SFX/Objects/tent_close.wav" type="AudioStream" id=13]
 [ext_resource path="res://SFX/Objects/tent_open.wav" type="AudioStream" id=14]
-[ext_resource path="res://MC_frames/løb10.png" type="Texture" id=15]
-[ext_resource path="res://MC_frames/løb6.png" type="Texture" id=16]
-[ext_resource path="res://MC_frames/løb4.png" type="Texture" id=17]
-[ext_resource path="res://MC_frames/løb7.png" type="Texture" id=18]
-[ext_resource path="res://MC_frames/løb9.png" type="Texture" id=19]
-[ext_resource path="res://MC_frames/løb8.png" type="Texture" id=20]
-[ext_resource path="res://MC_frames/løb2.png" type="Texture" id=21]
-[ext_resource path="res://MC_frames/løb3.png" type="Texture" id=22]
-[ext_resource path="res://MC_frames/løb5.png" type="Texture" id=23]
-[ext_resource path="res://MC_frames/løb1.png" type="Texture" id=24]
+[ext_resource path="res://MC_frames/new/frame0000.png" type="Texture" id=15]
+[ext_resource path="res://MC_frames/new/frame0012.png" type="Texture" id=16]
+[ext_resource path="res://MC_frames/new/frame0008.png" type="Texture" id=17]
+[ext_resource path="res://MC_frames/new/frame0016.png" type="Texture" id=18]
+[ext_resource path="res://MC_frames/new/frame0018.png" type="Texture" id=19]
+[ext_resource path="res://MC_frames/new/frame0014.png" type="Texture" id=20]
+[ext_resource path="res://MC_frames/new/frame0010.png" type="Texture" id=21]
+[ext_resource path="res://MC_frames/new/frame0002.png" type="Texture" id=22]
+[ext_resource path="res://MC_frames/new/frame0004.png" type="Texture" id=23]
+[ext_resource path="res://MC_frames/new/frame0006.png" type="Texture" id=24]
 [ext_resource path="res://MC_frames/run-front3.png" type="Texture" id=25]
 [ext_resource path="res://MC_frames/run-front2.png" type="Texture" id=26]
 [ext_resource path="res://MC_frames/run-front9.png" type="Texture" id=27]
@@ -37,7 +37,7 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 24 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -60,7 +60,7 @@ z_index = 2
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 4.16592, 12.2318, 4.83409, 6.77509, 5.05681, 3.65694, -5.29988, 3.54558, -5.29988, 6.99781, -4.63171, 11.8978 )
+polygon = PoolVector2Array( 4.16592, 12.2318, 4.83409, 6.77509, 4.2672, 1.7324, -6.02996, 1.7324, -5.29988, 6.99781, -4.63171, 11.8978 )
 
 [node name="Idle" type="Sprite" parent="."]
 visible = false
@@ -91,19 +91,19 @@ shadow_filter = 4
 shadow_filter_smooth = 5.0
 
 [node name="Run_anim" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
-frame = 9
+frame = 6
 speed_scale = 2.4
 playing = true
 
 [node name="Front_run_anim" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 2 )
-frame = 6
+frame = 5
 speed_scale = 2.4
 playing = true
 

@@ -62,6 +62,7 @@ func _on_Mullar_tut_body_entered(body):
 	if visited:
 		if (ply.getItemFromInventory(item_fetch)):
 			dialogue.bbcode_text = adds[0] + speech_fetch + adds[1];
+			ply.appendQuest(item_fetch);
 		else:
 			dialogue.bbcode_text = adds[0] + speech + adds[1];
 	else:

@@ -49,7 +49,8 @@ func _process(delta):
 		else:
 			self_modulate.a -= delta * 0.5;
 			if self_modulate.a <= 0:
-				next_dia.resume()
+				if (dia_count != 1) or len(str_array_external) == 0:
+					next_dia.resume()
 				dia_amount += 1;
 	else:
 		if (fade_amount >= 0):
@@ -92,6 +93,7 @@ func newInnerDialogue(stringarray:PoolStringArray, pos:Vector2):
 	fade_cd = 1.0;
 	dia_amount = 0;
 	dia_count = len(stringarray);
+	print(len(stringarray))
 	picfaded = false;
 	str_array_external = stringarray;
 	#uishader.material.set_shader_param("white_fade", 1.0);
