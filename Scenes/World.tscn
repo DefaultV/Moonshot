@@ -771,7 +771,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 4
+frame = 13
 speed_scale = 0.5
 playing = true
 
@@ -1599,6 +1599,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+skip_intro = true
 
 [node name="Map" type="TextureRect" parent="UI"]
 visible = false

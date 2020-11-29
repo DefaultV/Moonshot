@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=65 format=2]
 
-[ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=1]
+[ext_resource path="res://MC_frames/idle/idle0000.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Uncategorized/light.png" type="Texture" id=3]
 [ext_resource path="res://SFX/Ambient/chimes.wav" type="AudioStream" id=4]
@@ -38,10 +38,32 @@
 [ext_resource path="res://SFX/Objects/28.11/map open.wav" type="AudioStream" id=36]
 [ext_resource path="res://SFX/Objects/28.11/map close.wav" type="AudioStream" id=37]
 [ext_resource path="res://SFX/Objects/28.11/inventory rustling.wav" type="AudioStream" id=38]
+[ext_resource path="res://MC_frames/idle/idle0018.png" type="Texture" id=39]
+[ext_resource path="res://MC_frames/idle/idle0022.png" type="Texture" id=40]
+[ext_resource path="res://MC_frames/idle/idle0009.png" type="Texture" id=41]
+[ext_resource path="res://MC_frames/idle/idle0011.png" type="Texture" id=42]
+[ext_resource path="res://MC_frames/idle/idle0012.png" type="Texture" id=43]
+[ext_resource path="res://MC_frames/idle/idle0002.png" type="Texture" id=44]
+[ext_resource path="res://MC_frames/idle/idle0015.png" type="Texture" id=45]
+[ext_resource path="res://MC_frames/idle/idle0014.png" type="Texture" id=46]
+[ext_resource path="res://MC_frames/idle/idle0013.png" type="Texture" id=47]
+[ext_resource path="res://MC_frames/idle/idle0003.png" type="Texture" id=48]
+[ext_resource path="res://MC_frames/idle/idle0004.png" type="Texture" id=49]
+[ext_resource path="res://MC_frames/idle/idle0005.png" type="Texture" id=50]
+[ext_resource path="res://MC_frames/idle/idle0006.png" type="Texture" id=51]
+[ext_resource path="res://MC_frames/idle/idle0007.png" type="Texture" id=52]
+[ext_resource path="res://MC_frames/idle/idle0021.png" type="Texture" id=53]
+[ext_resource path="res://MC_frames/idle/idle0020.png" type="Texture" id=54]
+[ext_resource path="res://MC_frames/idle/idle0019.png" type="Texture" id=55]
+[ext_resource path="res://MC_frames/idle/idle0008.png" type="Texture" id=56]
+[ext_resource path="res://MC_frames/idle/idle0010.png" type="Texture" id=57]
+[ext_resource path="res://MC_frames/idle/idle0001.png" type="Texture" id=58]
+[ext_resource path="res://MC_frames/idle/idle0016.png" type="Texture" id=59]
+[ext_resource path="res://MC_frames/idle/idle0017.png" type="Texture" id=60]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 58 ), ExtResource( 44 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 56 ), ExtResource( 41 ), ExtResource( 57 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 45 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 40 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -49,13 +71,21 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 27 ), ExtResource( 30 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.748344, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
@@ -66,10 +96,14 @@ script = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 4.16592, 12.2318, 4.83409, 6.77509, 4.2672, 1.7324, -6.02996, 1.7324, -5.29988, 6.99781, -4.63171, 11.8978 )
 
-[node name="Idle" type="Sprite" parent="."]
-visible = false
-scale = Vector2( 0.04, 0.04 )
-texture = ExtResource( 1 )
+[node name="Idle" type="AnimatedSprite" parent="."]
+position = Vector2( 1.83516, 1.01953 )
+rotation = 0.0329933
+scale = Vector2( 0.045, 0.045 )
+frames = SubResource( 1 )
+frame = 7
+speed_scale = 2.0
+playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
@@ -95,9 +129,11 @@ shadow_filter = 4
 shadow_filter_smooth = 5.0
 
 [node name="Run_anim" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
+frame = 5
 speed_scale = 2.4
 playing = true
 
@@ -105,8 +141,8 @@ playing = true
 visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
-frames = SubResource( 2 )
-frame = 9
+frames = SubResource( 3 )
+frame = 4
 speed_scale = 2.4
 playing = true
 
@@ -147,7 +183,7 @@ position = Vector2( 0, 15 )
 z_index = -1
 width = 8.0
 default_color = Color( 1, 1, 1, 1 )
-gradient = SubResource( 3 )
+gradient = SubResource( 4 )
 texture = ExtResource( 10 )
 texture_mode = 1
 script = ExtResource( 9 )
