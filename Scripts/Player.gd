@@ -82,8 +82,10 @@ func input(delta):
 		var map = get_node("/root/World/UI/Map");
 		if map.is_visible():
 			map.hide();
+			$map_close.play();
 		else:
 			map.show();
+			$map_open.play();
 	front_run = false;
 	if Input.is_action_pressed("w"):
 		force += Vector2.UP * delta * speed;

@@ -98,7 +98,6 @@ shadow_filter_smooth = 5.0
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
-frame = 8
 speed_scale = 2.4
 playing = true
 
@@ -107,7 +106,7 @@ visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 2 )
-frame = 7
+frame = 9
 speed_scale = 2.4
 playing = true
 
@@ -171,9 +170,11 @@ volume_db = -10.0
 
 [node name="map_open" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )
+volume_db = -10.0
 
 [node name="map_close" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 37 )
+volume_db = -10.0
 
 [node name="bug_net" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 35 )

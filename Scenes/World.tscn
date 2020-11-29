@@ -770,7 +770,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 6
+frame = 5
 speed_scale = 0.5
 playing = true
 
