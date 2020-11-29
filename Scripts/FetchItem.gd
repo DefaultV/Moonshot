@@ -20,6 +20,7 @@ func _ready():
 export (String, "fishingbait", "leaf", "water", "book", "plan", "rug") var Item_to_give;
 
 var found = false;
+export var bugnet = false;
 func _on_body_enter(body):
 	if body.name == "Player" and not found:
 		body.appendItem(Item_to_give);
@@ -27,7 +28,10 @@ func _on_body_enter(body):
 		hide();
 		found = true;
 		pickup_show();
-		get_node("/root/World/Player").playtextblurp();
+		if not bugnet:
+			get_node("/root/World/Player").playinventory();
+		else:
+			get_node("/root/World/Player").playbugnet();
 
 export var ui_text_pickup:String;
 func pickup_show():

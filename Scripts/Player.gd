@@ -143,6 +143,18 @@ func playtent(state:bool):
 func playtextblurp():
 	$text_continue.play();
 
+func playbugnet():
+	$bug_net.play();
+
+func playmap(state:bool):
+	if state:
+		$map_open.play();
+	else:
+		$map_close.play();
+
+func playinventory():
+	$inventory.play();
+
 func setwalkdb(arg):
 	$walk.volume_db = arg;
 

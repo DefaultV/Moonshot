@@ -17,7 +17,7 @@ func _on_body_enter(body):
 	if (body.name == "Player"):
 		print("body")
 		hide();
-		ply.playtextblurp();
+		ply.playinventory();
 		pickup_show();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

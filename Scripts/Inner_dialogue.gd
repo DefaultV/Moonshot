@@ -84,6 +84,7 @@ func set_text(arg:String):
 var monologue_pos:Vector2;
 var str_array_external:PoolStringArray;
 func newInnerDialogue(stringarray:PoolStringArray, pos:Vector2):
+	get_node("/root/World/region_audio").resetsounds();
 	ply.playchimes();
 	ply.cinematic = true;
 	monologue_pos = pos;

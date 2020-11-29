@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -67,6 +67,12 @@
 [ext_resource path="res://Sprites_textures/Love_card.png" type="Texture" id=65]
 [ext_resource path="res://Scenes/Lovecard.gd" type="Script" id=66]
 [ext_resource path="res://spacey's space/pond2.png" type="Texture" id=67]
+[ext_resource path="res://Music/forest final.ogg" type="AudioStream" id=68]
+[ext_resource path="res://Music/Outer Village.ogg" type="AudioStream" id=69]
+[ext_resource path="res://Music/spawn final.ogg" type="AudioStream" id=70]
+[ext_resource path="res://Music/desert final.ogg" type="AudioStream" id=71]
+[ext_resource path="res://Music/Kingdom final.ogg" type="AudioStream" id=72]
+[ext_resource path="res://Music/zen final.ogg" type="AudioStream" id=73]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -764,7 +770,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 2
+frame = 6
 speed_scale = 0.5
 playing = true
 
@@ -1079,6 +1085,7 @@ texture = ExtResource( 38 )
 position = Vector2( 960, 65 )
 script = ExtResource( 51 )
 Item_to_give = "fishingbait"
+bugnet = true
 ui_text_pickup = "Firefly bait"
 
 [node name="firefly_sprite" type="Sprite" parent="Interactives/Fireflies"]
@@ -1630,6 +1637,10 @@ area = "Start"
 visible = false
 shape = SubResource( 32 )
 
+[node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
+stream = ExtResource( 70 )
+volume_db = -10.0
+
 [node name="Forest" type="Area2D" parent="region_audio"]
 position = Vector2( 2607.81, -16.9705 )
 script = ExtResource( 57 )
@@ -1677,6 +1688,10 @@ max_distance = 500.0
 attenuation = 0.784585
 bus = "trees"
 
+[node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
+stream = ExtResource( 68 )
+volume_db = -10.0
+
 [node name="Garden" type="Area2D" parent="region_audio"]
 position = Vector2( 1470.78, -972.979 )
 script = ExtResource( 57 )
@@ -1685,6 +1700,10 @@ area = "Garden"
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
 shape = SubResource( 33 )
+
+[node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
+stream = ExtResource( 73 )
+volume_db = -10.0
 
 [node name="Kingdom" type="Area2D" parent="region_audio"]
 position = Vector2( -690.136, -1046.52 )
@@ -1695,6 +1714,10 @@ area = "Kingdom"
 visible = false
 shape = SubResource( 32 )
 
+[node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
+stream = ExtResource( 72 )
+volume_db = -10.0
+
 [node name="Desert" type="Area2D" parent="region_audio"]
 position = Vector2( 920.693, -2171.56 )
 script = ExtResource( 57 )
@@ -1704,6 +1727,10 @@ area = "Desert"
 visible = false
 shape = SubResource( 34 )
 
+[node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
+stream = ExtResource( 71 )
+volume_db = -10.0
+
 [node name="Village" type="Area2D" parent="region_audio"]
 position = Vector2( 2831.92, -1803.29 )
 script = ExtResource( 57 )
@@ -1712,6 +1739,10 @@ area = "Village"
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
 shape = SubResource( 32 )
+
+[node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
+stream = ExtResource( 69 )
+volume_db = -10.0
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
