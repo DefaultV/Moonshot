@@ -40,8 +40,13 @@ func _process(delta):
 					get_parent().leave();
 				if (len(endMonologue) > 0):
 					get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(endMonologue, get_child(1).get_global_position());
+					if spawnItemOnEnd:
+						get_node(itemToEnable).show();
+						get_node(itemToEnable).get_child(1).disabled = false;
 
 export var endMonologue:PoolStringArray;
+export var spawnItemOnEnd:bool = false;
+export var itemToEnable:NodePath;
 export var item_fetch:String;
 export var hook_zoom_amount: Vector2;
 export var speech: String;

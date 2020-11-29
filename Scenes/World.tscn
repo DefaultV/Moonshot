@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -73,6 +73,7 @@
 [ext_resource path="res://Music/desert final.ogg" type="AudioStream" id=71]
 [ext_resource path="res://Music/Kingdom final.ogg" type="AudioStream" id=72]
 [ext_resource path="res://Music/zen final.ogg" type="AudioStream" id=73]
+[ext_resource path="res://Sprites_textures/icon.png" type="Texture" id=74]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 16, 32, 32, 64, 16, 32, 0 )
@@ -770,7 +771,7 @@ position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 z_index = 2
 frames = SubResource( 13 )
-frame = 5
+frame = 4
 speed_scale = 0.5
 playing = true
 
@@ -991,6 +992,8 @@ texture = ExtResource( 52 )
 position = Vector2( -608.767, -1103.63 )
 script = ExtResource( 3 )
 endMonologue = PoolStringArray( "And so, I was banished from the kingdom!", "Some of us wore items that has never been seen in our world!" )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../planks")
 hook_zoom_amount = Vector2( 0.3, 0.3 )
 speech_array = PoolStringArray( "We have found these nice things! We feel like we are imporant now.", "Debug debug" )
 zoom_guide = true
@@ -1076,6 +1079,34 @@ texture = ExtResource( 38 )
 
 [node name="bg_white" type="Sprite" parent="Interactives/Book"]
 self_modulate = Color( 1, 0.960938, 0, 1 )
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.08, 0.16 )
+texture = ExtResource( 38 )
+
+[node name="planks" type="Area2D" parent="Interactives"]
+visible = false
+position = Vector2( -216.232, -816.47 )
+script = ExtResource( 51 )
+Item_to_give = "planks"
+ui_text_pickup = "Wooden planks"
+
+[node name="plank_sprite" type="Sprite" parent="Interactives/planks"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 74 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/planks"]
+position = Vector2( 1.12372, -5.24405 )
+shape = SubResource( 17 )
+disabled = true
+
+[node name="bg_black" type="Sprite" parent="Interactives/planks"]
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 38 )
+
+[node name="bg_white" type="Sprite" parent="Interactives/planks"]
 show_behind_parent = true
 position = Vector2( 0, -5 )
 scale = Vector2( 0.08, 0.16 )
@@ -1639,7 +1670,7 @@ shape = SubResource( 32 )
 
 [node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
 stream = ExtResource( 70 )
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="Forest" type="Area2D" parent="region_audio"]
 position = Vector2( 2607.81, -16.9705 )
@@ -1690,7 +1721,7 @@ bus = "trees"
 
 [node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 68 )
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="Garden" type="Area2D" parent="region_audio"]
 position = Vector2( 1470.78, -972.979 )
@@ -1703,7 +1734,7 @@ shape = SubResource( 33 )
 
 [node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
 stream = ExtResource( 73 )
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="Kingdom" type="Area2D" parent="region_audio"]
 position = Vector2( -690.136, -1046.52 )
@@ -1716,7 +1747,7 @@ shape = SubResource( 32 )
 
 [node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
 stream = ExtResource( 72 )
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="Desert" type="Area2D" parent="region_audio"]
 position = Vector2( 920.693, -2171.56 )
@@ -1729,7 +1760,7 @@ shape = SubResource( 34 )
 
 [node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
 stream = ExtResource( 71 )
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="Village" type="Area2D" parent="region_audio"]
 position = Vector2( 2831.92, -1803.29 )
@@ -1742,7 +1773,7 @@ shape = SubResource( 32 )
 
 [node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
 stream = ExtResource( 69 )
-volume_db = -10.0
+volume_db = -30.0
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Objects/Tent8/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]

@@ -127,7 +127,6 @@ texture = ExtResource( 6 )
 [node name="bg_chimes" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -10.0
-autoplay = true
 
 [node name="shake" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
@@ -156,7 +155,7 @@ trailLength = 50
 
 [node name="text_continue" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="tent_open" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
