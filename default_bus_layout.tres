@@ -1,8 +1,15 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" load_steps=3 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
 hipass = 0.44
+
+[sub_resource type="AudioEffectEQ" id=2]
+resource_name = "EQ"
+band_db/32_hz = -60.0
+band_db/100_hz = -60.0
+band_db/320_hz = -60.0
+band_db/1000_hz = -2.6
 
 [resource]
 bus/1/name = "river"
@@ -25,3 +32,47 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = -22.5766
 bus/3/send = "Master"
+bus/4/name = "Music Main"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = "Master"
+bus/5/name = "village music"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -1.31927
+bus/5/send = "Music Main"
+bus/6/name = "forest music"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = -1.32149
+bus/6/send = "Music Main"
+bus/7/name = "zen music"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = -0.128275
+bus/7/send = "Music Main"
+bus/7/effect/0/effect = SubResource( 2 )
+bus/7/effect/0/enabled = true
+bus/8/name = "kingdom music"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = -1.31927
+bus/8/send = "Music Main"
+bus/9/name = "desert music"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = "Music Main"
+bus/10/name = "spawn music"
+bus/10/solo = false
+bus/10/mute = false
+bus/10/bypass_fx = false
+bus/10/volume_db = 0.0
+bus/10/send = "Music Main"
