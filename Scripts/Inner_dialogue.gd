@@ -64,6 +64,8 @@ func _process(delta):
 			uishader.material.set_shader_param("white_fade", fade_amount);
 			inner_pic.self_modulate.a = fade_amount_pic;
 			ply.cinematic = false;
+			ply.canPressSpace = true;
+			#print("end cinematic");
 			#self_modulate.a = fade_amount;
 			#hide();
 

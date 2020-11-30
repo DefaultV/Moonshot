@@ -30,7 +30,7 @@ func dialogue_state(vis):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ply.cinematic:
-		if Input.is_action_just_released("space") and this:
+		if Input.is_action_just_released("space") and this and ply.canPressSpace:
 			ply.playtextblurp()
 			if not next_dialogue_part() or visited:
 				dialogue_state(false)
@@ -39,6 +39,8 @@ func _process(delta):
 				if (leave_when_spoken):
 					get_parent().leave();
 				if (len(endMonologue) > 0):
+					ply.cinematic = true;
+					ply.canPressSpace = false;
 					get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(endMonologue, get_child(1).get_global_position());
 					if spawnItemOnEnd:
 						get_node(itemToEnable).show();

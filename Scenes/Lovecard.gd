@@ -12,13 +12,14 @@ func _ready():
 	connect("body_entered", self, "_on_body_enter");
 	ply = get_node("/root/World/Player");
 	pickup_ui = get_node("/root/World/UI/Itempickup");
-
+var pickedup:bool = false;
 func _on_body_enter(body):
-	if (body.name == "Player"):
+	if (body.name == "Player") and not pickedup:
 		print("body")
 		hide();
 		ply.playinventory();
 		pickup_show();
+		pickedup = true;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

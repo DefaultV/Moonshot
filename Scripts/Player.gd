@@ -19,7 +19,7 @@ export var max_speed = 0.75;
 var dir : Vector2 = Vector2.ZERO;
 var movetopos = Vector2.ZERO;
 var cinematic = false;
-
+var canPressSpace = true;
 var Inventory:PoolStringArray = [];
 var qcompleted:PoolStringArray;
 func getItemFromInventory(search_item:String) -> bool: 
