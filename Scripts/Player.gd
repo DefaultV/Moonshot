@@ -109,9 +109,11 @@ func input(delta):
 	if Input.is_action_pressed("a") and Input.is_action_pressed("s"):
 		force = Vector2.LEFT* delta * speed;
 		force += Vector2.DOWN*side_run * delta * speed;
+		front_run = false;
 	if Input.is_action_pressed("d") and Input.is_action_pressed("s"):
 		force = Vector2.RIGHT* delta * speed;
 		force += Vector2.DOWN*side_run * delta * speed;
+		front_run = false;
 	apply_central_impulse(force.normalized() * max_speed * delta);
 
 	## MOUSE CONTROLS ##
@@ -139,6 +141,7 @@ func playshake():
 func playtent(state:bool):
 	if state:
 		$tent_open.play();
+		clearfootsteps();
 	else:
 		$tent_close.play();
 
@@ -169,4 +172,8 @@ var newpos = Vector2.ZERO;
 func _integrate_forces(state):
 	if reset_state:
 		state.transform = Transform2D(0.0, newpos)
+		clearfootsteps();
 		reset_state = false
+
+func clearfootsteps():
+	$globalparentline/Line2D.remove_footsteps();

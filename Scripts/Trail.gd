@@ -25,3 +25,7 @@ func _process(delta):
 		cd += delta;
 	#if get_point_count() > trailLength:
 	#	remove_point(0);
+
+func remove_footsteps():
+	print("clearing steps");
+	clear_points();

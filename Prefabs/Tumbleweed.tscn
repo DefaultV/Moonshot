@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Tumbleweed.gd" type="Script" id=1]
+[ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=2]
+[ext_resource path="res://spacey's space/vegetation/tumbleweed.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=28]
+resource_name = "tumble"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tumblesprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50 ), Vector2( 0, 3.8147e-06 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tumblesprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1440.0 ]
+}
+
+[node name="Tumbleweed" type="Node2D"]
+position = Vector2( 99.1763, 686.029 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "tumble"
+anims/tumble = SubResource( 28 )
+
+[node name="tumblesprite" type="Sprite" parent="."]
+position = Vector2( 0, 4.95137 )
+rotation = 23.9072
+texture = ExtResource( 3 )
+
+[node name="tumblesprite2" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 1.40305, 29.4646 )
+texture = ExtResource( 2 )
