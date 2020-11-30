@@ -101,7 +101,7 @@ position = Vector2( 1.83516, 1.01953 )
 rotation = 0.0329933
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
-frame = 7
+frame = 11
 speed_scale = 2.0
 playing = true
 
@@ -133,7 +133,7 @@ visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 2 )
-frame = 5
+frame = 1
 speed_scale = 2.4
 playing = true
 
@@ -142,7 +142,6 @@ visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 3 )
-frame = 4
 speed_scale = 2.4
 playing = true
 
@@ -152,7 +151,6 @@ stream = ExtResource( 4 )
 [node name="Winddry" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -15.0
-autoplay = true
 
 [node name="shadow" type="Sprite" parent="."]
 show_behind_parent = true

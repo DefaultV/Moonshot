@@ -9,3 +9,5 @@ export_presets.cfg
 data_*/
 *.*~
 *.import
+build/*
+build/

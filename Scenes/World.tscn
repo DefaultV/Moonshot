@@ -1,9 +1,9 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Dialogue_on_coll.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Fogged.gd" type="Script" id=4]
+[ext_resource path="res://spacey's space/bears/berry bear.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Inside.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Dialogue.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Inner_dialogue.gd" type="Script" id=7]
@@ -23,10 +23,13 @@
 [ext_resource path="res://spacey's space/bridge_broken.png" type="Texture" id=21]
 [ext_resource path="res://Sprites_textures/Mullar_tent_plane.png" type="Texture" id=22]
 [ext_resource path="res://Sprites_textures/Mullar_tent_trans.png" type="Texture" id=23]
-[ext_resource path="res://Sprites_textures/Mullar_tent_shaodw.png" type="Texture" id=24]
+[ext_resource path="res://spacey's space/vegetation/berry bush.png" type="Texture" id=24]
 [ext_resource path="res://Sprites_textures/Mullar_tent_plane_interior.png" type="Texture" id=25]
 [ext_resource path="res://Sprites_textures/map.png" type="Texture" id=26]
 [ext_resource path="res://Prefabs/idle_frames.tres" type="SpriteFrames" id=27]
+[ext_resource path="res://spacey's space/oge.png" type="Texture" id=28]
+[ext_resource path="res://spacey's space/spikes.png" type="Texture" id=29]
+[ext_resource path="res://spacey's space/items/red berries.png" type="Texture" id=30]
 [ext_resource path="res://SFX/Objects/fish_reel.wav" type="AudioStream" id=31]
 [ext_resource path="res://SFX/Ambient/wind and trees/wind.ogg" type="AudioStream" id=35]
 [ext_resource path="res://Scripts/Shaders/multishader.shader" type="Shader" id=36]
@@ -67,7 +70,7 @@
 [ext_resource path="res://spacey's space/items/plank.png" type="Texture" id=74]
 [ext_resource path="res://Scenes/bridge.gd" type="Script" id=75]
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 60 ), ExtResource( 18 ) ],
 "loop": true,
@@ -75,13 +78,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16.438, 16.0108 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12.6929, 14.6457 )
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 42 ) ],
 "loop": true,
@@ -89,26 +92,43 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="OccluderPolygon2D" id=14]
+[sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( 8.6236, 13.7312, 11.2894, 13.17, 14.3762, 11.4863, 17.6033, 7.13672, 18.1075, 1.39032, 17.6866, -3.80109, 15.2312, -11.3076, 14.249, -14.8152, 10.1801, -11.9389, 4.21704, -10.8165, 1.55115, -12.1494, 4.56781, -1.7666, 3.72595, -0.784454, -3.71039, -6.6774, -13.3214, -10.8165, -3.92084, -4.92355, 2.81396, 1.88138, 2.95422, 4.82785, 4.21704, 5.45923, 5.05884, 6.16077, 4.21704, 7.84448, 0.989929, 9.87894, 1.20038, 10.9312, 2.39301, 11.4925, 4.49762, 11.4223, 6.74255, 11.2119, 8.77704, 10.7909, 9.68903, 10.5805, 7.37396, 12.8955, 7.58441, 13.5269 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 26.3247, 26.8811 )
 
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 65.2896, 10 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 286.469, 22.3628 )
 
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 9.37006, 9.49643 )
+[sub_resource type="Animation" id=26]
+resource_name = "ogi_hover"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -672.517, -1239.11 ), Vector2( -672.517, -1245 ), Vector2( -672.517, -1239.11 ) ]
+}
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 24.4524, 19.2031 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 17.4214, 16.1535 )
 
-[sub_resource type="Gradient" id=19]
+[sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0, 0.189189, 0.832432, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=11]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -124,37 +144,40 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -15 ), Vector2( 0, -20 ), Vector2( 0, -15 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=35]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 193.226, 110.852 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 108.867, 51.7431 )
 
-[sub_resource type="Gradient" id=22]
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 138.39, 86.623 )
+
+[sub_resource type="Gradient" id=14]
 offsets = PoolRealArray( 0, 0.329032, 0.529032, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.317413, 0.401831, 0.427673, 1, 0.808594, 0.808594, 0.808594, 1, 0.727692, 0.921224, 0.980469, 1 )
 
-[sub_resource type="GradientTexture" id=23]
-gradient = SubResource( 22 )
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
-[sub_resource type="Gradient" id=24]
+[sub_resource type="Gradient" id=16]
 offsets = PoolRealArray( 0, 0.227027, 0.675676, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 11.8167, 15.4896 )
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 150, 150 )
 
-[sub_resource type="DynamicFont" id=28]
+[sub_resource type="DynamicFont" id=19]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=29]
+[sub_resource type="ShaderMaterial" id=20]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -168,21 +191,21 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=30]
+[sub_resource type="DynamicFont" id=21]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=31]
+[sub_resource type="DynamicFont" id=22]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=32]
+[sub_resource type="CircleShape2D" id=23]
 radius = 1036.56
 
-[sub_resource type="CircleShape2D" id=33]
+[sub_resource type="CircleShape2D" id=24]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=34]
+[sub_resource type="CircleShape2D" id=25]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -225,6 +248,7 @@ format = 1
 tile_data = PoolIntArray( -5308427, 4, 0, -5308426, 4, 0, -5308425, 4, 0, -5242892, 4, 0, -5242891, 4, 0, -5242890, 4, 0, -5242889, 4, 0, -5242888, 4, 0, -5242884, 4, 0, -5242883, 4, 0, -5242882, 4, 0, -5177356, 4, 0, -5177355, 4, 0, -5177354, 4, 0, -5177353, 4, 0, -5177352, 4, 0, -5177350, 4, 0, -5177349, 4, 0, -5177348, 4, 0, -5177346, 4, 0, -5177345, 4, 0, -5111821, 4, 0, -5111820, 4, 0, -5111819, 4, 0, -5111818, 4, 0, -5111817, 4, 0, -5111816, 4, 0, -5111815, 4, 0, -5111814, 4, 0, -5111809, 4, 0, -5046286, 4, 0, -5046285, 4, 0, -5046284, 4, 0, -5046283, 4, 0, -5046282, 4, 0, -5046281, 4, 0, -5046280, 4, 0, -5046279, 4, 0, -5046273, 4, 0, -4980750, 4, 0, -4980749, 4, 0, -4980748, 4, 0, -4980747, 4, 0, -4980746, 4, 0, -4980745, 4, 0, -4980737, 4, 0, -4915214, 4, 0, -4915213, 4, 0, -4915212, 4, 0, -4915211, 4, 0, -4915210, 4, 0, -4915209, 4, 0, -4915201, 4, 0, -4849679, 4, 0, -4849678, 4, 0, -4849677, 4, 0, -4849676, 4, 0, -4849675, 4, 0, -4849674, 4, 0, -4849665, 4, 0, -4784145, 4, 0, -4784144, 4, 0, -4784143, 4, 0, -4784142, 4, 0, -4784141, 4, 0, -4784140, 4, 0, -4784139, 4, 0, -4784138, 4, 0, -4784129, 4, 0, -4718611, 4, 0, -4718610, 4, 0, -4718609, 4, 0, -4718606, 4, 0, -4718605, 4, 0, -4718604, 4, 0, -4718603, 4, 0, -4718594, 4, 0, -4653076, 4, 0, -4653075, 4, 0, -4653069, 4, 0, -4653068, 4, 0, -4653058, 4, 0, -4587541, 13, 0, -4587540, 4, 0, -4587523, 4, 0, -4587522, 4, 0, -4522007, 13, 0, -4522006, 13, 0, -4522005, 13, 0, -4521987, 4, 0, -4587513, 4, 0, -4456471, 13, 0, -4456451, 4, 0, -4521979, 4, 0, -4521978, 4, 0, -4521977, 4, 0, -4521976, 4, 0, -4521975, 4, 0, -4390936, 13, 0, -4390935, 13, 0, -4390915, 4, 0, -4456443, 4, 0, -4456439, 4, 0, -4456438, 4, 0, -4325399, 13, 0, -4325380, 4, 0, -4325379, 4, 0, -4390908, 4, 0, -4390902, 4, 0, -4259863, 13, 0, -4259844, 4, 0, -4325372, 4, 0, -4325365, 4, 0, -4194327, 13, 0, -4194308, 4, 0, -4259836, 4, 0, -4259829, 4, 0, -4259828, 4, 0, -4128791, 13, 0, -4128790, 13, 0, -4128789, 13, 0, -4128772, 4, 0, -4194300, 4, 0, -4194292, 4, 0, -4063254, 13, 0, -4063253, 13, 0, -4063236, 4, 0, -4128764, 4, 0, -4128756, 4, 0, -4128755, 4, 0, -3997717, 13, 0, -3997700, 4, 0, -4063228, 4, 0, -4063219, 4, 0, -3932181, 13, 0, -3932164, 4, 0, -3997692, 4, 0, -3997683, 4, 0, -3997682, 4, 0, -3866645, 13, 0, -3866644, 13, 0, -3866628, 4, 0, -3932156, 4, 0, -3932146, 4, 0, -3801108, 13, 0, -3801092, 4, 0, -3866620, 4, 0, -3866609, 4, 0, -3735572, 13, 0, -3735556, 4, 0, -3801084, 4, 0, -3801073, 4, 0, -3670053, 23, 0, -3670041, 23, 0, -3670037, 13, 0, -3670036, 13, 0, -3670021, 4, 0, -3670020, 4, 0, -3735548, 4, 0, -3735536, 4, 0, -3604513, 23, 0, -3604509, 23, 0, -3604501, 13, 0, -3604500, 13, 0, -3604484, 4, 0, -3670012, 4, 0, -3670000, 4, 0, -3669999, 4, 0, -3538984, 23, 0, -3538966, 13, 0, -3538965, 13, 0, -3538948, 4, 0, -3604477, 4, 0, -3604476, 4, 0, -3604463, 4, 0, -3604462, 4, 0, -3473431, 13, 0, -3473430, 13, 0, -3473412, 4, 0, -3473411, 4, 0, -3473410, 4, 0, -3538942, 4, 0, -3538941, 4, 0, -3538926, 4, 0, -3538925, 4, 0, -3407908, 23, 0, -3407895, 13, 0, -3407873, 4, 0, -3473408, 4, 0, -3473407, 4, 0, -3473406, 4, 0, -3473389, 4, 0, -3473388, 4, 0, -3342368, 23, 0, -3342364, 23, 0, -3407852, 4, 0, -3407851, 4, 0, -3276801, 4, 0, -3342315, 4, 0, -3342314, 4, 0, -3342313, 4, 0, -3276777, 4, 0, -3276776, 4, 0, -3276775, 4, 0, -3276774, 4, 0, -3145764, 23, 0, -3145760, 23, 0, -3145756, 23, 0, -3211237, 4, 0, -3211236, 4, 0, -3080194, 4, 0, -3145700, 4, 0, -3145699, 4, 0, -3145698, 4, 0, -3080162, 4, 0, -3080161, 4, 0, -2949152, 8, 0, -2949122, 4, 0, -3014624, 4, 0, -2883620, 23, 0, -2883616, 23, 0, -2883612, 23, 0, -2949088, 4, 0, -2949087, 4, 0, -2883551, 4, 0, -2883550, 4, 0, -2752514, 4, 0, -2818014, 4, 0, -2818013, 4, 0, -2752477, 4, 0, -2752476, 4, 0, -2621469, 23, 0, -2686940, 4, 0, -2686939, 4, 0, -2555939, 23, 0, -2555936, 13, 0, -2555935, 13, 0, -2555909, 4, 0, -2555908, 4, 0, -2555907, 4, 0, -2555906, 4, 0, -2555905, 4, 0, -2621440, 4, 0, -2621413, 4, 0, -2621412, 4, 0, -2621411, 4, 0, -2621410, 4, 0, -2621409, 4, 0, -2621403, 4, 0, -2621402, 4, 0, -2490400, 13, 0, -2490374, 4, 0, -2490373, 4, 0, -2555904, 4, 0, -2555878, 4, 0, -2555877, 4, 0, -2555872, 4, 0, -2555871, 4, 0, -2555866, 4, 0, -2424864, 13, 0, -2424863, 13, 0, -2424839, 4, 0, -2424838, 4, 0, -2490367, 4, 0, -2490342, 4, 0, -2490335, 4, 0, -2490329, 4, 0, -2359327, 13, 0, -2359303, 4, 0, -2424830, 4, 0, -2424807, 4, 0, -2424806, 4, 0, -2424799, 4, 0, -2424793, 4, 0, -2424792, 4, 0, -2293791, 13, 0, -2293767, 4, 0, -2359294, 4, 0, -2359293, 4, 0, -2359292, 4, 0, -2359272, 4, 0, -2359271, 4, 0, -2359270, 4, 0, -2359267, 10, 0, -2359262, 4, 0, -2359256, 4, 0, -2228258, 23, 0, -2228255, 13, 0, -2228231, 4, 0, -2293757, 4, 0, -2293756, 4, 0, -2293748, 18, 0, -2293737, 4, 0, -2293736, 4, 0, -2293734, 4, 0, -2293726, 4, 0, -2293720, 4, 0, -2293719, 4, 0, -2162719, 13, 0, -2162695, 4, 0, -2228221, 4, 0, -2228220, 4, 0, -2228202, 4, 0, -2228201, 4, 0, -2228198, 4, 0, -2228191, 4, 0, -2228190, 4, 0, -2228183, 4, 0, -2097183, 13, 0, -2097182, 13, 0, -2097159, 4, 0, -2162686, 4, 0, -2162685, 4, 0, -2162681, 4, 0, -2162666, 4, 0, -2162662, 4, 0, -2162655, 4, 0, -2162646, 4, 0, -2031646, 13, 0, -2031645, 13, 0, -2031623, 4, 0, -2031622, 4, 0, -2097151, 4, 0, -2097150, 4, 0, -2097130, 4, 0, -2097126, 4, 0, -2097119, 4, 0, -2097110, 4, 0, -2097109, 4, 0, -1966109, 13, 0, -1966108, 13, 0, -1966086, 4, 0, -1966085, 4, 0, -1966084, 4, 0, -1966083, 4, 0, -1966082, 4, 0, -1966081, 4, 0, -2031616, 4, 0, -2031615, 4, 0, -2031607, 4, 0, -2031604, 18, 0, -2031595, 4, 0, -2031594, 4, 0, -2031590, 4, 0, -2031583, 4, 0, -2031573, 4, 0, -1900572, 13, 0, -1900571, 13, 0, -1966059, 4, 0, -1966054, 4, 0, -1966053, 4, 0, -1966048, 4, 0, -1966047, 4, 0, -1966036, 4, 0, -1835035, 13, 0, -1835034, 13, 0, -1835033, 4, 0, -1900530, 4, 0, -1900523, 4, 0, -1900517, 4, 0, -1900516, 4, 0, -1900513, 4, 0, -1900512, 4, 0, -1900510, 4, 0, -1900500, 4, 0, -1900499, 4, 0, -1769497, 4, 0, -1769496, 4, 0, -1834987, 4, 0, -1834980, 4, 0, -1834979, 4, 0, -1834978, 4, 0, -1834977, 4, 0, -1834974, 4, 0, -1834973, 4, 0, -1834963, 4, 0, -1703959, 4, 0, -1769460, 18, 0, -1769451, 4, 0, -1769437, 4, 0, -1769426, 4, 0, -1638423, 4, 0, -1638422, 4, 0, -1703916, 4, 0, -1703915, 4, 0, -1703901, 4, 0, -1703900, 4, 0, -1703890, 4, 0, -1572886, 4, 0, -1638380, 4, 0, -1638364, 4, 0, -1638353, 4, 0, -1507350, 4, 0, -1572852, 18, 0, -1572844, 4, 0, -1572827, 4, 0, -1572817, 4, 0, -1572816, 4, 0, -1441814, 4, 0, -1507308, 4, 0, -1507291, 4, 0, -1507290, 4, 0, -1507280, 4, 0, -1376278, 4, 0, -1441772, 4, 0, -1441754, 4, 0, -1441753, 4, 0, -1441744, 4, 0, -1310742, 4, 0, -1310741, 4, 0, -1376217, 4, 0, -1376216, 4, 0, -1376209, 4, 0, -1376208, 4, 0, -1245205, 4, 0, -1310708, 19, 0, -1310704, 17, 0, -1310700, 17, 0, -1310696, 17, 0, -1310680, 4, 0, -1310679, 4, 0, -1310673, 4, 0, -1179679, 4, 0, -1179677, 4, 0, -1179669, 4, 0, -1179668, 4, 0, -1245143, 4, 0, -1245142, 4, 0, -1245138, 4, 0, -1114145, 4, 0, -1114139, 4, 0, -1114132, 4, 0, -1179631, 4, 0, -1179630, 4, 0, -1179629, 4, 0, -1179606, 4, 0, -1179605, 4, 0, -1179604, 4, 0, -1179603, 4, 0, -1048598, 2, 0, -1048596, 4, 0, -1114095, 4, 0, -1114094, 4, 0, -1114093, 4, 0, -1114092, 4, 0, -983074, 4, 0, -983066, 4, 0, -983060, 4, 0, -983057, 4, 0, -983056, 4, 0, -983055, 4, 0, -983054, 4, 0, -983053, 4, 0, -1048559, 4, 0, -1048558, 4, 0, -1048557, 4, 0, -917524, 4, 0, -917523, 4, 0, -917522, 4, 0, -917521, 4, 0, -917517, 4, 0, -917516, 4, 0, -983024, 4, 0, -983023, 4, 0, -983022, 4, 0, -983021, 4, 0, -851995, 4, 0, -851994, 4, 0, -851993, 4, 0, -851992, 4, 0, -851991, 4, 0, -851990, 4, 0, -851989, 4, 0, -851988, 4, 0, -851987, 4, 0, -851980, 4, 0, -851979, 4, 0, -851978, 4, 0, -917489, 4, 0, -917488, 4, 0, -917487, 4, 0, -917486, 4, 0, -786466, 4, 0, -786442, 4, 0, -786441, 4, 0, -786440, 4, 0, -786439, 4, 0, -786438, 4, 0, -786437, 4, 0, -786436, 4, 0, -851953, 4, 0, -851952, 4, 0, -851951, 4, 0, -720923, 4, 0, -720900, 4, 0, -720899, 4, 0, -720898, 4, 0, -720897, 4, 0, -786432, 4, 0, -786419, 4, 0, -786418, 4, 0, -786417, 4, 0, -786416, 4, 0, -655392, 4, 0, -655389, 4, 0, -655361, 4, 0, -720896, 4, 0, -720895, 4, 0, -720883, 4, 0, -720882, 4, 0, -720881, 4, 0, -589825, 4, 0, -655360, 4, 0, -655359, 4, 0, -655358, 4, 0, -655357, 4, 0, -655347, 4, 0, -655346, 4, 0, -655345, 4, 0, -589822, 4, 0, -589821, 4, 0, -589817, 4, 0, -589816, 4, 0, -589815, 4, 0, -589814, 4, 0, -589813, 4, 0, -589812, 4, 0, -589811, 4, 0, -589810, 4, 0, -524286, 4, 0, -524285, 4, 0, -524284, 4, 0, -524283, 4, 0, -524282, 4, 0, -524281, 4, 0, -524280, 4, 0, -524276, 4, 0, -524275, 4, 0, -458748, 4, 0, -458747, 4, 0, -458746, 4, 0, -458740, 4, 0, -393204, 4, 0, -327668, 4, 0, -262132, 4, 0, -196596, 4, 0, -131063, 4, 0, -131062, 4, 0, -131061, 4, 0, -131060, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, 8, 4, 0, 9, 4, 0, 12, 4, 0, 14, 4, 0, 65544, 4, 0, 65545, 4, 0, 65547, 10, 0, 65550, 4, 0, 65551, 4, 0, 131081, 4, 0, 131086, 4, 0, 196622, 4, 0, 262156, 4, 0, 327695, 3, 0 )
 
 [node name="water" type="StaticBody2D" parent="Tilemaps_behind/Tiles"]
+visible = false
 
 [node name="water_south" type="CollisionPolygon2D" parent="Tilemaps_behind/Tiles/water"]
 polygon = PoolVector2Array( 7214.82, 5180.79, 5732.94, 3019.31, 5657.42, 999.423, 5166.83, 628.493, 4820.35, 165.472, 4670, 56.25, 4532.43, 39.5264, 4424.81, 87.08, 4373.92, 162.999, 4403.95, 179.685, 4754.2, 603.295, 4678.61, 763.935, 4445.52, 848.979, 3188.75, 911.975, 2813.92, 1015.92, 2426.5, 1245.85, 2117.82, 1557.68, 1802.84, 1973.46, 1654.8, 2260.09, 1711.49, 2666.42, 1824.89, 2931, 1802.84, 3592.46, 1269.09, 5209.99 )
@@ -259,8 +283,7 @@ polygon = PoolVector2Array( -15.8241, 17.8058, -34.3647, 28.1356, -63.4999, 20.9
 [node name="pond" type="AnimatedSprite" parent="Tilemaps_behind/pond"]
 light_mask = -2147483647
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 11 )
-frame = 1
+frames = SubResource( 1 )
 speed_scale = 0.25
 playing = true
 
@@ -292,7 +315,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_forest"]
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="Sign_kingdom" type="Area2D" parent="Interactives"]
 position = Vector2( 488.557, -367.575 )
@@ -304,7 +327,14 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_kingdom"]
-shape = SubResource( 9 )
+visible = false
+shape = SubResource( 2 )
+
+[node name="shadow" type="Sprite" parent="Interactives/Sign_kingdom"]
+position = Vector2( 0, 11 )
+scale = Vector2( 0.27, 0.27 )
+z_index = -1
+texture = ExtResource( 41 )
 
 [node name="Sign_spawn" type="Area2D" parent="Interactives"]
 position = Vector2( 222.345, 604.713 )
@@ -316,7 +346,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_spawn"]
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="Sign_desert" type="Area2D" parent="Interactives"]
 position = Vector2( 178.902, -1316.61 )
@@ -328,7 +358,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Sign_desert"]
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="Fiske_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( 519.019, 329.152 )
@@ -342,7 +372,7 @@ speech_array = PoolStringArray( "Oh hello! I really enjoy fishing, I hope to cat
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Fiske_mullar"]
 position = Vector2( 8.62756, 0.359497 )
-shape = SubResource( 12 )
+shape = SubResource( 3 )
 
 [node name="shadow" type="Sprite" parent="Interactives/Fiske_mullar"]
 position = Vector2( 9.34399, 9.67761 )
@@ -352,8 +382,8 @@ texture = ExtResource( 41 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/Fiske_mullar"]
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
-frames = SubResource( 13 )
-frame = 7
+frames = SubResource( 4 )
+frame = 17
 speed_scale = 0.5
 playing = true
 
@@ -365,7 +395,7 @@ attenuation = 0.353554
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Interactives/Fiske_mullar"]
 visible = false
-occluder = SubResource( 14 )
+occluder = SubResource( 5 )
 
 [node name="Svampemullar" type="Area2D" parent="Interactives"]
 position = Vector2( 2769.8, -97.046 )
@@ -377,7 +407,7 @@ speech_fetch = "You found it! I'm so happy! Thank you so much!"
 speech_array = PoolStringArray( "You look very friendly! I\'m trying to pick some mushrooms!", "If you\'d like, you can help me out with it!", "I have lost my shroom-book, it has all my findings.", "It has a big mushroom on it! You can\'t miss it!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Svampemullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/Svampemullar"]
 scale = Vector2( 0.3, 0.3 )
@@ -391,7 +421,7 @@ hook_zoom_amount = Vector2( 0.2, 0.2 )
 speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/DesertMullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/DesertMullar"]
 scale = Vector2( 0.3, 0.3 )
@@ -405,7 +435,7 @@ hook_zoom_amount = Vector2( 0.2, 0.2 )
 speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/ZenMullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/ZenMullar"]
 scale = Vector2( 0.3, 0.3 )
@@ -414,16 +444,34 @@ texture = ExtResource( 9 )
 [node name="VillageMullar" type="Area2D" parent="Interactives"]
 position = Vector2( 2927.95, -2268.46 )
 script = ExtResource( 3 )
-item_fetch = "plan"
+item_fetch = "redberry"
 hook_zoom_amount = Vector2( 0.2, 0.2 )
-speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
+speech_array = PoolStringArray( "Artist debug" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/VillageMullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/VillageMullar"]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 11 )
+
+[node name="Berry_mullar" type="Area2D" parent="Interactives"]
+position = Vector2( 2578.53, -1487.75 )
+script = ExtResource( 3 )
+spawnRewardOnFetch = true
+rewardToEnable = NodePath("../red_berries")
+item_fetch = "berry"
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech = "The blue berries are so tasty!"
+speech_fetch = "You found some blue berries! ...Are they for me? I LOVE YOU!"
+speech_array = PoolStringArray( "Berries! I love berries!", "The blue ones taste so good, the red ones don\'t taste so well.", "I can only find red berries, if you find blue berries, I will trade you red berries!", "Berries!!!" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Berry_mullar"]
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/Berry_mullar"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
 
 [node name="NOQ_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -289.248, -967.96 )
@@ -434,14 +482,20 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/NOQ_mullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 10
+frame = 8
 speed_scale = 1.3
 playing = true
+
+[node name="shadow" type="Sprite" parent="Interactives/NOQ_mullar"]
+show_behind_parent = true
+position = Vector2( -1, 11 )
+scale = Vector2( 0.27, 0.27 )
+texture = ExtResource( 41 )
 
 [node name="NOQ_mullar2" type="Area2D" parent="Interactives"]
 position = Vector2( 366.103, -459.602 )
@@ -452,14 +506,20 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/NOQ_mullar2"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar2"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 8
+frame = 17
 speed_scale = 1.5
 playing = true
+
+[node name="shadow" type="Sprite" parent="Interactives/NOQ_mullar2"]
+show_behind_parent = true
+position = Vector2( -1, 11 )
+scale = Vector2( 0.27, 0.27 )
+texture = ExtResource( 41 )
 
 [node name="NOQ_mullar3" type="Area2D" parent="Interactives"]
 position = Vector2( 155.224, -1244.33 )
@@ -470,14 +530,20 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/NOQ_mullar3"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 3
+frame = 5
 speed_scale = 1.8
 playing = true
+
+[node name="shadow" type="Sprite" parent="Interactives/NOQ_mullar3"]
+show_behind_parent = true
+position = Vector2( -1, 11 )
+scale = Vector2( 0.27, 0.27 )
+texture = ExtResource( 41 )
 
 [node name="Speak_zone" type="Area2D" parent="Interactives"]
 position = Vector2( -608.767, -1103.63 )
@@ -485,6 +551,7 @@ script = ExtResource( 3 )
 endMonologue = PoolStringArray( "And so, I was banished from the kingdom!", "Some of us wore items that has never been seen in our world!" )
 spawnItemOnEnd = true
 itemToEnable = NodePath("../planks")
+itemToEnable2 = NodePath("../../Objects/Spike_gate")
 hook_zoom_amount = Vector2( 0.3, 0.3 )
 speech_array = PoolStringArray( "We have found these nice things! We feel like we are imporant now.", "Debug debug" )
 zoom_guide = true
@@ -495,11 +562,36 @@ chimeorshake = false
 position = Vector2( -59.9614, -89.5732 )
 
 [node name="guide2" type="Node2D" parent="Interactives/Speak_zone"]
-position = Vector2( 432.492, 255.96 )
+position = Vector2( 242.737, 195.826 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Speak_zone"]
+position = Vector2( -13.3484, 3.33716 )
 rotation = -0.246016
-shape = SubResource( 16 )
+shape = SubResource( 7 )
+
+[node name="Ogi" type="Node2D" parent="Interactives"]
+position = Vector2( -672.517, -1241.4 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactives/Ogi"]
+autoplay = "ogi_hover"
+anims/ogi_hover = SubResource( 26 )
+
+[node name="Sprite" type="Sprite" parent="Interactives/Ogi"]
+texture = ExtResource( 28 )
+
+[node name="Sprite2" type="Sprite" parent="Interactives/Ogi"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( -26.4868, -5.29688 )
+scale = Vector2( 1.5, 3 )
+texture = ExtResource( 38 )
+
+[node name="Sprite3" type="Sprite" parent="Interactives/Ogi"]
+show_behind_parent = true
+position = Vector2( -26.2841, -11.3811 )
+scale = Vector2( 1, 2 )
+texture = ExtResource( 38 )
 
 [node name="King_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -669.433, -1195.49 )
@@ -510,7 +602,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/King_mullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/King_mullar"]
 scale = Vector2( 0.04, 0.04 )
@@ -531,7 +623,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Queen_mullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/Queen_mullar"]
 scale = Vector2( 0.04, 0.04 )
@@ -552,7 +644,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/RoyalSon_mullar"]
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/RoyalSon_mullar"]
 scale = Vector2( 0.04, 0.04 )
@@ -570,7 +662,7 @@ texture = ExtResource( 61 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Book"]
 position = Vector2( 1.12372, -5.24405 )
-shape = SubResource( 17 )
+shape = SubResource( 8 )
 
 [node name="bg_black" type="Sprite" parent="Interactives/Book"]
 show_behind_parent = true
@@ -585,12 +677,123 @@ position = Vector2( 0, -5 )
 scale = Vector2( 0.08, 0.16 )
 texture = ExtResource( 38 )
 
+[node name="rug_meditation" type="Area2D" parent="Interactives"]
+position = Vector2( 1401.76, -834.05 )
+script = ExtResource( 51 )
+Item_to_give = "rug"
+ui_text_pickup = "Meditation Rug!"
+
+[node name="rug_sprite" type="Sprite" parent="Interactives/rug_meditation"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 61 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/rug_meditation"]
+position = Vector2( 1.12372, -5.24405 )
+shape = SubResource( 8 )
+
+[node name="bg_black" type="Sprite" parent="Interactives/rug_meditation"]
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 38 )
+
+[node name="bg_white" type="Sprite" parent="Interactives/rug_meditation"]
+self_modulate = Color( 0.101961, 1, 0, 1 )
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.08, 0.16 )
+texture = ExtResource( 38 )
+
+[node name="waterskin" type="Area2D" parent="Interactives"]
+position = Vector2( 655.886, -1857.11 )
+script = ExtResource( 51 )
+Item_to_give = "water"
+ui_text_pickup = "Waterskin!"
+
+[node name="water_sprite" type="Sprite" parent="Interactives/waterskin"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 61 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/waterskin"]
+position = Vector2( 1.12372, -5.24405 )
+shape = SubResource( 8 )
+
+[node name="bg_black" type="Sprite" parent="Interactives/waterskin"]
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 38 )
+
+[node name="bg_white" type="Sprite" parent="Interactives/waterskin"]
+self_modulate = Color( 0.639216, 0, 1, 1 )
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.08, 0.16 )
+texture = ExtResource( 38 )
+
+[node name="red_berries" type="Area2D" parent="Interactives"]
+visible = false
+position = Vector2( 2575.9, -1430.76 )
+script = ExtResource( 51 )
+Item_to_give = "redberry"
+ui_text_pickup = "Red berries for paint!"
+
+[node name="red_berry_sprite" type="Sprite" parent="Interactives/red_berries"]
+position = Vector2( 0, -4.76221 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 30 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/red_berries"]
+position = Vector2( 1.12372, -5.24405 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="bg_black" type="Sprite" parent="Interactives/red_berries"]
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 38 )
+
+[node name="bg_white" type="Sprite" parent="Interactives/red_berries"]
+self_modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( 0, -5 )
+scale = Vector2( 0.08, 0.16 )
+texture = ExtResource( 38 )
+
+[node name="Berrybush" type="Area2D" parent="Interactives"]
+position = Vector2( 2853.69, -1587.58 )
+script = ExtResource( 51 )
+Item_to_give = "berry"
+ui_text_pickup = "Blue berries!"
+
+[node name="Book_sprite" type="Sprite" parent="Interactives/Berrybush"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Berrybush"]
+position = Vector2( 1.12372, 3.16501 )
+shape = SubResource( 8 )
+
+[node name="bg_black" type="Sprite" parent="Interactives/Berrybush"]
+show_behind_parent = true
+position = Vector2( 1.5, -17 )
+scale = Vector2( 0.1, 0.2 )
+texture = ExtResource( 38 )
+
+[node name="bg_white" type="Sprite" parent="Interactives/Berrybush"]
+self_modulate = Color( 0.756863, 0, 1, 1 )
+show_behind_parent = true
+position = Vector2( 1.5, -17 )
+scale = Vector2( 0.08, 0.16 )
+texture = ExtResource( 38 )
+
 [node name="planks" type="Area2D" parent="Interactives"]
 visible = false
-position = Vector2( -216.232, -816.47 )
+position = Vector2( -436.159, -873.652 )
 script = ExtResource( 51 )
 Item_to_give = "planks"
-ui_text_pickup = "Wooden planks"
+ui_text_pickup = "Wooden planks!"
 
 [node name="plank_sprite" type="Sprite" parent="Interactives/planks"]
 scale = Vector2( 0.4, 0.4 )
@@ -598,7 +801,7 @@ texture = ExtResource( 74 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/planks"]
 position = Vector2( 1.12372, -5.24405 )
-shape = SubResource( 17 )
+shape = SubResource( 8 )
 disabled = true
 
 [node name="bg_black" type="Sprite" parent="Interactives/planks"]
@@ -619,14 +822,14 @@ position = Vector2( 960, 65 )
 script = ExtResource( 51 )
 Item_to_give = "fishingbait"
 bugnet = true
-ui_text_pickup = "Firefly bait"
+ui_text_pickup = "Firefly bait!"
 
 [node name="firefly_sprite" type="Sprite" parent="Interactives/Fireflies"]
 visible = false
 texture = ExtResource( 46 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Fireflies"]
-shape = SubResource( 18 )
+shape = SubResource( 9 )
 
 [node name="firefly" type="CPUParticles2D" parent="Interactives/Fireflies"]
 modulate = Color( 1, 0.952941, 0.462745, 1 )
@@ -646,7 +849,7 @@ orbit_velocity = 0.5
 orbit_velocity_random = 0.63
 scale_amount = 0.1
 scale_amount_random = 0.2
-color_ramp = SubResource( 19 )
+color_ramp = SubResource( 10 )
 hue_variation = 0.02
 hue_variation_random = 1.0
 
@@ -660,7 +863,7 @@ texture = ExtResource( 62 )
 autoplay = "Net_hover"
 playback_speed = 0.5
 method_call_mode = 1
-anims/Net_hover = SubResource( 20 )
+anims/Net_hover = SubResource( 11 )
 
 [node name="bg_black" type="Sprite" parent="Interactives/Fireflies/Net"]
 show_behind_parent = true
@@ -695,7 +898,7 @@ script = ExtResource( 75 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bridge_forest/Bridge_area"]
 position = Vector2( -38.6055, -68.3018 )
 rotation = -0.97362
-shape = SubResource( 35 )
+shape = SubResource( 12 )
 
 [node name="river sound" type="AudioStreamPlayer2D" parent="Objects/Bridge_forest"]
 position = Vector2( 0, 1.0611 )
@@ -711,20 +914,13 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 14 )
 flip_h = true
 
-[node name="Tent" type="Sprite" parent="Objects"]
-visible = false
-position = Vector2( -210, -1010 )
+[node name="Tent4" type="Sprite" parent="Objects"]
+position = Vector2( 3015.19, -2327.17 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
-[node name="Tent3" type="Sprite" parent="Objects"]
-visible = false
-position = Vector2( 2886.76, -191.353 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 24 )
-
-[node name="Tent4" type="Sprite" parent="Objects"]
-position = Vector2( 3015.19, -2327.17 )
+[node name="Tent10" type="Sprite" parent="Objects"]
+position = Vector2( 2652.11, -1563.64 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
@@ -742,7 +938,6 @@ texture = ExtResource( 19 )
 position = Vector2( 426.141, 222.644 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
-script = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="Objects/Tent7"]
 position = Vector2( 30, 90 )
@@ -751,7 +946,7 @@ z_index = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent7/Area2D"]
 position = Vector2( -11.785, -4.12482 )
 z_index = 2
-shape = SubResource( 25 )
+shape = SubResource( 13 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent7"]
 position = Vector2( 30, 90 )
@@ -772,7 +967,7 @@ script = ExtResource( 53 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent8/Area2D"]
 position = Vector2( -11.785, -4.12482 )
 z_index = 2
-shape = SubResource( 25 )
+shape = SubResource( 13 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent8"]
 position = Vector2( 30, 90 )
@@ -793,7 +988,7 @@ script = ExtResource( 53 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tent9/Area2D"]
 position = Vector2( -11.785, -4.12482 )
 z_index = 2
-shape = SubResource( 25 )
+shape = SubResource( 13 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Tent9"]
 position = Vector2( 30, 90 )
@@ -801,11 +996,20 @@ position = Vector2( 30, 90 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Tent9/StaticBody2D"]
 polygon = PoolVector2Array( 46.3868, 79.5316, 151.505, 20.5762, 123.599, -47.6184, 71.4163, -80.6491, -7.80542, -102.419, -83.2035, -77.8683, -126.835, -54.1002, -182.759, 26.138, -116.017, 47.8291, -115.05, 31.3419, -158.066, 17.1998, -96.5503, -47.2782, -7.21606, -82.3844, 95.333, -43.941, 130.67, 24.2709, 41.1029, 64.9295, -29.8082, 45.6044, -45.9376, 67.2955 )
 
-[node name="Tent2" type="Sprite" parent="Objects"]
+[node name="Spike_gate" type="StaticBody2D" parent="Objects"]
 visible = false
-position = Vector2( -393.299, -969.023 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+position = Vector2( -495.283, -994.494 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="Sprite" type="Sprite" parent="Objects/Spike_gate"]
+texture = ExtResource( 29 )
+flip_h = true
+
+[node name="spike_col" type="CollisionShape2D" parent="Objects/Spike_gate"]
+position = Vector2( 10.5947, 30.9011 )
+rotation = -0.609948
+shape = SubResource( 27 )
+disabled = true
 
 [node name="Tilemaps_front" type="Node2D" parent="."]
 
@@ -819,6 +1023,42 @@ cell_tile_origin = 1
 cell_y_sort = true
 centered_textures = true
 format = 1
+
+[node name="Spikes_flip_bh" type="TileMap" parent="Tilemaps_front"]
+scale = Vector2( 0.4, 0.4 )
+mode = 1
+tile_set = ExtResource( 56 )
+cell_size = Vector2( 108, 64 )
+cell_quadrant_size = 8
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( -2621507, 29, 0, -2621504, 29, 0, -2621501, 29, 0, -2621498, 29, 0, -2621495, 29, 0, -2621492, 29, 0, -1310786, 29, 0, -1179712, 29, 0, -1114173, 29, 0, -1114168, 29, 0, -1114164, 29, 0, -1048634, 29, 0, -1048630, 29, 0 )
+
+[node name="Spikes" type="TileMap" parent="Tilemaps_front"]
+scale = Vector2( -0.4, 0.4 )
+mode = 1
+tile_set = ExtResource( 56 )
+cell_size = Vector2( 108, 64 )
+cell_quadrant_size = 8
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( -4522019, 29, 0, -4522016, 29, 0, -4522013, 29, 0, -4522010, 29, 0, -4456488, 29, 0, -4456485, 29, 0, -4390935, 29, 0, -3276835, 29, 0, -3276832, 29, 0, -3276820, 29, 0, -3211304, 29, 0, -3211301, 29, 0, -3211288, 29, 0, -3211285, 29, 0 )
+
+[node name="Spikes_flip" type="TileMap" parent="Tilemaps_front"]
+scale = Vector2( 0.4, 0.4 )
+mode = 1
+tile_set = ExtResource( 56 )
+cell_size = Vector2( 108, 64 )
+cell_quadrant_size = 8
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+format = 1
+tile_data = PoolIntArray( -1310786, 29, 0, -1179712, 29, 0, -1114173, 29, 0, -1114168, 29, 0, -1114164, 29, 0, -1048634, 29, 0, -1048630, 29, 0 )
 
 [node name="Trees" type="TileMap" parent="Tilemaps_front"]
 scale = Vector2( 0.4, 0.4 )
@@ -866,13 +1106,13 @@ centered_textures = true
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -565.566, -1031.48 )
+position = Vector2( 92.1433, 717.055 )
 z_index = 0
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 3.0
-max_speed = 400.0
+max_speed = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -887,7 +1127,7 @@ position = Vector2( 20.2043, 11.2246 )
 rotation = -1.5708
 scale = Vector2( 1, 2500 )
 z_index = -10
-texture = SubResource( 23 )
+texture = SubResource( 15 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 position = Vector2( -1033.34, -584.674 )
@@ -913,7 +1153,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.03
 scale_amount_random = 0.15
-color_ramp = SubResource( 24 )
+color_ramp = SubResource( 16 )
 
 [node name="Inside_overlay" type="Node2D" parent="."]
 visible = false
@@ -957,7 +1197,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent8/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -997,7 +1237,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent9/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent9/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1037,7 +1277,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent10/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent10/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1077,7 +1317,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent11/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent11/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1117,7 +1357,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent12/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent12/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1157,7 +1397,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent13/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent13/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1177,7 +1417,7 @@ monologue = PoolStringArray( "And so I went, to the kingdom!", "I wonder what th
 position = Vector2( -326.268, -260.678 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_kingdom"]
-shape = SubResource( 27 )
+shape = SubResource( 18 )
 
 [node name="To_forest" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 2054.98, -188.533 )
@@ -1188,7 +1428,7 @@ monologue = PoolStringArray( "After being cast out, I crossed paths with the for
 position = Vector2( 595.354, -94.1806 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
-shape = SubResource( 27 )
+shape = SubResource( 18 )
 
 [node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 316.29, -1801.23 )
@@ -1199,7 +1439,7 @@ monologue = PoolStringArray( "Desert placeholder text" )
 position = Vector2( 539.918, -154.657 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
-shape = SubResource( 27 )
+shape = SubResource( 18 )
 
 [node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 3073, 683.333 )
@@ -1210,7 +1450,7 @@ monologue = PoolStringArray( "Village placeholder text" )
 position = Vector2( 287.934, -2831.35 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village"]
-shape = SubResource( 27 )
+shape = SubResource( 18 )
 
 [node name="To_village2" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 1839.52, -2159.31 )
@@ -1221,7 +1461,7 @@ monologue = PoolStringArray( "Village placeholder text" )
 position = Vector2( 770.693, -101.279 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village2"]
-shape = SubResource( 27 )
+shape = SubResource( 18 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1260,7 +1500,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 28 )
+custom_fonts/normal_font = SubResource( 19 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1272,7 +1512,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 29 )
+material = SubResource( 20 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.360808
@@ -1304,7 +1544,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 30 )
+custom_fonts/normal_font = SubResource( 21 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1366,7 +1606,7 @@ anchor_left = -0.1
 anchor_top = 1.0
 anchor_right = 1.1
 anchor_bottom = 1.5
-custom_fonts/normal_font = SubResource( 31 )
+custom_fonts/normal_font = SubResource( 22 )
 bbcode_enabled = true
 bbcode_text = "[center][color=black]\"Love card\"[/color][/center]"
 text = "\"Love card\""
@@ -1392,7 +1632,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 32 )
+shape = SubResource( 23 )
 
 [node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
 stream = ExtResource( 70 )
@@ -1407,44 +1647,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 32 )
-
-[node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio/Forest"]
-stream = ExtResource( 35 )
-autoplay = true
-bus = "wind "
-
-[node name="tree1" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
-position = Vector2( -538.221, -15.7145 )
-stream = ExtResource( 59 )
-autoplay = true
-max_distance = 497.0
-attenuation = 0.615572
-bus = "trees"
-
-[node name="tree2" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
-position = Vector2( -757.662, -112.246 )
-stream = ExtResource( 59 )
-autoplay = true
-max_distance = 500.0
-attenuation = 0.757859
-bus = "trees"
-
-[node name="tree3" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
-position = Vector2( -281.177, -151.532 )
-stream = ExtResource( 58 )
-autoplay = true
-max_distance = 500.0
-attenuation = 0.615573
-bus = "trees"
-
-[node name="tree4" type="AudioStreamPlayer2D" parent="region_audio/Forest"]
-position = Vector2( -397.352, -263.217 )
-stream = ExtResource( 55 )
-autoplay = true
-max_distance = 500.0
-attenuation = 0.784585
-bus = "trees"
+shape = SubResource( 23 )
 
 [node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 68 )
@@ -1458,7 +1661,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 33 )
+shape = SubResource( 24 )
 
 [node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
 stream = ExtResource( 73 )
@@ -1472,7 +1675,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 32 )
+shape = SubResource( 23 )
 
 [node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
 stream = ExtResource( 72 )
@@ -1486,7 +1689,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 34 )
+shape = SubResource( 25 )
 
 [node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
 stream = ExtResource( 71 )
@@ -1500,12 +1703,49 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 32 )
+shape = SubResource( 23 )
 
 [node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
 stream = ExtResource( 69 )
 volume_db = -30.0
 bus = "village music"
+
+[node name="Wind foliage 1" type="AudioStreamPlayer" parent="region_audio"]
+stream = ExtResource( 35 )
+autoplay = true
+bus = "wind "
+
+[node name="tree1" type="AudioStreamPlayer2D" parent="region_audio"]
+position = Vector2( 2069.59, -32.685 )
+stream = ExtResource( 59 )
+autoplay = true
+max_distance = 497.0
+attenuation = 0.615572
+bus = "trees"
+
+[node name="tree2" type="AudioStreamPlayer2D" parent="region_audio"]
+position = Vector2( 1850.15, -129.217 )
+stream = ExtResource( 59 )
+autoplay = true
+max_distance = 500.0
+attenuation = 0.757859
+bus = "trees"
+
+[node name="tree3" type="AudioStreamPlayer2D" parent="region_audio"]
+position = Vector2( 2326.63, -168.503 )
+stream = ExtResource( 58 )
+autoplay = true
+max_distance = 500.0
+attenuation = 0.615573
+bus = "trees"
+
+[node name="tree4" type="AudioStreamPlayer2D" parent="region_audio"]
+position = Vector2( 2210.46, -280.188 )
+stream = ExtResource( 55 )
+autoplay = true
+max_distance = 500.0
+attenuation = 0.784585
+bus = "trees"
 [connection signal="body_entered" from="Objects/Bridge_forest/Bridge_area" to="Objects/Bridge_forest/Bridge_area" method="_on_Bridge_area_body_entered"]
 [connection signal="body_entered" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Objects/Tent7/Area2D" to="Inside_overlay" method="_on_Area2D_body_exited"]

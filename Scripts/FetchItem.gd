@@ -17,7 +17,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-export (String, "fishingbait", "leaf", "water", "book", "plan", "rug", "planks") var Item_to_give;
+export (String, "fishingbait", "redberry", "water", "book", "berry", "rug", "planks") var Item_to_give;
 
 var found = false;
 export var bugnet = false;

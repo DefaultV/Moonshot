@@ -45,10 +45,15 @@ func _process(delta):
 					if spawnItemOnEnd:
 						get_node(itemToEnable).show();
 						get_node(itemToEnable).get_child(1).disabled = false;
+						get_node(itemToEnable2).show();
+						get_node(itemToEnable2).get_child(1).disabled = false;
 
 export var endMonologue:PoolStringArray;
 export var spawnItemOnEnd:bool = false;
+export var spawnRewardOnFetch:bool = false;
+export var rewardToEnable:NodePath;
 export var itemToEnable:NodePath;
+export var itemToEnable2:NodePath;
 export var item_fetch:String;
 export var hook_zoom_amount: Vector2;
 export var speech: String;
@@ -73,6 +78,9 @@ func _on_Mullar_tut_body_entered(body):
 		if (ply.getItemFromInventory(item_fetch)):
 			dialogue.bbcode_text = adds[0] + speech_fetch + adds[1];
 			ply.appendQuest(item_fetch);
+			if (spawnRewardOnFetch):
+				get_node(rewardToEnable).show();
+				get_node(rewardToEnable).get_child(1).disabled = false;
 		else:
 			dialogue.bbcode_text = adds[0] + speech + adds[1];
 	else:
