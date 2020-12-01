@@ -15,12 +15,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Moonshot"
+config/name="The Ogi"
 run/main_scene="res://Scenes/World.tscn"
 boot_splash/image="res://Uncategorized/1x1white.png"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
-config/icon="res://Sprites_textures/Mullar_1.png"
+config/icon="res://Sprites_textures/Mullar_wisdom.png"
 
 [display]
 
@@ -97,6 +97,11 @@ m1={
 map={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"unicode":0,"echo":false,"script":null)
+ ]
+}
+space={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

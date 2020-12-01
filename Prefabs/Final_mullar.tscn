@@ -1,0 +1,72 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scripts/Dialogue_on_coll.gd" type="Script" id=1]
+[ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=2]
+[ext_resource path="res://MC_frames/løb4.png" type="Texture" id=3]
+[ext_resource path="res://MC_frames/løb3.png" type="Texture" id=4]
+[ext_resource path="res://MC_frames/løb5.png" type="Texture" id=5]
+[ext_resource path="res://MC_frames/løb1.png" type="Texture" id=6]
+[ext_resource path="res://MC_frames/løb6.png" type="Texture" id=7]
+[ext_resource path="res://MC_frames/løb7.png" type="Texture" id=8]
+[ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=9]
+[ext_resource path="res://MC_frames/løb8.png" type="Texture" id=10]
+[ext_resource path="res://MC_frames/løb2.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Final_mullar.gd" type="Script" id=12]
+[ext_resource path="res://MC_frames/løb10.png" type="Texture" id=13]
+[ext_resource path="res://MC_frames/løb9.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.80733, 8.42114 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13.9145, 16.0652 )
+
+[node name="Final_mullar" type="RigidBody2D"]
+position = Vector2( 200.284, 552.549 )
+mode = 2
+gravity_scale = 0.0
+linear_damp = 3.0
+angular_damp = 3.0
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4.86951 )
+shape = SubResource( 1 )
+
+[node name="scaling" type="Node2D" parent="."]
+scale = Vector2( 0.04, 0.04 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="scaling"]
+frames = SubResource( 2 )
+frame = 8
+speed_scale = 2.0
+playing = true
+
+[node name="Sprite" type="Sprite" parent="scaling"]
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="scaling"]
+show_behind_parent = true
+position = Vector2( 0, 400 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -0.595276, 1.78589 )
+script = ExtResource( 1 )
+hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech_array = PoolStringArray( "Found you! I almost want to play tag!", "I want to tell you something!", "There is going to be a meeting! Will you come\?", "Let us help the kingdom people! We need more love! See you there!" )
+leave_when_spoken = true
+replay_dialogue = true
+chimeorshake = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )

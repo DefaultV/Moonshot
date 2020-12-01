@@ -30,30 +30,58 @@ func dialogue_state(vis):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ply.cinematic:
-		if Input.is_action_just_released("m1") and this:
+		if Input.is_action_just_released("space") and this and ply.canPressSpace:
 			ply.playtextblurp()
 			if not next_dialogue_part() or visited:
 				dialogue_state(false)
 				ply.cinematic = false;
 				cam.hook_free();
+				if (leave_when_spoken):
+					get_parent().leave();
+				if (len(endMonologue) > 0):
+					ply.cinematic = true;
+					ply.canPressSpace = false;
+					get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(endMonologue, get_child(1).get_global_position());
+					if spawnItemOnEnd:
+						get_node(itemToEnable).show();
+						get_node(itemToEnable).get_child(1).disabled = false;
+						get_node(itemToEnable2).show();
+						get_node(itemToEnable2).get_child(1).disabled = false;
 
+export var endMonologue:PoolStringArray;
+export var spawnItemOnEnd:bool = false;
+export var spawnRewardOnFetch:bool = false;
+export var rewardToEnable:NodePath;
+export var itemToEnable:NodePath;
+export var itemToEnable2:NodePath;
 export var item_fetch:String;
 export var hook_zoom_amount: Vector2;
 export var speech: String;
 export var speech_fetch: String;
 export var speech_array:PoolStringArray = []
+export var zoom_guide:bool = false;
+export var speaks:bool = true;
+export var leave_when_spoken:bool = false;
 var adds = ["\n[center][color=white][shake rate=3 level=5]", "[/shake][/color][/center]"]
 func _on_Mullar_tut_body_entered(body):
-	if body.name != "Player":
+	if body.name != "Player" or not speaks:
 		return;
 	print(body.name + " entered")
-	cam.hook_zoom(global_position, hook_zoom_amount);
+	if not zoom_guide:
+		cam.hook_zoom(global_position, hook_zoom_amount);
+	else:
+		cam.hook_zoom(get_child(0).global_position, hook_zoom_amount);
 	if visited and replay_dialogue:
 		visited = false;
 		speech_idx = 1;
 	if visited:
 		if (ply.getItemFromInventory(item_fetch)):
 			dialogue.bbcode_text = adds[0] + speech_fetch + adds[1];
+			ply.appendQuest(item_fetch);
+			if (spawnRewardOnFetch):
+				get_node(rewardToEnable).show();
+				get_node(rewardToEnable).get_child(1).set_deferred("disabled", false);
+				#print(get_node(rewardToEnable).get_child(1).name)
 		else:
 			dialogue.bbcode_text = adds[0] + speech + adds[1];
 	else:
