@@ -80,7 +80,8 @@ func _on_Mullar_tut_body_entered(body):
 			ply.appendQuest(item_fetch);
 			if (spawnRewardOnFetch):
 				get_node(rewardToEnable).show();
-				get_node(rewardToEnable).get_child(1).disabled = false;
+				get_node(rewardToEnable).get_child(1).set_deferred("disabled", false);
+				#print(get_node(rewardToEnable).get_child(1).name)
 		else:
 			dialogue.bbcode_text = adds[0] + speech + adds[1];
 	else:
