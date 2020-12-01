@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -83,6 +83,7 @@
 [ext_resource path="res://Scenes/next.gd" type="Script" id=81]
 [ext_resource path="res://Music/credits final.ogg" type="AudioStream" id=82]
 [ext_resource path="res://Scenes/credits.gd" type="Script" id=83]
+[ext_resource path="res://spacey's space/particles/sandstorm.png" type="Texture" id=84]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -391,7 +392,6 @@ polygon = PoolVector2Array( -15.8241, 17.8058, -34.3647, 28.1356, -63.4999, 20.9
 light_mask = -2147483647
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.25
 playing = true
 
@@ -498,7 +498,7 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 4 )
-frame = 9
+frame = 4
 speed_scale = 0.5
 playing = true
 
@@ -632,7 +632,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 11
+frame = 7
 speed_scale = 1.3
 playing = true
 
@@ -656,7 +656,6 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar2"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 15
 speed_scale = 1.5
 playing = true
 
@@ -667,7 +666,7 @@ scale = Vector2( 0.27, 0.27 )
 texture = ExtResource( 41 )
 
 [node name="NOQ_mullar3" type="Area2D" parent="Interactives"]
-position = Vector2( 155.224, -1244.33 )
+position = Vector2( 181.444, -1265.31 )
 script = ExtResource( 3 )
 hook_zoom_amount = Vector2( 0.2, 0.2 )
 speech_array = PoolStringArray( "Hello! I\'m trying to get to the desert, I can\'t!", "I\'m planning to visit my friends there, it\'s a lovely place for solitude!", "The storms are big and scary, I might wait a bit! You are welcome to wait with me!" )
@@ -680,7 +679,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 11
+frame = 3
 speed_scale = 1.8
 playing = true
 
@@ -693,7 +692,7 @@ texture = ExtResource( 41 )
 [node name="Speak_zone" type="Area2D" parent="Interactives"]
 position = Vector2( -608.767, -1103.63 )
 script = ExtResource( 3 )
-endMonologue = PoolStringArray( "And so, I was banished from the kingdom!", "Some of us wore items that has never been seen in our world!" )
+endMonologue = PoolStringArray( "And so, I was banished from the kingdom!", "Could the legends be true\? I\'ve never seen such items before." )
 spawnItemOnEnd = true
 itemToEnable = NodePath("../planks")
 itemToEnable2 = NodePath("../../Objects/Spike_gate")
@@ -1415,6 +1414,74 @@ position = Vector2( -836.806, -1153.32 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 53 )
 
+[node name="Desert_block" type="StaticBody2D" parent="Objects"]
+position = Vector2( 147.941, -1425.81 )
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Desert_block"]
+polygon = PoolVector2Array( 228.71, 41.9541, -2.21753, -35.4666, -414.683, -91.5298, -1102.13, -335.806, 310.135, -63.4983 )
+
+[node name="Desert_sprite10" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( -24.9827, -84.0442 )
+texture = ExtResource( 38 )
+
+[node name="Desert_sprite11" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( -24.9827, -84.0442 )
+texture = ExtResource( 38 )
+
+[node name="Desert_sprite12" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 128.252, -52.8628 )
+texture = ExtResource( 38 )
+
+[node name="Desert_sprite13" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 135.379, -46.6265 )
+texture = ExtResource( 38 )
+
+[node name="Desert_sprite" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( -85.4272, -85.4419 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite2" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 24.5341, -69.396 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite3" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 135.439, -46.7432 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite4" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( -102.113, 14.6709 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite5" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 7.84863, 30.7168 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite6" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 118.754, 53.3696 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite7" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( -32.0336, -189.56 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite8" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 77.9277, -173.514 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
+[node name="Desert_sprite9" type="Sprite" parent="Objects/Desert_block"]
+position = Vector2( 188.833, -150.861 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 84 )
+
 [node name="Tilemaps_front" type="Node2D" parent="."]
 
 [node name="EMPTY_TREES" type="TileMap" parent="Tilemaps_front"]
@@ -1529,14 +1596,13 @@ format = 1
 tile_data = PoolIntArray( -1310786, 29, 0, -1179712, 29, 0, -1114173, 29, 0, -1114168, 29, 0, -1114164, 29, 0, -1048634, 29, 0, -1048630, 29, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -310.559, -859.816 )
+position = Vector2( 111.927, 748.318 )
 z_index = 0
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 3.0
-debug_end = true
-max_speed = 100.0
+max_speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -2082,11 +2148,11 @@ Artist - spacenerdy
 
 
 
-Music - Miguel
+Music and Sound Design - Miguel Inês
 
 
 
-Coding - Jannick
+Coding - Jannick Drews (Default)
 
 
 

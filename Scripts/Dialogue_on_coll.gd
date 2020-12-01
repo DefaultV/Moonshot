@@ -52,6 +52,9 @@ func _process(delta):
 					if get_node(itemToEnable2).get_child(1) != null:
 						get_node(itemToEnable2).get_child(1).set_deferred("disabled", false);
 					print("end of dialogue: " + name);
+				if name == "Speak_zone":
+					get_node("/root/World/Objects/Desert_block").get_child(0).set_deferred("disabled", true);
+					get_node("/root/World/Objects/Desert_block").hide();
 				this = false;
 					
 
