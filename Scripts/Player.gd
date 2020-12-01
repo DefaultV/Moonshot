@@ -5,10 +5,13 @@ func _ready():
 	if debug_finalquest:
 		for i in range(0, 4):
 			appendQuest("test"+String(i))
+	if debug_end:
+		final_stage = true;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 export var debug_finalquest:bool = false;
+export var debug_end:bool = false;
 func _process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input(delta);
@@ -44,12 +47,13 @@ func appendQuest(q:String):
 		qcompleted.append(q);
 		print(len(qcompleted))
 		if len(qcompleted) >= 5:
+			final_stage = true;
 			yield(get_tree().create_timer(5.0), "timeout")
 			fmul = fmul.instance();
 			fmul.position = position + Vector2(100, 100);
 			get_parent().add_child(fmul);
 
-
+var final_stage = false;
 
 func switch_animation(arg:String):
 	if arg == "i" and not $Idle.visible:
