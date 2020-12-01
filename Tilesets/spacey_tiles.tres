@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=62 format=2]
+[gd_resource type="TileSet" load_steps=69 format=2]
 
 [ext_resource path="res://spacey's space/vegetation/grass1.png" type="Texture" id=1]
 [ext_resource path="res://spacey's space/vegetation/mush2.png" type="Texture" id=2]
@@ -32,6 +32,11 @@
 [ext_resource path="res://spacey's space/vegetation/young tree.png" type="Texture" id=30]
 [ext_resource path="res://spacey's space/vegetation/berry bush blank.png" type="Texture" id=31]
 [ext_resource path="res://spacey's space/spikes.png" type="Texture" id=32]
+[ext_resource path="res://spacey's space/vegetation/tree2.png" type="Texture" id=33]
+[ext_resource path="res://spacey's space/vegetation/grass3.png" type="Texture" id=34]
+[ext_resource path="res://spacey's space/vegetation/grass4.png" type="Texture" id=35]
+[ext_resource path="res://spacey's space/vegetation/grass5.png" type="Texture" id=36]
+[ext_resource path="res://spacey's space/grass small tile w less grass.png" type="Texture" id=37]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.35503, 0.467456 )
@@ -140,20 +145,28 @@ shader_param/wind_speed = 1.1
 shader_param/wind_strength = 0.04
 shader_param/gradient = SubResource( 24 )
 
-[sub_resource type="Gradient" id=26]
+[sub_resource type="ShaderMaterial" id=26]
+shader = ExtResource( 10 )
+shader_param/wind_speed = 0.9
+shader_param/wind_strength = 0.03
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 320, 592, 287, 563, 256, 572, 226, 567, 256, 539, 260, 512, 251, 461, 249, 400, 340, 395, 313, 445, 322, 503, 366, 552, 321, 550, 337, 593 )
+
+[sub_resource type="Gradient" id=28]
 offsets = PoolRealArray( 0.16568, 0.431953 )
 
-[sub_resource type="GradientTexture" id=27]
-gradient = SubResource( 26 )
+[sub_resource type="GradientTexture" id=29]
+gradient = SubResource( 28 )
 width = 1024
 
-[sub_resource type="ShaderMaterial" id=28]
+[sub_resource type="ShaderMaterial" id=30]
 shader = ExtResource( 10 )
 shader_param/wind_speed = 0.5
 shader_param/wind_strength = 0.06
-shader_param/gradient = SubResource( 27 )
+shader_param/gradient = SubResource( 29 )
 
-[sub_resource type="ConvexPolygonShape2D" id=29]
+[sub_resource type="ConvexPolygonShape2D" id=31]
 points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.6, 112.4 )
 
 [resource]
@@ -255,7 +268,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 6/name = "mush1"
 6/texture = ExtResource( 9 )
 6/tex_offset = Vector2( 0, 0 )
-6/material = SubResource( 28 )
+6/material = SubResource( 30 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 119, 110 )
 6/tile_mode = 0
@@ -291,14 +304,14 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 8/navigation_offset = Vector2( 150, 150 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 29 )
+8/shape = SubResource( 31 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 29 ),
+"shape": SubResource( 31 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -548,10 +561,10 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 128, 0, 320, 608 )
 26/tile_mode = 0
-26/occluder_offset = Vector2( 0, 0 )
-26/navigation_offset = Vector2( 0, 0 )
-26/shape_offset = Vector2( 0, 0 )
-26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/occluder_offset = Vector2( -10, -240 )
+26/navigation_offset = Vector2( -10, -240 )
+26/shape_offset = Vector2( -10, -240 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, -10, -240 )
 26/shape = SubResource( 17 )
 26/shape_one_way = false
 26/shape_one_way_margin = 1.0
@@ -560,7 +573,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 17 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, -10, -240 )
 } ]
 26/z_index = 0
 27/name = "young tree.png 27"
@@ -570,10 +583,10 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 160, 160, 256, 384 )
 27/tile_mode = 0
-27/occluder_offset = Vector2( 0, 0 )
-27/navigation_offset = Vector2( 0, 0 )
-27/shape_offset = Vector2( 0, 0 )
-27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+27/occluder_offset = Vector2( -10, -150 )
+27/navigation_offset = Vector2( -10, -150 )
+27/shape_offset = Vector2( -10, -150 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, -10, -150 )
 27/shape = SubResource( 21 )
 27/shape_one_way = false
 27/shape_one_way_margin = 1.0
@@ -582,7 +595,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 21 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, -10, -150 )
 } ]
 27/z_index = 0
 28/name = "berry bush blank.png 28"
@@ -634,3 +647,81 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 30/shape_one_way_margin = 0.0
 30/shapes = [  ]
 30/z_index = 0
+31/name = "tree2.png 31"
+31/texture = ExtResource( 33 )
+31/tex_offset = Vector2( 0, -250 )
+31/material = SubResource( 26 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 608, 608 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, -250 )
+31/navigation_offset = Vector2( 0, -250 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape = SubResource( 27 )
+31/shape_one_way = false
+31/shape_one_way_margin = 1.0
+31/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+31/z_index = 0
+32/name = "grass3.png 32"
+32/texture = ExtResource( 34 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 0, 0, 128, 96 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shape_offset = Vector2( 0, 0 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+32/shape_one_way = false
+32/shape_one_way_margin = 0.0
+32/shapes = [  ]
+32/z_index = 0
+33/name = "grass4.png 33"
+33/texture = ExtResource( 35 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 0, 0, 160, 96 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shape_offset = Vector2( 0, 0 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+33/shape_one_way = false
+33/shape_one_way_margin = 0.0
+33/shapes = [  ]
+33/z_index = 0
+34/name = "grass5.png 34"
+34/texture = ExtResource( 36 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 0, 0, 96, 64 )
+34/tile_mode = 0
+34/occluder_offset = Vector2( 0, 0 )
+34/navigation_offset = Vector2( 0, 0 )
+34/shape_offset = Vector2( 0, 0 )
+34/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+34/shape_one_way = false
+34/shape_one_way_margin = 0.0
+34/shapes = [  ]
+34/z_index = 0
+35/name = "grass small tile w less grass.png 35"
+35/texture = ExtResource( 37 )
+35/tex_offset = Vector2( 0, 0 )
+35/modulate = Color( 1, 1, 1, 1 )
+35/region = Rect2( 64, 64, 256, 160 )
+35/tile_mode = 0
+35/occluder_offset = Vector2( 0, 0 )
+35/navigation_offset = Vector2( 0, 0 )
+35/shape_offset = Vector2( 0, 0 )
+35/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+35/shape_one_way = false
+35/shape_one_way_margin = 0.0
+35/shapes = [  ]
+35/z_index = 0
