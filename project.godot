@@ -21,6 +21,7 @@ boot_splash/image="res://Uncategorized/1x1white.png"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://Sprites_textures/Mullar_wisdom.png"
+config/windows_native_icon="res://spacey's space/bears/hiker bear.ico"
 
 [display]
 
