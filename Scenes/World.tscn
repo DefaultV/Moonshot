@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/Inner_dialogue.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://spacey's space/bears/monk bear.png" type="Texture" id=9]
-[ext_resource path="res://spacey's space/leaf.png" type="Texture" id=10]
+[ext_resource path="res://spacey's space/vegetation/leaf.png" type="Texture" id=10]
 [ext_resource path="res://spacey's space/bears/artist bear.png" type="Texture" id=11]
 [ext_resource path="res://spacey's space/bears/mushroom bear v2.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/region_audio.gd" type="Script" id=13]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Sprites_textures/mouse_right.png" type="Texture" id=15]
 [ext_resource path="res://spacey's space/bears/hiker bear.png" type="Texture" id=16]
 [ext_resource path="res://spacey's space/items/scepter.png" type="Texture" id=17]
-[ext_resource path="res://spacey's space/pond1frame2.png" type="Texture" id=18]
+[ext_resource path="res://spacey's space/vegetation/pond1frame2.png" type="Texture" id=18]
 [ext_resource path="res://Sprites_textures/Mullar_tent.png" type="Texture" id=19]
 [ext_resource path="res://spacey's space/items/crown.png" type="Texture" id=20]
 [ext_resource path="res://spacey's space/bridge_broken.png" type="Texture" id=21]
@@ -54,14 +54,14 @@
 [ext_resource path="res://Scenes/Trigger_areasound.gd" type="Script" id=57]
 [ext_resource path="res://SFX/Ambient/wind and trees/folliage2.ogg" type="AudioStream" id=58]
 [ext_resource path="res://SFX/Ambient/wind and trees/foliage1.ogg" type="AudioStream" id=59]
-[ext_resource path="res://spacey's space/pond1frame1.png" type="Texture" id=60]
-[ext_resource path="res://spacey's space/book.png" type="Texture" id=61]
-[ext_resource path="res://spacey's space/butterfly net.png" type="Texture" id=62]
+[ext_resource path="res://spacey's space/vegetation/pond1frame1.png" type="Texture" id=60]
+[ext_resource path="res://spacey's space/items/book.png" type="Texture" id=61]
+[ext_resource path="res://spacey's space/items/butterfly net.png" type="Texture" id=62]
 [ext_resource path="res://Sprites_textures/Mullar_wisdom.png" type="Texture" id=63]
 [ext_resource path="res://Scripts/TriggerInnerMonologue.gd" type="Script" id=64]
 [ext_resource path="res://Sprites_textures/Love_card.png" type="Texture" id=65]
 [ext_resource path="res://Scenes/Lovecard.gd" type="Script" id=66]
-[ext_resource path="res://spacey's space/pond2.png" type="Texture" id=67]
+[ext_resource path="res://spacey's space/vegetation/pond2.png" type="Texture" id=67]
 [ext_resource path="res://Music/forest final.ogg" type="AudioStream" id=68]
 [ext_resource path="res://Music/Outer Village.ogg" type="AudioStream" id=69]
 [ext_resource path="res://Music/spawn final.ogg" type="AudioStream" id=70]
@@ -70,6 +70,12 @@
 [ext_resource path="res://Music/zen final.ogg" type="AudioStream" id=73]
 [ext_resource path="res://spacey's space/items/plank.png" type="Texture" id=74]
 [ext_resource path="res://Scenes/bridge.gd" type="Script" id=75]
+
+
+
+
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
