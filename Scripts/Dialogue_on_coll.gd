@@ -42,11 +42,16 @@ func _process(delta):
 					ply.cinematic = true;
 					ply.canPressSpace = false;
 					get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(endMonologue, get_child(1).get_global_position());
-					if spawnItemOnEnd:
-						get_node(itemToEnable).show();
-						get_node(itemToEnable).get_child(1).disabled = false;
-						get_node(itemToEnable2).show();
-						get_node(itemToEnable2).get_child(1).disabled = false;
+				if spawnItemOnEnd:
+					print("spawned item or object " + get_node(itemToEnable).name)
+					#yield(get_tree().create_timer(0.5), "timeout")
+					get_node(itemToEnable).show();
+					get_node(itemToEnable).get_child(1).set_deferred("disabled", false);
+					get_node(itemToEnable2).show();
+					get_node(itemToEnable2).get_child(1).set_deferred("disabled", false);
+					print("end of dialogue: " + name);
+				this = false;
+					
 
 export var endMonologue:PoolStringArray;
 export var spawnItemOnEnd:bool = false;
@@ -66,7 +71,7 @@ var adds = ["\n[center][color=white][shake rate=3 level=5]", "[/shake][/color][/
 func _on_Mullar_tut_body_entered(body):
 	if body.name != "Player" or not speaks:
 		return;
-	print(body.name + " entered")
+	print(body.name + " entered: " + name)
 	if not zoom_guide:
 		cam.hook_zoom(global_position, hook_zoom_amount);
 	else:
