@@ -141,28 +141,28 @@ shader_param/wind_speed = 1.1
 shader_param/wind_strength = 0.04
 shader_param/gradient = SubResource( 24 )
 
-[sub_resource type="ShaderMaterial" id=30]
+[sub_resource type="ShaderMaterial" id=26]
 shader = ExtResource( 10 )
 shader_param/wind_speed = 0.9
 shader_param/wind_strength = 0.03
 
-[sub_resource type="ConvexPolygonShape2D" id=31]
+[sub_resource type="ConvexPolygonShape2D" id=27]
 points = PoolVector2Array( 320, 592, 287, 563, 256, 572, 226, 567, 256, 539, 260, 512, 251, 461, 249, 400, 340, 395, 313, 445, 322, 503, 366, 552, 321, 550, 337, 593 )
 
-[sub_resource type="Gradient" id=26]
+[sub_resource type="Gradient" id=28]
 offsets = PoolRealArray( 0.16568, 0.431953 )
 
-[sub_resource type="GradientTexture" id=27]
-gradient = SubResource( 26 )
+[sub_resource type="GradientTexture" id=29]
+gradient = SubResource( 28 )
 width = 1024
 
-[sub_resource type="ShaderMaterial" id=28]
+[sub_resource type="ShaderMaterial" id=30]
 shader = ExtResource( 10 )
 shader_param/wind_speed = 0.5
 shader_param/wind_strength = 0.06
-shader_param/gradient = SubResource( 27 )
+shader_param/gradient = SubResource( 29 )
 
-[sub_resource type="ConvexPolygonShape2D" id=29]
+[sub_resource type="ConvexPolygonShape2D" id=31]
 points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.6, 112.4 )
 
 [resource]
@@ -264,7 +264,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 6/name = "mush1"
 6/texture = ExtResource( 9 )
 6/tex_offset = Vector2( 0, 0 )
-6/material = SubResource( 28 )
+6/material = SubResource( 30 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 119, 110 )
 6/tile_mode = 0
@@ -300,14 +300,14 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 8/navigation_offset = Vector2( 150, 150 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-8/shape = SubResource( 29 )
+8/shape = SubResource( 31 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 29 ),
+"shape": SubResource( 31 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -646,7 +646,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 31/name = "tree2.png 31"
 31/texture = ExtResource( 33 )
 31/tex_offset = Vector2( 0, -250 )
-31/material = SubResource( 30 )
+31/material = SubResource( 26 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 0, 0, 608, 608 )
 31/tile_mode = 0
@@ -654,14 +654,14 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 31/navigation_offset = Vector2( 0, -250 )
 31/shape_offset = Vector2( 0, 0 )
 31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-31/shape = SubResource( 31 )
+31/shape = SubResource( 27 )
 31/shape_one_way = false
 31/shape_one_way_margin = 1.0
 31/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 31 ),
+"shape": SubResource( 27 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 31/z_index = 0
