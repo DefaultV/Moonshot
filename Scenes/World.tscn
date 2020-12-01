@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://spacey's space/bears/hiker bear.png" type="Texture" id=16]
 [ext_resource path="res://spacey's space/items/scepter.png" type="Texture" id=17]
 [ext_resource path="res://spacey's space/vegetation/pond1frame2.png" type="Texture" id=18]
+[ext_resource path="res://spacey's space/items/queen crown.png" type="Texture" id=19]
 [ext_resource path="res://spacey's space/items/crown.png" type="Texture" id=20]
 [ext_resource path="res://spacey's space/bridge_broken.png" type="Texture" id=21]
 [ext_resource path="res://Sprites_textures/Mullar_tent_plane.png" type="Texture" id=22]
@@ -32,11 +33,13 @@
 [ext_resource path="res://SFX/Objects/fish_reel.wav" type="AudioStream" id=31]
 [ext_resource path="res://Prefabs/Tent.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Tumbleweed.gd" type="Script" id=33]
+[ext_resource path="res://spacey's space/bears/prince bear.png" type="Texture" id=34]
 [ext_resource path="res://SFX/Ambient/wind and trees/wind.ogg" type="AudioStream" id=35]
 [ext_resource path="res://Scripts/Shaders/multishader.shader" type="Shader" id=36]
 [ext_resource path="res://Uncategorized/dialogue_rect.png" type="Texture" id=37]
 [ext_resource path="res://Uncategorized/light_intense.png" type="Texture" id=38]
 [ext_resource path="res://Uncategorized/4k_voronoi_cloud_iso.png" type="Texture" id=39]
+[ext_resource path="res://spacey's space/bears/king bear.png" type="Texture" id=40]
 [ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=41]
 [ext_resource path="res://Sprites_textures/fiske_mullar/fiske_mullar_default.png" type="Texture" id=42]
 [ext_resource path="res://Sprites_textures/fiske_mullar/fiske_mullar_blink.png" type="Texture" id=43]
@@ -45,8 +48,11 @@
 [ext_resource path="res://spacey's space/firefly.png" type="Texture" id=46]
 [ext_resource path="res://Uncategorized/viginette.png" type="Texture" id=47]
 [ext_resource path="res://Uncategorized/1x1white.png" type="Texture" id=48]
+[ext_resource path="res://spacey's space/bears/queen bear.png" type="Texture" id=49]
+[ext_resource path="res://spacey's space/items/rug.png" type="Texture" id=50]
 [ext_resource path="res://Scripts/FetchItem.gd" type="Script" id=51]
-[ext_resource path="res://Sprites_textures/Mullar_1.png" type="Texture" id=52]
+[ext_resource path="res://spacey's space/items/waterskin.png" type="Texture" id=52]
+[ext_resource path="res://spacey's space/rocketship.png" type="Texture" id=53]
 [ext_resource path="res://SFX/Ambient/river 3.ogg" type="AudioStream" id=54]
 [ext_resource path="res://SFX/Ambient/wind and trees/folliage3.ogg" type="AudioStream" id=55]
 [ext_resource path="res://Tilesets/spacey_tiles.tres" type="TileSet" id=56]
@@ -476,7 +482,7 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 4 )
-frame = 13
+frame = 9
 speed_scale = 0.5
 playing = true
 
@@ -633,7 +639,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar2"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 11
+frame = 13
 speed_scale = 1.5
 playing = true
 
@@ -657,7 +663,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 19
+frame = 12
 speed_scale = 1.8
 playing = true
 
@@ -675,7 +681,7 @@ spawnItemOnEnd = true
 itemToEnable = NodePath("../planks")
 itemToEnable2 = NodePath("../../Objects/Spike_gate")
 hook_zoom_amount = Vector2( 0.3, 0.3 )
-speech_array = PoolStringArray( "We have found these nice things! We feel like we are imporant now.", "Debug debug" )
+speech_array = PoolStringArray( "We have found these nice things! We feel like we are imporant now.", "It hurts in our tummies when other people try to take our new stuff!", "We don\'t like that feeling... It\'s bad", "We don\'t want to see anyone else! You are banished like the rest!", "Leave us please! It hurts..." )
 zoom_guide = true
 replay_dialogue = true
 chimeorshake = false
@@ -727,13 +733,25 @@ chimeorshake = false
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/King_mullar"]
-scale = Vector2( 0.04, 0.04 )
-texture = ExtResource( 52 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 40 )
 
 [node name="Crown" type="Sprite" parent="Interactives/King_mullar"]
-position = Vector2( 0.210327, -13.875 )
+position = Vector2( -2.90784, -14.7659 )
+rotation = -0.207012
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 20 )
+
+[node name="Scepter" type="Sprite" parent="Interactives/King_mullar"]
+position = Vector2( 11.5504, 1.06763 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="shadow" type="Sprite" parent="Interactives/King_mullar"]
+show_behind_parent = true
+position = Vector2( 0.793701, 15.0803 )
+scale = Vector2( 0.27, 0.27 )
+texture = ExtResource( 41 )
 
 [node name="Queen_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -630.542, -1189.93 )
@@ -748,13 +766,20 @@ chimeorshake = false
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/Queen_mullar"]
-scale = Vector2( 0.04, 0.04 )
-texture = ExtResource( 52 )
-
-[node name="Scepter" type="Sprite" parent="Interactives/Queen_mullar"]
-position = Vector2( -8.40894, 0.630371 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 49 )
+
+[node name="Sprite2" type="Sprite" parent="Interactives/Queen_mullar"]
+position = Vector2( -1.11365, -16.7043 )
+rotation = -0.131528
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 19 )
+
+[node name="shadow" type="Sprite" parent="Interactives/Queen_mullar"]
+show_behind_parent = true
+position = Vector2( 0.992188, 15.2788 )
+scale = Vector2( 0.27, 0.27 )
+texture = ExtResource( 41 )
 
 [node name="RoyalSon_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -692.847, -1174.46 )
@@ -769,8 +794,14 @@ chimeorshake = false
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/RoyalSon_mullar"]
-scale = Vector2( 0.04, 0.04 )
-texture = ExtResource( 52 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 34 )
+
+[node name="shadow" type="Sprite" parent="Interactives/RoyalSon_mullar"]
+show_behind_parent = true
+position = Vector2( -1.98462, 16.0796 )
+scale = Vector2( 0.27, 0.27 )
+texture = ExtResource( 41 )
 
 [node name="Book" type="Area2D" parent="Interactives"]
 position = Vector2( 2696.74, -100.788 )
@@ -806,8 +837,8 @@ Item_to_give = "rug"
 ui_text_pickup = "Meditation Rug!"
 
 [node name="rug_sprite" type="Sprite" parent="Interactives/rug_meditation"]
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 61 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 50 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/rug_meditation"]
 position = Vector2( 1.12372, -5.24405 )
@@ -833,8 +864,9 @@ Item_to_give = "water"
 ui_text_pickup = "Waterskin!"
 
 [node name="water_sprite" type="Sprite" parent="Interactives/waterskin"]
+position = Vector2( 0.793701, -5.15918 )
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 61 )
+texture = ExtResource( 52 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/waterskin"]
 position = Vector2( 1.12372, -5.24405 )
@@ -1079,6 +1111,11 @@ from = Vector2( 0, -300 )
 to = Vector2( 0, 300 )
 spawn_timer = 4.0
 dir = Vector2( 1, 0 )
+
+[node name="Rocketship" type="Sprite" parent="Objects"]
+position = Vector2( -836.806, -1153.32 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 53 )
 
 [node name="Tilemaps_front" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=62 format=2]
+[gd_resource type="TileSet" load_steps=65 format=2]
 
 [ext_resource path="res://spacey's space/vegetation/grass1.png" type="Texture" id=1]
 [ext_resource path="res://spacey's space/vegetation/mush2.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://spacey's space/vegetation/young tree.png" type="Texture" id=30]
 [ext_resource path="res://spacey's space/vegetation/berry bush blank.png" type="Texture" id=31]
 [ext_resource path="res://spacey's space/spikes.png" type="Texture" id=32]
+[ext_resource path="res://spacey's space/vegetation/tree2.png" type="Texture" id=33]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.35503, 0.467456 )
@@ -139,6 +140,14 @@ shader = ExtResource( 10 )
 shader_param/wind_speed = 1.1
 shader_param/wind_strength = 0.04
 shader_param/gradient = SubResource( 24 )
+
+[sub_resource type="ShaderMaterial" id=30]
+shader = ExtResource( 10 )
+shader_param/wind_speed = 0.9
+shader_param/wind_strength = 0.03
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 320, 592, 287, 563, 256, 572, 226, 567, 256, 539, 260, 512, 251, 461, 249, 400, 340, 395, 313, 445, 322, 503, 366, 552, 321, 550, 337, 593 )
 
 [sub_resource type="Gradient" id=26]
 offsets = PoolRealArray( 0.16568, 0.431953 )
@@ -548,10 +557,10 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 128, 0, 320, 608 )
 26/tile_mode = 0
-26/occluder_offset = Vector2( 0, 0 )
-26/navigation_offset = Vector2( 0, 0 )
-26/shape_offset = Vector2( 0, 0 )
-26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/occluder_offset = Vector2( -10, -240 )
+26/navigation_offset = Vector2( -10, -240 )
+26/shape_offset = Vector2( -10, -240 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, -10, -240 )
 26/shape = SubResource( 17 )
 26/shape_one_way = false
 26/shape_one_way_margin = 1.0
@@ -560,7 +569,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 17 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, -10, -240 )
 } ]
 26/z_index = 0
 27/name = "young tree.png 27"
@@ -570,10 +579,10 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 160, 160, 256, 384 )
 27/tile_mode = 0
-27/occluder_offset = Vector2( 0, 0 )
-27/navigation_offset = Vector2( 0, 0 )
-27/shape_offset = Vector2( 0, 0 )
-27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+27/occluder_offset = Vector2( -10, -150 )
+27/navigation_offset = Vector2( -10, -150 )
+27/shape_offset = Vector2( -10, -150 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, -10, -150 )
 27/shape = SubResource( 21 )
 27/shape_one_way = false
 27/shape_one_way_margin = 1.0
@@ -582,7 +591,7 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 21 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, -10, -150 )
 } ]
 27/z_index = 0
 28/name = "berry bush blank.png 28"
@@ -634,3 +643,25 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 30/shape_one_way_margin = 0.0
 30/shapes = [  ]
 30/z_index = 0
+31/name = "tree2.png 31"
+31/texture = ExtResource( 33 )
+31/tex_offset = Vector2( 0, -250 )
+31/material = SubResource( 30 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 608, 608 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, -250 )
+31/navigation_offset = Vector2( 0, -250 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape = SubResource( 31 )
+31/shape_one_way = false
+31/shape_one_way_margin = 1.0
+31/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+31/z_index = 0
