@@ -174,20 +174,20 @@ extents = Vector2( 11.8167, 15.4896 )
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 150, 150 )
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 355.365, 78.4767 )
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 850.444, 131.358 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=22]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=21]
+[sub_resource type="ShaderMaterial" id=23]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -201,21 +201,21 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=24]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=25]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=26]
 radius = 1036.56
 
-[sub_resource type="CircleShape2D" id=25]
+[sub_resource type="CircleShape2D" id=27]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=28]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -411,7 +411,7 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 4 )
-frame = 4
+frame = 17
 speed_scale = 0.5
 playing = true
 
@@ -452,6 +452,8 @@ position = Vector2( 645.262, -1930.97 )
 script = ExtResource( 3 )
 item_fetch = "water"
 hook_zoom_amount = Vector2( 0.2, 0.2 )
+speech = "I might try to eat that cactus over there..."
+speech_fetch = "Thank you, this is plenty for me! Take some for yourself as well!"
 speech_array = PoolStringArray( "Ah, another friend! I\'m just wandering the desert by myself!", "The snakes are really happy today, I\'ve seen them everywhere!", "It\'s very dry in the desert, I\'m very thirsty!", "If you have water, I would not mind you sharing a sip with me!" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/DesertMullar"]
@@ -550,7 +552,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 15
+frame = 1
 speed_scale = 1.3
 playing = true
 
@@ -598,7 +600,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 18
+frame = 4
 speed_scale = 1.8
 playing = true
 
@@ -633,6 +635,7 @@ rotation = -0.246016
 shape = SubResource( 7 )
 
 [node name="Ogi" type="Node2D" parent="Interactives"]
+visible = false
 position = Vector2( -672.517, -1241.4 )
 scale = Vector2( 0.1, 0.1 )
 
@@ -1052,7 +1055,6 @@ script = ExtResource( 33 )
 spawner = true
 from = Vector2( 0, -600 )
 to = Vector2( 0, -600 )
-spawn_timer = 2.0
 dir = Vector2( 1, 0 )
 lifetime = 50.0
 
@@ -1594,7 +1596,7 @@ position = Vector2( 595.354, -94.1806 )
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
 position = Vector2( -29.2603, 46.2498 )
 rotation = 0.688018
-shape = SubResource( 28 )
+shape = SubResource( 20 )
 
 [node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 310.951, -1543.61 )
@@ -1608,7 +1610,7 @@ position = Vector2( 495.32, -475.18 )
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
 position = Vector2( -450.266, -38.6321 )
 rotation = 0.0331857
-shape = SubResource( 27 )
+shape = SubResource( 21 )
 
 [node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 3507.18, 1193.03 )
@@ -1658,7 +1660,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 20 )
+custom_fonts/normal_font = SubResource( 22 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1814,7 +1816,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 21 )
+material = SubResource( 23 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.360808
@@ -1846,7 +1848,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 22 )
+custom_fonts/normal_font = SubResource( 24 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1907,7 +1909,7 @@ anchor_left = -0.1
 anchor_top = 1.0
 anchor_right = 1.1
 anchor_bottom = 1.5
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 25 )
 bbcode_enabled = true
 bbcode_text = "[center][color=black]\"Love card\"[/color][/center]"
 text = "\"Love card\""
@@ -1933,7 +1935,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 26 )
 
 [node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
 stream = ExtResource( 70 )
@@ -1948,7 +1950,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 24 )
+shape = SubResource( 26 )
 
 [node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 68 )
@@ -1962,7 +1964,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 25 )
+shape = SubResource( 27 )
 
 [node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
 stream = ExtResource( 73 )
@@ -1976,7 +1978,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 26 )
 
 [node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
 stream = ExtResource( 72 )
@@ -1990,7 +1992,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 26 )
+shape = SubResource( 28 )
 
 [node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
 stream = ExtResource( 71 )
@@ -2004,7 +2006,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 26 )
 
 [node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
 stream = ExtResource( 69 )

@@ -46,7 +46,7 @@ func appendQuest(q:String):
 	if not (getQuest(q)):
 		qcompleted.append(q);
 		print(len(qcompleted))
-		if len(qcompleted) >= 5:
+		if len(qcompleted) >= 6:
 			final_stage = true;
 			yield(get_tree().create_timer(5.0), "timeout")
 			fmul = fmul.instance();

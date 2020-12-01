@@ -48,7 +48,7 @@ func _process(delta):
 		if (force):
 			if fade < -30:
 				fade += delta * 5;
-				fade_end -= delta * 5;
+				fade_end -= delta * 7;
 				new_ost.volume_db = fade_end;
 			else:
 				resetList();
@@ -60,7 +60,7 @@ func _process(delta):
 			if fade < -30:
 				#new_ost.play();
 				fade += delta * 5;
-				fade_end -= delta * 5;
+				fade_end -= delta * 7;
 				new_ost.volume_db = fade;
 			else:
 				resetList();
@@ -70,7 +70,7 @@ func _process(delta):
 		
 		if fade < fade_to:
 			fade += delta * 5;
-			fade_end -= delta * 5;
+			fade_end -= delta * 7;
 			new_ost.volume_db = fade;
 			if (old_ost != null):
 				old_ost.volume_db = fade_end;
