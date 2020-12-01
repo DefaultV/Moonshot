@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=61 format=2]
+[gd_resource type="TileSet" load_steps=62 format=2]
 
 [ext_resource path="res://spacey's space/vegetation/grass1.png" type="Texture" id=1]
 [ext_resource path="res://spacey's space/vegetation/mush2.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Uncategorized/viginette.png" type="Texture" id=11]
 [ext_resource path="res://spacey's space/tiles/dirt.png" type="Texture" id=12]
 [ext_resource path="res://spacey's space/items/sign.png" type="Texture" id=13]
+[ext_resource path="res://spacey's space/gravel.png" type="Texture" id=14]
 [ext_resource path="res://spacey's space/tiles/river corner1.png" type="Texture" id=15]
 [ext_resource path="res://spacey's space/tiles/grass small tile.png" type="Texture" id=16]
 [ext_resource path="res://spacey's space/tiles/river1.png" type="Texture" id=17]
@@ -619,3 +620,17 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 29/z_index = 0
+30/name = "gravel.png 30"
+30/texture = ExtResource( 14 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 32, 32, 416, 256 )
+30/tile_mode = 0
+30/occluder_offset = Vector2( 0, 0 )
+30/navigation_offset = Vector2( 0, 0 )
+30/shape_offset = Vector2( 0, 0 )
+30/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+30/shape_one_way = false
+30/shape_one_way_margin = 0.0
+30/shapes = [  ]
+30/z_index = 0
