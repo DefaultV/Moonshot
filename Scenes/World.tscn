@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://Scripts/TriggerInnerMonologue.gd" type="Script" id=64]
 [ext_resource path="res://Sprites_textures/Love_card.png" type="Texture" id=65]
 [ext_resource path="res://Scenes/Lovecard.gd" type="Script" id=66]
+[ext_resource path="res://Scenes/END.gd" type="Script" id=67]
 [ext_resource path="res://Music/forest final.ogg" type="AudioStream" id=68]
 [ext_resource path="res://Music/Outer Village.ogg" type="AudioStream" id=69]
 [ext_resource path="res://Music/spawn final.ogg" type="AudioStream" id=70]
@@ -74,6 +75,7 @@
 [ext_resource path="res://Music/zen final.ogg" type="AudioStream" id=73]
 [ext_resource path="res://spacey's space/items/plank.png" type="Texture" id=74]
 [ext_resource path="res://Scenes/bridge.gd" type="Script" id=75]
+[ext_resource path="res://Scripts/disable_stuff.gd" type="Script" id=76]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -150,36 +152,48 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 193.226, 110.852 )
+extents = Vector2( 1170.51, 823.56 )
+
+[sub_resource type="CircleShape2D" id=28]
+radius = 58.354
+
+[sub_resource type="CircleShape2D" id=29]
+radius = 48.0124
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 243.739, 36.2332 )
 
 [sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 193.226, 110.852 )
+
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 138.39, 86.623 )
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=16]
 offsets = PoolRealArray( 0, 0.329032, 0.529032, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.317413, 0.401831, 0.427673, 1, 0.808594, 0.808594, 0.808594, 1, 0.727692, 0.921224, 0.980469, 1 )
 
-[sub_resource type="GradientTexture" id=16]
-gradient = SubResource( 15 )
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
-[sub_resource type="Gradient" id=17]
+[sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0, 0.227027, 0.675676, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 11.8167, 15.4896 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 150, 150 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=21]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=21]
+[sub_resource type="ShaderMaterial" id=22]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -193,21 +207,21 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=23]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=24]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=25]
 radius = 1036.56
 
-[sub_resource type="CircleShape2D" id=25]
+[sub_resource type="CircleShape2D" id=26]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=27]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -680,6 +694,7 @@ shape = SubResource( 7 )
 [node name="Ogi" type="Node2D" parent="Interactives"]
 position = Vector2( -672.517, -1241.4 )
 scale = Vector2( 0.1, 0.1 )
+z_index = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interactives/Ogi"]
 autoplay = "ogi_hover"
@@ -1012,6 +1027,117 @@ position = Vector2( 0, -10 )
 scale = Vector2( 0.4, 0.8 )
 texture = ExtResource( 38 )
 
+[node name="END" type="Area2D" parent="Interactives"]
+position = Vector2( -631.44, -1112.44 )
+script = ExtResource( 67 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END"]
+visible = false
+shape = SubResource( 13 )
+
+[node name="Bears" type="Node2D" parent="Interactives/END"]
+
+[node name="bear" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 231.226, 164.058 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 16 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear"]
+show_behind_parent = true
+position = Vector2( 9.1665, 50.8335 )
+texture = ExtResource( 41 )
+
+[node name="bear2" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 214.737, 240.463 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear2"]
+show_behind_parent = true
+position = Vector2( 32.1213, 47.302 )
+texture = ExtResource( 41 )
+
+[node name="bear3" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 162.176, 243.504 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear3"]
+show_behind_parent = true
+position = Vector2( 0.337524, 50.8335 )
+texture = ExtResource( 41 )
+
+[node name="bear4" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 258.794, 186.258 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 9 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear4"]
+show_behind_parent = true
+position = Vector2( 2.10327, 52.5994 )
+texture = ExtResource( 41 )
+
+[node name="bear5" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 267.999, 218.757 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear5"]
+show_behind_parent = true
+position = Vector2( 5.63501, 37.0894 )
+texture = ExtResource( 41 )
+
+[node name="dia_entrance" type="Area2D" parent="Interactives/END"]
+position = Vector2( 192.165, 199.61 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "You\'ve come to help us! We are so grateful, thank you!", "When you are ready, help us break down this wall!" )
+replay_dialogue = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/dia_entrance"]
+shape = SubResource( 28 )
+
+[node name="brk_entrance" type="Area2D" parent="Interactives/END"]
+position = Vector2( 175.89, 190.069 )
+script = ExtResource( 76 )
+stuff_to_disable = PoolStringArray( "/root/World/Objects/Spike_gate", "/root/World/Interactives/Speak_zone" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/brk_entrance"]
+shape = SubResource( 29 )
+
+[node name="first_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( -37.7549, -74.566 )
+script = ExtResource( 3 )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../sec_speak")
+itemToEnable2 = NodePath("../sec_speak")
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "Why did you break down the wall\?", "Please don\'t take our items, it would hurt in our tummies...", "We don\'t like visitors anymore! Please leave!" )
+
+[node name="guide" type="Node2D" parent="Interactives/END/first_speak"]
+position = Vector2( -57.5764, -149.132 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/first_speak"]
+position = Vector2( 56.6325, 140.637 )
+rotation = -0.265279
+shape = SubResource( 30 )
+
+[node name="sec_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( 3.77551, 4.71936 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "We have gathered to free you from your items! They are bad for you!", "Let us use our items, we call upon the spirit inside to help you!" )
+zoom_guide = true
+
+[node name="guide" type="Node2D" parent="Interactives/END/sec_speak"]
+position = Vector2( 58.5203, 80.2292 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/sec_speak"]
+position = Vector2( 17.9337, 64.1835 )
+rotation = -0.265279
+shape = SubResource( 30 )
+disabled = true
+
 [node name="Objects" type="Node2D" parent="."]
 position = Vector2( 4.00452, 0 )
 
@@ -1032,7 +1158,7 @@ script = ExtResource( 75 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bridge_forest/Bridge_area"]
 position = Vector2( -38.6055, -68.3018 )
 rotation = -0.97362
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="river sound" type="AudioStreamPlayer2D" parent="Objects/Bridge_forest"]
 position = Vector2( 0, 1.0611 )
@@ -1080,7 +1206,7 @@ flip_h = true
 [node name="spike_col" type="CollisionShape2D" parent="Objects/Spike_gate"]
 position = Vector2( 10.5947, 30.9011 )
 rotation = -0.609948
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 disabled = true
 
 [node name="Tumbleweed_spawner" type="Node2D" parent="Objects"]
@@ -1093,8 +1219,9 @@ spawn_timer = 4.0
 dir = Vector2( 1, 0 )
 
 [node name="Rocketship" type="Sprite" parent="Objects"]
-position = Vector2( -836.806, -1153.32 )
+position = Vector2( -670.682, -1284.09 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 texture = ExtResource( 53 )
 
 [node name="Tilemaps_front" type="Node2D" parent="."]
@@ -1199,12 +1326,13 @@ format = 1
 tile_data = PoolIntArray( -1310786, 29, 0, -1179712, 29, 0, -1114173, 29, 0, -1114168, 29, 0, -1114164, 29, 0, -1048634, 29, 0, -1048630, 29, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 99.6663, 707.414 )
+position = Vector2( -355.71, -848.221 )
 z_index = 0
 mode = 2
 gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 3.0
+debug_end = true
 max_speed = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1220,7 +1348,7 @@ position = Vector2( 20.2043, 11.2246 )
 rotation = -1.5708
 scale = Vector2( 1, 2500 )
 z_index = -10
-texture = SubResource( 16 )
+texture = SubResource( 17 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 position = Vector2( -1033.34, -584.674 )
@@ -1246,7 +1374,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.03
 scale_amount_random = 0.15
-color_ramp = SubResource( 17 )
+color_ramp = SubResource( 18 )
 
 [node name="Inside_overlay" type="Node2D" parent="."]
 visible = false
@@ -1290,7 +1418,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent8/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1330,7 +1458,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent9/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent9/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1370,7 +1498,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent10/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent10/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1410,7 +1538,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent11/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent11/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1450,7 +1578,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent12/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent12/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1490,7 +1618,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent13/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent13/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1530,7 +1658,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent14/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent14/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1550,7 +1678,7 @@ monologue = PoolStringArray( "And so I went, to the kingdom!", "I wonder what th
 position = Vector2( -326.268, -260.678 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_kingdom"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="To_forest" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 2054.98, -188.533 )
@@ -1561,7 +1689,7 @@ monologue = PoolStringArray( "After being cast out, I crossed paths with the for
 position = Vector2( 595.354, -94.1806 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 316.29, -1801.23 )
@@ -1572,7 +1700,7 @@ monologue = PoolStringArray( "Desert placeholder text" )
 position = Vector2( 539.918, -154.657 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 3073, 683.333 )
@@ -1583,7 +1711,7 @@ monologue = PoolStringArray( "Village placeholder text" )
 position = Vector2( 287.934, -2831.35 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="To_village2" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 1839.52, -2159.31 )
@@ -1594,7 +1722,7 @@ monologue = PoolStringArray( "Village placeholder text" )
 position = Vector2( 770.693, -101.279 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village2"]
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1633,7 +1761,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 20 )
+custom_fonts/normal_font = SubResource( 21 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1645,7 +1773,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 21 )
+material = SubResource( 22 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.360808
@@ -1677,7 +1805,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 22 )
+custom_fonts/normal_font = SubResource( 23 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1739,7 +1867,7 @@ anchor_left = -0.1
 anchor_top = 1.0
 anchor_right = 1.1
 anchor_bottom = 1.5
-custom_fonts/normal_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 24 )
 bbcode_enabled = true
 bbcode_text = "[center][color=black]\"Love card\"[/color][/center]"
 text = "\"Love card\""
@@ -1765,7 +1893,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
 stream = ExtResource( 70 )
@@ -1780,7 +1908,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 68 )
@@ -1794,7 +1922,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 25 )
+shape = SubResource( 26 )
 
 [node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
 stream = ExtResource( 73 )
@@ -1808,7 +1936,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
 stream = ExtResource( 72 )
@@ -1822,7 +1950,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
 stream = ExtResource( 71 )
@@ -1836,7 +1964,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
 stream = ExtResource( 69 )
