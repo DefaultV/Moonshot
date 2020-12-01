@@ -50,7 +50,9 @@ func _process(delta):
 			self_modulate.a -= delta * 0.5;
 			if self_modulate.a <= 0:
 				if (dia_count != 1) or len(str_array_external) == 0:
+					print("next dia");
 					next_dia.resume()
+					#fade_cd = 4.0;
 				dia_amount += 1;
 	else:
 		if (fade_amount >= 0):
@@ -78,7 +80,9 @@ func NextInnerDialogue():
 func fadeNewText(arg:String, cd:float):
 	self_modulate.a = 0;
 	fade_cd = cd;
+	print("fade_cd set: " + String(fade_cd))
 	set_text("\""+arg+"\"");
+	print("setting text" + arg);
 
 func set_text(arg:String):
 	bbcode_text = "[center][color=#000000]"+ arg +"[/color][/center]"
@@ -98,7 +102,7 @@ func newInnerDialogue(stringarray:PoolStringArray, pos:Vector2):
 	fade_cd = 1.0;
 	dia_amount = 0;
 	dia_count = len(stringarray);
-	print(len(stringarray))
+	print("monologue_len: " + String(len(stringarray)))
 	picfaded = false;
 	str_array_external = stringarray;
 	#uishader.material.set_shader_param("white_fade", 1.0);
@@ -111,8 +115,10 @@ func pause():
 	fadeNewText(str_array_external[0], 4.0);
 	yield();
 	fadeNewText(str_array_external[1], 4.0);
+	print(str_array_external[1])
 	yield();
 	fadeNewText(str_array_external[2], 4.0);
+	print(str_array_external[2])
 	yield();
 	fadeNewText(str_array_external[3], 4.0);
 	yield();

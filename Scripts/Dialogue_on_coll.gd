@@ -46,9 +46,11 @@ func _process(delta):
 					print("spawned item or object " + get_node(itemToEnable).name)
 					#yield(get_tree().create_timer(0.5), "timeout")
 					get_node(itemToEnable).show();
-					get_node(itemToEnable).get_child(1).set_deferred("disabled", false);
+					if get_node(itemToEnable).get_child(1) != null:
+						get_node(itemToEnable).get_child(1).set_deferred("disabled", false);
 					get_node(itemToEnable2).show();
-					get_node(itemToEnable2).get_child(1).set_deferred("disabled", false);
+					if get_node(itemToEnable2).get_child(1) != null:
+						get_node(itemToEnable2).get_child(1).set_deferred("disabled", false);
 					print("end of dialogue: " + name);
 				this = false;
 					
@@ -67,7 +69,10 @@ export var speech_array:PoolStringArray = []
 export var zoom_guide:bool = false;
 export var speaks:bool = true;
 export var leave_when_spoken:bool = false;
+export var ogi_speak:bool = false;
+export var ogi_speak_idx = 4;
 var adds = ["\n[center][color=white][shake rate=3 level=5]", "[/shake][/color][/center]"]
+var ogi_adds = ["\n[center][color=red][shake rate=5 level=8]", "[/shake][/color][/center]"]
 func _on_Mullar_tut_body_entered(body):
 	if body.name != "Player" or not speaks:
 		return;
@@ -108,7 +113,12 @@ var speech_idx = 1;
 func next_dialogue_part():
 	dialogue.resetscroll()
 	if speech_array.size() != speech_idx:
-		dialogue.bbcode_text = adds[0] + speech_array[speech_idx] + adds[1]
+		print(speech_idx)
+		if ogi_speak and speech_idx >= ogi_speak_idx:
+			print("OGI SPEAK: ")
+			dialogue.bbcode_text = ogi_adds[0] + speech_array[speech_idx] + ogi_adds[1]
+		else:
+			dialogue.bbcode_text = adds[0] + speech_array[speech_idx] + adds[1]
 		speech_idx+=1;
 		return true
 	return false

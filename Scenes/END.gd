@@ -24,6 +24,10 @@ func end_enable():
 				if colliders.get_class() == "CollisionShape2D":
 					colliders.set_deferred("disabled", false);
 	$sec_speak/CollisionShape2D.set_deferred("disabled", true);
+	$ogi_speak/CollisionShape2D.set_deferred("disabled", true);
+	$third_speak/CollisionShape2D.set_deferred("disabled", true);
+	$ogi_speak2/CollisionShape2D.set_deferred("disabled", true);
+	$fourth_speak/CollisionShape2D.set_deferred("disabled", true);
 
 func end_disable():
 	$Bears.hide();
