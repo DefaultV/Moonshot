@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=69 format=2]
+[gd_resource type="TileSet" load_steps=77 format=2]
 
 [ext_resource path="res://spacey's space/vegetation/grass1.png" type="Texture" id=1]
 [ext_resource path="res://spacey's space/vegetation/mush2.png" type="Texture" id=2]
@@ -37,6 +37,14 @@
 [ext_resource path="res://spacey's space/vegetation/grass4.png" type="Texture" id=35]
 [ext_resource path="res://spacey's space/vegetation/grass5.png" type="Texture" id=36]
 [ext_resource path="res://spacey's space/grass small tile w less grass.png" type="Texture" id=37]
+[ext_resource path="res://spacey's space/vegetation/zen pond.png" type="Texture" id=38]
+[ext_resource path="res://spacey's space/zen lantern.png" type="Texture" id=39]
+[ext_resource path="res://spacey's space/shishi odoshi.png" type="Texture" id=40]
+[ext_resource path="res://spacey's space/bonsai.png" type="Texture" id=41]
+[ext_resource path="res://spacey's space/tiles/stone tile.png" type="Texture" id=42]
+[ext_resource path="res://spacey's space/tiles/white blend tile.png" type="Texture" id=43]
+[ext_resource path="res://spacey's space/tiles/white blend tile2.png" type="Texture" id=44]
+[ext_resource path="res://spacey's space/vegetation/pond2.png" type="Texture" id=45]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.35503, 0.467456 )
@@ -725,3 +733,115 @@ points = PoolVector2Array( 131.6, 86, 173.6, 137.6, 106.4, 159.2, 62, 143.6, 89.
 35/shape_one_way_margin = 0.0
 35/shapes = [  ]
 35/z_index = 0
+36/name = "shishi odoshi.png 36"
+36/texture = ExtResource( 40 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 0, 160, 128 )
+36/tile_mode = 0
+36/occluder_offset = Vector2( 0, 0 )
+36/navigation_offset = Vector2( 0, 0 )
+36/shape_offset = Vector2( 0, 0 )
+36/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+36/shape_one_way = false
+36/shape_one_way_margin = 0.0
+36/shapes = [  ]
+36/z_index = 0
+37/name = "zen lantern.png 37"
+37/texture = ExtResource( 39 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 17, 10, 91, 222 )
+37/tile_mode = 0
+37/occluder_offset = Vector2( 0, 0 )
+37/navigation_offset = Vector2( 0, 0 )
+37/shape_offset = Vector2( 0, 0 )
+37/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+37/shape_one_way = false
+37/shape_one_way_margin = 0.0
+37/shapes = [  ]
+37/z_index = 0
+38/name = "bonsai.png 38"
+38/texture = ExtResource( 41 )
+38/tex_offset = Vector2( 0, 0 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 17, 0, 80, 194 )
+38/tile_mode = 0
+38/occluder_offset = Vector2( 0, 0 )
+38/navigation_offset = Vector2( 0, 0 )
+38/shape_offset = Vector2( 0, 0 )
+38/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+38/shape_one_way = false
+38/shape_one_way_margin = 0.0
+38/shapes = [  ]
+38/z_index = 0
+39/name = "zen pond.png 39"
+39/texture = ExtResource( 38 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 64, 64, 480, 256 )
+39/tile_mode = 0
+39/occluder_offset = Vector2( 0, 0 )
+39/navigation_offset = Vector2( 0, 0 )
+39/shape_offset = Vector2( 0, 0 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+39/shape_one_way = false
+39/shape_one_way_margin = 0.0
+39/shapes = [  ]
+39/z_index = 0
+40/name = "stone tile.png 40"
+40/texture = ExtResource( 42 )
+40/tex_offset = Vector2( 0, 0 )
+40/modulate = Color( 1, 1, 1, 1 )
+40/region = Rect2( 196, 228, 748, 483 )
+40/tile_mode = 0
+40/occluder_offset = Vector2( 0, 0 )
+40/navigation_offset = Vector2( 0, 0 )
+40/shape_offset = Vector2( 0, 0 )
+40/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+40/shape_one_way = false
+40/shape_one_way_margin = 0.0
+40/shapes = [  ]
+40/z_index = 0
+41/name = "white blend tile.png 41"
+41/texture = ExtResource( 43 )
+41/tex_offset = Vector2( 0, 0 )
+41/modulate = Color( 1, 1, 1, 1 )
+41/region = Rect2( 32, 64, 288, 160 )
+41/tile_mode = 0
+41/occluder_offset = Vector2( 0, 0 )
+41/navigation_offset = Vector2( 0, 0 )
+41/shape_offset = Vector2( 0, 0 )
+41/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+41/shape_one_way = false
+41/shape_one_way_margin = 0.0
+41/shapes = [  ]
+41/z_index = 0
+42/name = "white blend tile2.png 42"
+42/texture = ExtResource( 44 )
+42/tex_offset = Vector2( 0, 0 )
+42/modulate = Color( 1, 1, 1, 1 )
+42/region = Rect2( 64, 128, 576, 352 )
+42/tile_mode = 0
+42/occluder_offset = Vector2( 0, 0 )
+42/navigation_offset = Vector2( 0, 0 )
+42/shape_offset = Vector2( 0, 0 )
+42/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+42/shape_one_way = false
+42/shape_one_way_margin = 0.0
+42/shapes = [  ]
+42/z_index = 0
+43/name = "pond2.png 43"
+43/texture = ExtResource( 45 )
+43/tex_offset = Vector2( 0, 0 )
+43/modulate = Color( 1, 1, 1, 1 )
+43/region = Rect2( 352, 256, 448, 288 )
+43/tile_mode = 0
+43/occluder_offset = Vector2( 0, 0 )
+43/navigation_offset = Vector2( 0, 0 )
+43/shape_offset = Vector2( 0, 0 )
+43/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+43/shape_one_way = false
+43/shape_one_way_margin = 0.0
+43/shapes = [  ]
+43/z_index = 0
