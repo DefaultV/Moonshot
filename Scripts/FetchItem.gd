@@ -29,9 +29,9 @@ func _on_body_enter(body):
 		found = true;
 		pickup_show();
 		if not bugnet:
-			get_node("/root/World/Player").playinventory();
+			get_node("/root/Globals").getPlayer().playinventory();
 		else:
-			get_node("/root/World/Player").playbugnet();
+			get_node("/root/Globals").getPlayer().playbugnet();
 
 export var ui_text_pickup:String;
 func pickup_show():

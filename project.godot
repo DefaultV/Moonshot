@@ -23,6 +23,10 @@ boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://Sprites_textures/Mullar_wisdom.png"
 config/windows_native_icon="res://spacey's space/bears/hiker bear.ico"
 
+[autoload]
+
+Globals="*res://Scripts/globals.gd"
+
 [display]
 
 window/size/width=1280

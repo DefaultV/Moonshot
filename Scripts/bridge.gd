@@ -25,4 +25,4 @@ func repairbridge():
 	get_parent().texture = bridge_sprite;
 	get_parent().get_child(0).get_child(0).set_deferred("disabled", true)
 	print(get_parent().get_child(0).get_child(0))
-	# PLAY REPAIR SOUND
+	$repair.play();

@@ -2,14 +2,21 @@
 extends RigidBody2D
 
 func _ready():
+	if len(debug_items) > 0:
+		for item in debug_items:
+			appendItem(item);
+			print("DEBUG ITEM IS ON, REMEMBER TO DISABLE ON BUILD")
 	if debug_finalquest:
 		for i in range(0, 5):
 			appendQuest("test"+String(i))
+		print("DEBUG FINAL QUEST IS ON, REMEMBER TO DISABLE ON BUILD")
 	if debug_end:
 		final_stage = true;
+		print("DEBUG FINAL STAGE IS ON, REMEMBER TO DISABLE ON BUILD")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+export var debug_items:PoolStringArray;
 export var debug_finalquest:bool = false;
 export var debug_end:bool = false;
 func _process(delta):

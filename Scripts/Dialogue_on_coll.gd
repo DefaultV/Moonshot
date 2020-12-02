@@ -14,7 +14,7 @@ func _ready():
 	connect("body_entered", self, "_on_Mullar_tut_body_entered");
 	connect("body_exited", self, "_on_Mullar_tut_body_exited");
 	cam = get_node("/root/World/Camera2D");
-	ply = get_node("/root/World/Player");
+	ply = get_node("/root/Globals").getPlayer()
 	dialogue = get_node("/root/World/UI/Dialogue");
 	dialogue_rect = get_node("/root/World/UI/Dialogue_rect");
 	dialogue_state(false)
@@ -27,8 +27,8 @@ func dialogue_state(vis):
 		dialogue.hide()
 		dialogue_rect.hide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+
+func _process(_delta):
 	if ply.cinematic:
 		if Input.is_action_just_released("space") and this and ply.canPressSpace:
 			ply.playtextblurp()
@@ -55,6 +55,7 @@ func _process(delta):
 				if name == "Speak_zone":
 					get_node("/root/World/Objects/Desert_block").get_child(0).set_deferred("disabled", true);
 					get_node("/root/World/Objects/Desert_block").hide();
+					get_node("/root/World/Objects/Desert_block/desert_storm_ambient").stop();
 				this = false;
 					
 

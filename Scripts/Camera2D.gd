@@ -8,7 +8,7 @@ extends Camera2D
 
 var ply;
 func _ready():
-	ply = get_node("/root/World/Player");
+	ply = get_node("/root/Globals").getPlayer()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

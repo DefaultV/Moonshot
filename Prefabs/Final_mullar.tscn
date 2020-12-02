@@ -11,9 +11,10 @@
 [ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=9]
 [ext_resource path="res://MC_frames/løb8.png" type="Texture" id=10]
 [ext_resource path="res://MC_frames/løb2.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Final_mullar.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Final_mullar.gd" type="Script" id=12]
 [ext_resource path="res://MC_frames/løb10.png" type="Texture" id=13]
 [ext_resource path="res://MC_frames/løb9.png" type="Texture" id=14]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.80733, 8.42114 )

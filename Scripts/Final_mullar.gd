@@ -9,7 +9,7 @@ var ply;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	modulate.a = 0.0;
-	ply = get_node("/root/World/Player");
+	ply = get_node("/root/Globals").getPlayer()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,14 +1,14 @@
 extends Node2D
 
 
-const SPEED_INSIDE = 50;
-const SPEED_OUTSIDE = 100;
+const SPEED_INSIDE = 75;
+const SPEED_OUTSIDE = 150;
 
 var ply;
 var cam;
 
 func _ready():
-	ply = get_node("/root/World/Player");
+	ply = get_node("/root/Globals").getPlayer();
 	cam = get_node("/root/World/Camera2D");
 
 #func _process(delta):

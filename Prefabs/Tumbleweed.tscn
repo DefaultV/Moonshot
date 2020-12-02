@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Tumbleweed.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Tumbleweed.gd" type="Script" id=1]
 [ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=2]
 [ext_resource path="res://spacey's space/vegetation/tumbleweed.png" type="Texture" id=3]
+
 
 [sub_resource type="Animation" id=28]
 resource_name = "tumble"

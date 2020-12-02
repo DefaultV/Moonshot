@@ -8,10 +8,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass;
+
 export var spawner:bool = false;
-export var from:Vector2;
-export var to:Vector2;
+
 export var spawn_timer:float = 2;
 export var dir = Vector2.ZERO;
 export var lifetime:float = 30;
@@ -35,6 +35,6 @@ func _process(delta):
 
 func spawn_tumbleweed():
 	var tw = tumbleweed_prefab.instance();
-	tw.position = Vector2(rand_range(from.x, to.x), rand_range(from.y, to.y));
+	tw.position = Vector2(rand_range($guide.position.x, $guide2.position.x), rand_range($guide.position.y, $guide2.position.y));
 	tw.dir = Vector2(rand_range(0.6, 1), rand_range(0, 0.5));
 	add_child(tw);

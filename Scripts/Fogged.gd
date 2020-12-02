@@ -10,7 +10,7 @@ var found = false;
 export var rate = 0.03;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ply = get_node("/root/World/Player")
+	ply = get_node("/root/Globals").getPlayer()
 
 var max_dist = 120;
 var min_dist = 50;

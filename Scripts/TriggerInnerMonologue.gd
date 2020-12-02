@@ -23,3 +23,12 @@ func trigger_mono(body):
 	if body.name == "Player":
 		get_node("/root/World/UI/Inner_dialogue").newInnerDialogue(monologue, get_child(0).get_global_position());
 		triggered = true;
+		disable_rest();
+
+func disable_rest():
+	if name == "To_forest":
+		print("disabling desert");
+		get_node("../To_desert").triggered = true;
+	if name == "To_desert":
+		print("disabling forest");
+		get_node("../To_forest").triggered = true;

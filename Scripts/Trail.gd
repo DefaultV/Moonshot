@@ -15,6 +15,7 @@ var point
 export var trailLength = 10;
 var cd = 0.1;
 func _process(delta):
+	get_parent().global_position = Vector2.ZERO;
 	if cd > 0.1:
 		if (get_parent().get_parent().walking):
 		#global_position = Vector2(0, 15);

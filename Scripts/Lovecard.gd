@@ -10,7 +10,7 @@ var pickup_ui;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect("body_entered", self, "_on_body_enter");
-	ply = get_node("/root/World/Player");
+	ply = get_node("/root/Globals").getPlayer();
 	pickup_ui = get_node("/root/World/UI/Itempickup");
 var pickedup:bool = false;
 func _on_body_enter(body):

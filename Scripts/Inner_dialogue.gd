@@ -1,13 +1,13 @@
 extends RichTextLabel
 
-
+#TODO Make this abomination better
 var uishader;
 # Called when the node enters the scene tree for the first time.
 var next_dia;
 var inner_pic:TextureRect;
 var ply;
 func _ready():
-	ply = get_node("/root/World/Player");
+	ply = get_node("/root/Globals").getPlayer();
 	uishader = get_node("/root/World/UI/SHADERS");
 	inner_pic = get_parent().get_node("Inner_pic");
 	if skip_intro:
@@ -51,7 +51,7 @@ func _process(delta):
 			if self_modulate.a <= 0:
 				if (dia_count != 1) or len(str_array_external) == 0:
 					print("next dia");
-					next_dia.resume()
+					next_dia.resume() # GIVES ERRORS; TODO
 					#fade_cd = 4.0;
 				dia_amount += 1;
 	else:

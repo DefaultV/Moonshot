@@ -101,7 +101,7 @@ position = Vector2( 1.83516, 1.01953 )
 rotation = 0.0329933
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
-frame = 21
+frame = 13
 speed_scale = 2.0
 playing = true
 
@@ -133,7 +133,7 @@ visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 2 )
-frame = 2
+frame = 6
 speed_scale = 2.4
 playing = true
 
@@ -142,7 +142,7 @@ visible = false
 position = Vector2( 1.56164e-05, -3.84055 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 3 )
-frame = 1
+frame = 5
 speed_scale = 2.4
 playing = true
 
@@ -173,7 +173,9 @@ volume_db = -30.0
 pitch_scale = 2.0
 autoplay = true
 
-[node name="globalparentline" type="Node" parent="."]
+[node name="globalparentline" type="Node2D" parent="."]
+show_behind_parent = true
+z_index = 1
 
 [node name="Line2D" type="Line2D" parent="globalparentline"]
 modulate = Color( 1, 1, 1, 0.392157 )

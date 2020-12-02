@@ -1,15 +1,18 @@
 extends Node2D
 
+var ply;
 func _ready():
 	connect("visibility_changed", self, "endchapter");
+	ply = get_node("/root/Globals").getPlayer();
 
 var ending = false;
 var no_cape = load("res://spacey's space/bears/prince bear no cape.png")
+
 func endchapter():
 	if ending:
 		return;
 	ending = true;
-	get_node("/root/World/Player").cinematic = true;
+	ply.cinematic = true;
 	get_node("/root/World/Camera2D").hook_zoom(global_position, Vector2(0.7, 0.7));
 	# remove items
 	yield(get_tree().create_timer(5.0), "timeout");
@@ -33,14 +36,14 @@ func endchapter():
 	
 
 func endchapter2():
-	get_node("/root/World/Player").cinematic = true;
+	ply.cinematic = true;
 	get_node("/root/World/Camera2D").hook_zoom(global_position, Vector2(0.7, 0.7));
 	get_node("/root/World/Interactives/Ogi/SHADOW/AnimationPlayer").play("shadow_ogi");
 	yield(get_tree().create_timer(5.0), "timeout");
 	get_node("/root/World/Interactives/END/third_speak/CollisionShape2D").set_deferred("disabled", false);
 
 func endchapter3():
-	get_node("/root/World/Player").cinematic = true;
+	ply.cinematic = true;
 	get_node("/root/World/Camera2D").hook_zoom(global_position, Vector2(0.7, 0.7));
 	get_node("/root/World/region_audio/OGI_OST").stop();
 	yield(get_tree().create_timer(1.0), "timeout");
@@ -49,7 +52,7 @@ func endchapter3():
 	get_node("/root/World/Interactives/END/ogi_speak2/CollisionShape2D").set_deferred("disabled", false);
 
 func endchapter4():
-	get_node("/root/World/Player").cinematic = true;
+	ply.cinematic = true;
 	get_node("/root/World/Camera2D").hook_zoom(global_position, Vector2(0.7, 0.7));
 	yield(get_tree().create_timer(1.0), "timeout");
 	get_node("/root/World/Interactives/Ogi").hide();
