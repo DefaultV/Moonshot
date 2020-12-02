@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=125 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://Scripts/TriggerInnerMonologue.gd" type="Script" id=64]
 [ext_resource path="res://Sprites_textures/Love_card.png" type="Texture" id=65]
 [ext_resource path="res://Scenes/Lovecard.gd" type="Script" id=66]
+[ext_resource path="res://Scenes/END.gd" type="Script" id=67]
 [ext_resource path="res://Music/forest final.ogg" type="AudioStream" id=68]
 [ext_resource path="res://Music/Outer Village.ogg" type="AudioStream" id=69]
 [ext_resource path="res://Music/spawn final.ogg" type="AudioStream" id=70]
@@ -74,6 +75,13 @@
 [ext_resource path="res://Music/zen final.ogg" type="AudioStream" id=73]
 [ext_resource path="res://spacey's space/items/plank.png" type="Texture" id=74]
 [ext_resource path="res://Scenes/bridge.gd" type="Script" id=75]
+[ext_resource path="res://Scripts/disable_stuff.gd" type="Script" id=76]
+[ext_resource path="res://Uncategorized/firefly.png" type="Texture" id=77]
+[ext_resource path="res://Scenes/last_chapter.gd" type="Script" id=78]
+[ext_resource path="res://Music/ogi final.ogg" type="AudioStream" id=79]
+[ext_resource path="res://Music/choir final.ogg" type="AudioStream" id=80]
+[ext_resource path="res://Scenes/next.gd" type="Script" id=81]
+[ext_resource path="res://Music/credits final.ogg" type="AudioStream" id=82]
 [ext_resource path="res://Scenes/credits.gd" type="Script" id=83]
 [ext_resource path="res://spacey's space/particles/sandstorm.png" type="Texture" id=84]
 
@@ -125,6 +133,22 @@ tracks/0/keys = {
 "values": [ Vector2( -672.517, -1239.11 ), Vector2( -672.517, -1245 ), Vector2( -672.517, -1239.11 ) ]
 }
 
+[sub_resource type="Animation" id=38]
+resource_name = "shadow_ogi"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 4, 4 ), Vector2( 3, 3 ), Vector2( 100, 100 ) ]
+}
+
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 24.4524, 19.2031 )
 
@@ -152,42 +176,73 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 880.193, 604.637 )
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 60.7337
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 43.2324
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 316.393, 29.0991 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 297.627, 31.3746 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 299.329, 31.9146 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 312.663, 32.2245 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 329.192, 32.8486 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 322.478, 32.0253 )
+
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 193.226, 110.852 )
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 138.39, 86.623 )
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 123.464, 66.8145 )
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=23]
 offsets = PoolRealArray( 0, 0.329032, 0.529032, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.317413, 0.401831, 0.427673, 1, 0.808594, 0.808594, 0.808594, 1, 0.727692, 0.921224, 0.980469, 1 )
 
-[sub_resource type="GradientTexture" id=16]
-gradient = SubResource( 15 )
+[sub_resource type="GradientTexture" id=24]
+gradient = SubResource( 23 )
 
-[sub_resource type="Gradient" id=17]
+[sub_resource type="Gradient" id=25]
 offsets = PoolRealArray( 0, 0.227027, 0.675676, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 11.8167, 15.4896 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 150, 150 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 355.365, 78.4767 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 850.444, 131.358 )
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=30]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=23]
+[sub_resource type="DynamicFont" id=39]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=31]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -201,21 +256,24 @@ shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
 shader_param/offset_texture = ExtResource( 47 )
 
-[sub_resource type="DynamicFont" id=24]
+[sub_resource type="DynamicFont" id=32]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=25]
+[sub_resource type="DynamicFont" id=33]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=26]
-radius = 1036.56
+[sub_resource type="CircleShape2D" id=34]
+radius = 874.088
 
-[sub_resource type="CircleShape2D" id=27]
+[sub_resource type="CircleShape2D" id=35]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=28]
+[sub_resource type="CircleShape2D" id=40]
+radius = 1259.39
+
+[sub_resource type="CircleShape2D" id=36]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -411,7 +469,7 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 4 )
-frame = 17
+frame = 14
 speed_scale = 0.5
 playing = true
 
@@ -552,7 +610,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 1
+frame = 4
 speed_scale = 1.3
 playing = true
 
@@ -576,7 +634,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar2"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 21
+frame = 4
 speed_scale = 1.5
 playing = true
 
@@ -600,7 +658,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 4
+frame = 2
 speed_scale = 1.8
 playing = true
 
@@ -636,7 +694,7 @@ shape = SubResource( 7 )
 
 [node name="Ogi" type="Node2D" parent="Interactives"]
 visible = false
-position = Vector2( -672.517, -1241.4 )
+position = Vector2( -672.517, -1239.11 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interactives/Ogi"]
@@ -659,6 +717,15 @@ position = Vector2( -26.2841, -11.3811 )
 scale = Vector2( 1, 2 )
 texture = ExtResource( 38 )
 
+[node name="SHADOW" type="Sprite" parent="Interactives/Ogi"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+position = Vector2( -22.4751, 202.271 )
+texture = ExtResource( 38 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interactives/Ogi/SHADOW"]
+anims/shadow_ogi = SubResource( 38 )
+
 [node name="King_mullar" type="Area2D" parent="Interactives"]
 position = Vector2( -669.433, -1195.49 )
 script = ExtResource( 3 )
@@ -668,6 +735,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/King_mullar"]
+visible = false
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/King_mullar"]
@@ -701,13 +769,14 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/Queen_mullar"]
+visible = false
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/Queen_mullar"]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 49 )
 
-[node name="Sprite2" type="Sprite" parent="Interactives/Queen_mullar"]
+[node name="Crown" type="Sprite" parent="Interactives/Queen_mullar"]
 position = Vector2( -1.11365, -16.7043 )
 rotation = -0.131528
 scale = Vector2( 0.3, 0.3 )
@@ -729,6 +798,7 @@ replay_dialogue = true
 chimeorshake = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/RoyalSon_mullar"]
+visible = false
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Interactives/RoyalSon_mullar"]
@@ -971,6 +1041,277 @@ position = Vector2( 0, -10 )
 scale = Vector2( 0.4, 0.8 )
 texture = ExtResource( 38 )
 
+[node name="END" type="Area2D" parent="Interactives"]
+position = Vector2( -631.44, -1112.44 )
+script = ExtResource( 67 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END"]
+visible = false
+shape = SubResource( 13 )
+
+[node name="Bears" type="Node2D" parent="Interactives/END"]
+
+[node name="bear" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 231.226, 164.058 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 16 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear"]
+show_behind_parent = true
+position = Vector2( 9.1665, 50.8335 )
+texture = ExtResource( 41 )
+
+[node name="bear2" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 214.737, 240.463 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear2"]
+show_behind_parent = true
+position = Vector2( 32.1213, 47.302 )
+texture = ExtResource( 41 )
+
+[node name="bear3" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 162.176, 243.504 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear3"]
+show_behind_parent = true
+position = Vector2( 0.337524, 50.8335 )
+texture = ExtResource( 41 )
+
+[node name="bear4" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 258.794, 186.258 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 9 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear4"]
+show_behind_parent = true
+position = Vector2( 2.10327, 52.5994 )
+texture = ExtResource( 41 )
+
+[node name="bear5" type="Sprite" parent="Interactives/END/Bears"]
+position = Vector2( 267.999, 218.757 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="shadow" type="Sprite" parent="Interactives/END/Bears/bear5"]
+show_behind_parent = true
+position = Vector2( 5.63501, 37.0894 )
+texture = ExtResource( 41 )
+
+[node name="dia_entrance" type="Area2D" parent="Interactives/END"]
+position = Vector2( 192.165, 199.61 )
+script = ExtResource( 3 )
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "You\'ve come to help us! We are so grateful, thank you!", "When you are ready, help us break down this wall!" )
+replay_dialogue = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/dia_entrance"]
+shape = SubResource( 14 )
+
+[node name="brk_entrance" type="Area2D" parent="Interactives/END"]
+position = Vector2( 175.89, 190.069 )
+script = ExtResource( 76 )
+stuff_to_disable = PoolStringArray( "/root/World/Objects/Spike_gate", "/root/World/Interactives/Speak_zone" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/brk_entrance"]
+shape = SubResource( 15 )
+
+[node name="first_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( -37.7549, -74.566 )
+script = ExtResource( 3 )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../sec_speak")
+itemToEnable2 = NodePath("../sec_speak")
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "Why did you break down the wall\?", "Please don\'t take our items, it would hurt in our tummies...", "We don\'t like visitors anymore! Please leave!" )
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/END/first_speak"]
+position = Vector2( -59.9575, -147.545 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/first_speak"]
+position = Vector2( 56.6325, 140.637 )
+rotation = -0.265279
+shape = SubResource( 16 )
+
+[node name="sec_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( 3.77551, 4.71936 )
+script = ExtResource( 3 )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../Items")
+itemToEnable2 = NodePath("../Items")
+hook_zoom_amount = Vector2( 0.3, 0.3 )
+speech_array = PoolStringArray( "We have gathered to free you from your items! They are bad for you!", "Let us use our items, we call upon the spirit inside to help you!" )
+zoom_guide = true
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/END/sec_speak"]
+position = Vector2( 50.5833, 14.3521 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/sec_speak"]
+position = Vector2( 17.9337, 64.1835 )
+rotation = -0.265279
+shape = SubResource( 17 )
+disabled = true
+
+[node name="Items" type="Node2D" parent="Interactives/END"]
+visible = false
+position = Vector2( 17.2051, 10.1523 )
+scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 78 )
+
+[node name="bg" type="Node2D" parent="Interactives/END/Items"]
+
+[node name="Sprite" type="Sprite" parent="Interactives/END/Items/bg"]
+self_modulate = Color( 0, 0.552941, 1, 1 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 77 )
+
+[node name="Sprite2" type="Sprite" parent="Interactives/END/Items/bg"]
+self_modulate = Color( 0.0784314, 1, 0, 1 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 77 )
+
+[node name="Sprite3" type="Sprite" parent="Interactives/END/Items/bg"]
+self_modulate = Color( 1, 0.305882, 0, 1 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 77 )
+
+[node name="Sprite4" type="Sprite" parent="Interactives/END/Items/bg"]
+self_modulate = Color( 0.243137, 0, 1, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 77 )
+
+[node name="item" type="Sprite" parent="Interactives/END/Items"]
+position = Vector2( 86.9065, 11.7512 )
+texture = ExtResource( 61 )
+
+[node name="item2" type="Sprite" parent="Interactives/END/Items"]
+position = Vector2( 48.301, 62.2354 )
+texture = ExtResource( 52 )
+
+[node name="item3" type="Sprite" parent="Interactives/END/Items"]
+position = Vector2( -38.5615, 58.5232 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 50 )
+
+[node name="item4" type="Sprite" parent="Interactives/END/Items"]
+position = Vector2( -87.561, -5.32397 )
+texture = ExtResource( 30 )
+
+[node name="item5" type="Sprite" parent="Interactives/END/Items"]
+position = Vector2( 4.49854, -20.9148 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 46 )
+
+[node name="Poof" type="Node2D" parent="Interactives/END/Items"]
+
+[node name="ogi_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( -56.3286, -130.338 )
+script = ExtResource( 3 )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../next")
+itemToEnable2 = NodePath("../next")
+hook_zoom_amount = Vector2( 0.15, 0.15 )
+speech_array = PoolStringArray( "...What a strange world...", "And what strange creatures you are...", "I am the Ogi... I am the important one...", "I want... I need...", "YOU CANNOT HAVE ANY!", "MINE MINE MINE MINE MINE MINE MINE!", "MY SHADOWS WILL CONSUME YOU ALL!" )
+zoom_guide = true
+ogi_speak = true
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/END/ogi_speak"]
+position = Vector2( 11.6738, -6.20561 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/ogi_speak"]
+position = Vector2( 77.3307, 197.827 )
+rotation = -0.265279
+shape = SubResource( 18 )
+disabled = true
+
+[node name="next" type="Node2D" parent="Interactives/END"]
+visible = false
+script = ExtResource( 81 )
+
+[node name="third_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( 0.600708, 3.13196 )
+script = ExtResource( 3 )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../next2")
+itemToEnable2 = NodePath("../next2")
+hook_zoom_amount = Vector2( 0.6, 0.6 )
+speech_array = PoolStringArray( "It\'s the Ogi! The legends are true!", "We must not be afraid, don\'t run and hide!", "We must shine through the dark, the legends tell of a song.", "Let us sing the song of love and warmth!" )
+zoom_guide = true
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/END/third_speak"]
+position = Vector2( 52.9644, 16.7332 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/third_speak"]
+position = Vector2( 17.9337, 64.1835 )
+rotation = -0.265279
+shape = SubResource( 19 )
+disabled = true
+
+[node name="next2" type="Node2D" parent="Interactives/END"]
+visible = false
+script = ExtResource( 81 )
+chapter_idx = 2
+
+[node name="ogi_speak2" type="Area2D" parent="Interactives/END"]
+position = Vector2( -56.3286, -130.338 )
+script = ExtResource( 3 )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../next3")
+itemToEnable2 = NodePath("../next3")
+hook_zoom_amount = Vector2( 0.15, 0.15 )
+speech_array = PoolStringArray( "No! My Shadows!", "WHAT IS THAT SONG! I HATE IT!", "HATE HATE HATE HATE HATE!", "AAAAAAAAAAAAAA!" )
+zoom_guide = true
+ogi_speak = true
+ogi_speak_idx = 1
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/END/ogi_speak2"]
+position = Vector2( 11.6738, -6.20561 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/ogi_speak2"]
+position = Vector2( 77.3307, 197.827 )
+rotation = -0.265279
+shape = SubResource( 20 )
+disabled = true
+
+[node name="next3" type="Node2D" parent="Interactives/END"]
+visible = false
+script = ExtResource( 81 )
+chapter_idx = 3
+
+[node name="fourth_speak" type="Area2D" parent="Interactives/END"]
+position = Vector2( 0.600708, 3.13196 )
+script = ExtResource( 3 )
+endMonologue = PoolStringArray( "And so, with the help of love and song, the Ogi was banished!", "Here ends the chapter, love is truly what we nurture!" )
+spawnItemOnEnd = true
+itemToEnable = NodePath("../next4")
+itemToEnable2 = NodePath("../next4")
+hook_zoom_amount = Vector2( 0.4, 0.4 )
+speech_array = PoolStringArray( "It worked! The Ogi has been banished!", "We are so grateful for your help!", "Here, everyone is happy.", "Love is what we nurture!" )
+zoom_guide = true
+chimeorshake = false
+
+[node name="guide" type="Node2D" parent="Interactives/END/fourth_speak"]
+position = Vector2( 54.5518, 16.7332 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactives/END/fourth_speak"]
+position = Vector2( 17.9337, 64.1835 )
+rotation = -0.265279
+shape = SubResource( 21 )
+disabled = true
+
+[node name="next4" type="Node2D" parent="Interactives/END"]
+visible = false
+script = ExtResource( 81 )
+chapter_idx = 4
+
 [node name="Objects" type="Node2D" parent="."]
 position = Vector2( 4.00452, 0 )
 
@@ -991,7 +1332,7 @@ script = ExtResource( 75 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bridge_forest/Bridge_area"]
 position = Vector2( -38.6055, -68.3018 )
 rotation = -0.97362
-shape = SubResource( 13 )
+shape = SubResource( 22 )
 
 [node name="river sound" type="AudioStreamPlayer2D" parent="Objects/Bridge_forest"]
 position = Vector2( 0, 1.0611 )
@@ -1007,33 +1348,6 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 14 )
 flip_h = true
 
-[node name="spawn_tent" parent="Objects" instance=ExtResource( 32 )]
-z_index = 1
-
-[node name="forest_tent" parent="Objects" instance=ExtResource( 32 )]
-position = Vector2( 2862.1, -185.067 )
-z_index = 1
-
-[node name="zen_tent" parent="Objects" instance=ExtResource( 32 )]
-position = Vector2( 1530.58, -1063.39 )
-z_index = 1
-
-[node name="berry_tent" parent="Objects" instance=ExtResource( 32 )]
-position = Vector2( 2652.03, -1563.62 )
-z_index = 1
-
-[node name="artist_tent" parent="Objects" instance=ExtResource( 32 )]
-position = Vector2( 3015.32, -2327.4 )
-z_index = 1
-
-[node name="kingdom_tent" parent="Objects" instance=ExtResource( 32 )]
-position = Vector2( -210, -1010 )
-z_index = 1
-
-[node name="desert_tent" parent="Objects" instance=ExtResource( 32 )]
-position = Vector2( 717.956, -2020.56 )
-z_index = 1
-
 [node name="Spike_gate" type="StaticBody2D" parent="Objects"]
 visible = false
 position = Vector2( -495.283, -994.494 )
@@ -1046,7 +1360,7 @@ flip_h = true
 [node name="spike_col" type="CollisionShape2D" parent="Objects/Spike_gate"]
 position = Vector2( 10.5947, 30.9011 )
 rotation = -0.609948
-shape = SubResource( 14 )
+shape = SubResource( 37 )
 disabled = true
 
 [node name="Tumbleweed_spawner" type="Node2D" parent="Objects"]
@@ -1190,6 +1504,32 @@ centered_textures = true
 format = 1
 tile_data = PoolIntArray( -2621509, 29, 0, -2621507, 29, 0, -2621505, 29, 0, -2621503, 29, 0, -2621500, 29, 0, -2621498, 29, 0, -2621495, 29, 0, -2621493, 29, 0, -2490438, 536870941, 0, -2490419, 536870941, 0, -2359366, 536870941, 0, -2293811, 536870941, 0, -2228294, 536870941, 0, -2162739, 536870941, 0, -2031686, 536870941, 0, -2031667, 536870941, 0, -1835078, 536870941, 0, -1704006, 536870941, 0, -1572915, 536870941, 0, -1507398, 536870941, 0, -1376307, 536870941, 0, -1310790, 536870941, 0, -1245235, 536870941, 0, -1179718, 536870941, 0, -1114180, 29, 0, -1114177, 29, 0, -1114174, 29, 0, -1114171, 29, 0, -1114168, 29, 0, -1114166, 29, 0, -1114164, 29, 0 )
 
+[node name="YSort" type="YSort" parent="Tilemaps_front/Trees"]
+position = Vector2( 10.0113, 0 )
+scale = Vector2( 2.5, 2.5 )
+
+[node name="spawn_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+
+[node name="forest_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+position = Vector2( 2862.1, -185.067 )
+
+[node name="zen_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+position = Vector2( 1530.58, -1063.39 )
+
+[node name="berry_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+position = Vector2( 2652.03, -1563.62 )
+
+[node name="artist_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+position = Vector2( 3015.32, -2327.4 )
+z_index = 1
+
+[node name="kingdom_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+position = Vector2( -210, -1010 )
+
+[node name="desert_tent" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 32 )]
+position = Vector2( 717.956, -2020.56 )
+z_index = 1
+
 [node name="Spikes" type="Node2D" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.0666667 )
@@ -1232,7 +1572,7 @@ format = 1
 tile_data = PoolIntArray( -1310786, 29, 0, -1179712, 29, 0, -1114173, 29, 0, -1114168, 29, 0, -1114164, 29, 0, -1048634, 29, 0, -1048630, 29, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 99.6663, 707.414 )
+position = Vector2( 123.388, 739.131 )
 z_index = 0
 mode = 2
 gravity_scale = 0.0
@@ -1253,7 +1593,7 @@ position = Vector2( 20.2043, 11.2246 )
 rotation = -1.5708
 scale = Vector2( 1, 2500 )
 z_index = -10
-texture = SubResource( 16 )
+texture = SubResource( 24 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 position = Vector2( -1033.34, -584.674 )
@@ -1279,7 +1619,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.03
 scale_amount_random = 0.15
-color_ramp = SubResource( 17 )
+color_ramp = SubResource( 25 )
 
 [node name="Inside_overlay" type="Node2D" parent="."]
 visible = false
@@ -1323,7 +1663,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent8/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1363,7 +1703,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent9/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent9/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1403,7 +1743,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent10/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent10/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1443,7 +1783,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent11/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent11/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1483,7 +1823,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent12/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent12/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1493,7 +1833,7 @@ scale = Vector2( 0.1, 0.2 )
 texture = ExtResource( 38 )
 
 [node name="Tent13" type="Sprite" parent="Inside_overlay"]
-position = Vector2( 1449.39, -1009.33 )
+position = Vector2( 1534.82, -1063.39 )
 scale = Vector2( 0.3, 0.3 )
 z_index = 4
 texture = ExtResource( 23 )
@@ -1523,7 +1863,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent13/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent13/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1563,7 +1903,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent14/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 18 )
+shape = SubResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent14/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1583,7 +1923,7 @@ monologue = PoolStringArray( "And so I went, to the kingdom!", "I wonder what th
 position = Vector2( -326.268, -260.678 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_kingdom"]
-shape = SubResource( 19 )
+shape = SubResource( 27 )
 
 [node name="To_forest" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 2054.98, -188.533 )
@@ -1596,7 +1936,7 @@ position = Vector2( 595.354, -94.1806 )
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
 position = Vector2( -29.2603, 46.2498 )
 rotation = 0.688018
-shape = SubResource( 20 )
+shape = SubResource( 28 )
 
 [node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 310.951, -1543.61 )
@@ -1610,7 +1950,7 @@ position = Vector2( 495.32, -475.18 )
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
 position = Vector2( -450.266, -38.6321 )
 rotation = 0.0331857
-shape = SubResource( 21 )
+shape = SubResource( 29 )
 
 [node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 3507.18, 1193.03 )
@@ -1621,7 +1961,7 @@ monologue = PoolStringArray( "And so" )
 position = Vector2( 287.934, -2831.35 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village"]
-shape = SubResource( 19 )
+shape = SubResource( 27 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1660,7 +2000,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 22 )
+custom_fonts/normal_font = SubResource( 30 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1688,23 +2028,20 @@ anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 4.0
 margin_bottom = 0.000244141
+custom_fonts/normal_font = SubResource( 39 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]
 THE END
 [/color][/center]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
+.
+.
+.
+.
+.
+.
+.
+
 
 
 [center][color=black]
@@ -1716,11 +2053,11 @@ Artist - spacenerdy
 [/color][/center]
 
 [center][color=black]
-Music - Miguel
+Music and Sound design - Miguel Ines
 [/color][/center]
 
 [center][color=black]
-Coding - Jannick
+Coding - Jannick Aka Default
 [/color][/center]
 
 [center][color=black]
@@ -1754,18 +2091,14 @@ text = "
 
 THE END
 
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
-[br][/br]
+.
+.
+.
+.
+.
+.
+.
+
 
 
 
@@ -1777,11 +2110,11 @@ Artist - spacenerdy
 
 
 
-Music - Miguel
+Music and Sound design - Miguel Ines
 
 
 
-Coding - Jannick
+Coding - Jannick Aka Default
 
 
 
@@ -1816,7 +2149,7 @@ __meta__ = {
 }
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 23 )
+material = SubResource( 31 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.360808
@@ -1848,7 +2181,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 24 )
+custom_fonts/normal_font = SubResource( 32 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -1909,7 +2242,7 @@ anchor_left = -0.1
 anchor_top = 1.0
 anchor_right = 1.1
 anchor_bottom = 1.5
-custom_fonts/normal_font = SubResource( 25 )
+custom_fonts/normal_font = SubResource( 33 )
 bbcode_enabled = true
 bbcode_text = "[center][color=black]\"Love card\"[/color][/center]"
 text = "\"Love card\""
@@ -1935,7 +2268,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 26 )
+shape = SubResource( 34 )
 
 [node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
 stream = ExtResource( 70 )
@@ -1950,7 +2283,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 26 )
+shape = SubResource( 34 )
 
 [node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 68 )
@@ -1964,7 +2297,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 27 )
+shape = SubResource( 35 )
 
 [node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
 stream = ExtResource( 73 )
@@ -1978,7 +2311,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 26 )
+shape = SubResource( 40 )
 
 [node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
 stream = ExtResource( 72 )
@@ -1992,7 +2325,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 28 )
+shape = SubResource( 36 )
 
 [node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
 stream = ExtResource( 71 )
@@ -2006,7 +2339,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 26 )
+shape = SubResource( 34 )
 
 [node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
 stream = ExtResource( 69 )
@@ -2049,4 +2382,16 @@ autoplay = true
 max_distance = 500.0
 attenuation = 0.784585
 bus = "trees"
+
+[node name="OGI_OST" type="AudioStreamPlayer" parent="region_audio"]
+stream = ExtResource( 79 )
+volume_db = -30.0
+
+[node name="CHANT_OST" type="AudioStreamPlayer" parent="region_audio"]
+stream = ExtResource( 80 )
+volume_db = -30.0
+
+[node name="CREDITS_OST" type="AudioStreamPlayer" parent="region_audio"]
+stream = ExtResource( 82 )
+volume_db = -20.0
 [connection signal="body_entered" from="Objects/Bridge_forest/Bridge_area" to="Objects/Bridge_forest/Bridge_area" method="_on_Bridge_area_body_entered"]

@@ -14,6 +14,7 @@ func _process(delta):
 			hide();
 			trig = false;
 			get_node("/root/World/region_audio/CREDITS_OST").stop();
+			get_tree().quit();
 
 func creditsroll():
 	if not trig:
