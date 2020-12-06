@@ -26,3 +26,10 @@ func txtscroll(delta):
 		percent_visible += delta * 0.5;
 		if percent_visible >= 1:
 			arrownext.show()
+
+func checkProgress() -> bool:
+	if percent_visible < 1:
+		percent_visible = 1;
+		arrownext.show();
+		return true;
+	return false;

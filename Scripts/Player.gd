@@ -20,7 +20,7 @@ export var debug_items:PoolStringArray;
 export var debug_finalquest:bool = false;
 export var debug_end:bool = false;
 func _process(delta):
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input(delta);
 
 export var speed = 100;
@@ -188,3 +188,9 @@ func _integrate_forces(state):
 
 func clearfootsteps():
 	$globalparentline/Line2D.remove_footsteps();
+
+func playinstrument(instrument:String):
+	pass
+
+
+

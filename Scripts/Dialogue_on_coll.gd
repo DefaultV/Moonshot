@@ -31,6 +31,8 @@ func dialogue_state(vis):
 func _process(_delta):
 	if ply.cinematic:
 		if Input.is_action_just_released("space") and this and ply.canPressSpace:
+			if dialogue.checkProgress():
+				return;
 			ply.playtextblurp()
 			if not next_dialogue_part() or visited:
 				dialogue_state(false)
@@ -132,6 +134,7 @@ func _on_Mullar_tut_body_exited(body):
 		return;
 	this = false;
 	print(body.name + " exited")
+	ply.front_run = false;
 	cam.hook_free();
 	dialogue_state(false)
 	visited = true;

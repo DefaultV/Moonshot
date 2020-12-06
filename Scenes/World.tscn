@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -38,7 +38,6 @@
 [ext_resource path="res://Scripts/Shaders/multishader.shader" type="Shader" id=36]
 [ext_resource path="res://Uncategorized/dialogue_rect.png" type="Texture" id=37]
 [ext_resource path="res://Uncategorized/light_intense.png" type="Texture" id=38]
-[ext_resource path="res://Uncategorized/4k_voronoi_cloud_iso.png" type="Texture" id=39]
 [ext_resource path="res://spacey's space/bears/king bear.png" type="Texture" id=40]
 [ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=41]
 [ext_resource path="res://Sprites_textures/fiske_mullar/fiske_mullar_default.png" type="Texture" id=42]
@@ -233,30 +232,33 @@ extents = Vector2( 355.365, 78.4767 )
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 850.444, 131.358 )
 
-[sub_resource type="DynamicFont" id=32]
-size = 26
-extra_spacing_top = -4
-extra_spacing_bottom = 2
-extra_spacing_char = -2
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=33]
-size = 50
-font_data = ExtResource( 1 )
-
-[sub_resource type="ShaderMaterial" id=34]
+[sub_resource type="ShaderMaterial" id=32]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
 shader_param/apply_vig = true
 shader_param/apply_glow = true
+shader_param/apply_desert = false
 shader_param/white_fade = 0.0
 shader_param/ca_amount = 0.072
 shader_param/fog_amount = 0.164
 shader_param/vig_amount = 0.875
 shader_param/glow_amount = 0.221
 shader_param/glow_threshold = 0.823
+shader_param/desert_amount = 0.5
 shader_param/offset_texture = ExtResource( 47 )
+shader_param/desert_weather = ExtResource( 84 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 26
+extra_spacing_top = -4
+extra_spacing_bottom = 2
+extra_spacing_char = -2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 50
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=35]
 size = 50
@@ -280,30 +282,6 @@ radius = 976.967
 
 [node name="World" type="Node2D"]
 position = Vector2( -2, 0 )
-
-[node name="Background" type="Node2D" parent="."]
-visible = false
-position = Vector2( -1056, -16 )
-
-[node name="bg" type="Sprite" parent="Background"]
-position = Vector2( 692, 345.811 )
-z_index = -4
-texture = ExtResource( 39 )
-
-[node name="bg4" type="Sprite" parent="Background"]
-position = Vector2( 4760.27, 346.084 )
-z_index = -4
-texture = ExtResource( 39 )
-
-[node name="bg2" type="Sprite" parent="Background"]
-position = Vector2( 692, -1700 )
-z_index = -4
-texture = ExtResource( 39 )
-
-[node name="bg3" type="Sprite" parent="Background"]
-position = Vector2( 4788, -1700 )
-z_index = -4
-texture = ExtResource( 39 )
 
 [node name="Tilemaps_behind" type="Node2D" parent="."]
 
@@ -530,7 +508,7 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 4 )
-frame = 1
+frame = 15
 speed_scale = 0.5
 playing = true
 
@@ -671,7 +649,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 5
+frame = 20
 speed_scale = 1.3
 playing = true
 
@@ -695,7 +673,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar2"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 12
+frame = 6
 speed_scale = 1.5
 playing = true
 
@@ -719,7 +697,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 22
+frame = 20
 speed_scale = 1.8
 playing = true
 
@@ -1509,6 +1487,11 @@ stream = ExtResource( 86 )
 autoplay = true
 attenuation = 26.9086
 
+[node name="Zen_garden_pool" type="StaticBody2D" parent="Objects"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Zen_garden_pool"]
+polygon = PoolVector2Array( 1419.37, -947.777, 1470.76, -956.788, 1465.43, -977.811, 1432.39, -990.492, 1397.68, -989.157, 1385, -1002.51, 1364.98, -1002.84, 1358.3, -1008.51, 1329.94, -1006.18, 1314.59, -992.495, 1310.92, -972.806, 1344.96, -952.783, 1391.68, -946.443 )
+
 [node name="Tilemaps_front" type="Node2D" parent="."]
 
 [node name="EMPTY_TREES" type="TileMap" parent="Tilemaps_front"]
@@ -1594,7 +1577,7 @@ position = Vector2( 717.956, -2020.56 )
 z_index = 1
 
 [node name="Player" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 2 )]
-position = Vector2( 107.087, 720.121 )
+position = Vector2( 644.186, -1695.74 )
 z_index = 0
 mode = 2
 gravity_scale = 0.0
@@ -2041,6 +2024,19 @@ shape = SubResource( 29 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="SHADERS" type="TextureRect" parent="UI"]
+material = SubResource( 32 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.360808
+margin_bottom = -0.36084
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dialogue_rect" type="TextureRect" parent="UI"]
 visible = false
 anchor_left = 0.38
@@ -2076,7 +2072,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 32 )
+custom_fonts/normal_font = SubResource( 33 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -2104,7 +2100,7 @@ anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 4.0
 margin_bottom = 0.000244141
-custom_fonts/normal_font = SubResource( 33 )
+custom_fonts/normal_font = SubResource( 34 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]
@@ -2224,19 +2220,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 34 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -0.360808
-margin_bottom = -0.36084
-texture = ExtResource( 48 )
-expand = true
-stretch_mode = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Inner_pic" type="TextureRect" parent="UI"]
 visible = false
 anchor_top = 0.45
@@ -2267,6 +2250,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+skip_intro = true
 
 [node name="Map" type="TextureRect" parent="UI"]
 visible = false
