@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=151 format=2]
 
 [ext_resource path="res://Michellefont-Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Scripts/Shaders/multishader.shader" type="Shader" id=36]
 [ext_resource path="res://Uncategorized/dialogue_rect.png" type="Texture" id=37]
 [ext_resource path="res://Uncategorized/light_intense.png" type="Texture" id=38]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0009.png" type="Texture" id=39]
 [ext_resource path="res://spacey's space/bears/king bear.png" type="Texture" id=40]
 [ext_resource path="res://Uncategorized/shadow.png" type="Texture" id=41]
 [ext_resource path="res://Sprites_textures/fiske_mullar/fiske_mullar_default.png" type="Texture" id=42]
@@ -85,6 +86,29 @@
 [ext_resource path="res://spacey's space/particles/sandstorm.png" type="Texture" id=84]
 [ext_resource path="res://SFX/Objects/bridge_fixing_sfx2.wav" type="AudioStream" id=85]
 [ext_resource path="res://SFX/Ambient/SANDSTORM.wav" type="AudioStream" id=86]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0013.png" type="Texture" id=87]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0005.png" type="Texture" id=88]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0001.png" type="Texture" id=89]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0002.png" type="Texture" id=90]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0008.png" type="Texture" id=91]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0012.png" type="Texture" id=92]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0014.png" type="Texture" id=93]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0017.png" type="Texture" id=94]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0019.png" type="Texture" id=95]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0020.png" type="Texture" id=96]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0003.png" type="Texture" id=97]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0010.png" type="Texture" id=98]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0004.png" type="Texture" id=99]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0011.png" type="Texture" id=100]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0000.png" type="Texture" id=101]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0007.png" type="Texture" id=102]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0015.png" type="Texture" id=103]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0016.png" type="Texture" id=104]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0018.png" type="Texture" id=105]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0021.png" type="Texture" id=106]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0006.png" type="Texture" id=107]
+[ext_resource path="res://Sprites_textures/CharacterSpriteAnims/Snake/snake0022.png" type="Texture" id=108]
+[ext_resource path="res://Scenes/Desert.gd" type="Script" id=109]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -209,30 +233,38 @@ extents = Vector2( 206.419, 178.404 )
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 123.464, 66.8145 )
 
-[sub_resource type="Gradient" id=25]
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ ExtResource( 101 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 97 ), ExtResource( 99 ), ExtResource( 88 ), ExtResource( 107 ), ExtResource( 102 ), ExtResource( 91 ), ExtResource( 39 ), ExtResource( 98 ), ExtResource( 100 ), ExtResource( 92 ), ExtResource( 87 ), ExtResource( 93 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 94 ), ExtResource( 105 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 106 ), ExtResource( 108 ), ExtResource( 87 ), ExtResource( 98 ), ExtResource( 98 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=26]
 offsets = PoolRealArray( 0, 0.329032, 0.529032, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.317413, 0.401831, 0.427673, 1, 0.808594, 0.808594, 0.808594, 1, 0.727692, 0.921224, 0.980469, 1 )
 
-[sub_resource type="GradientTexture" id=26]
-gradient = SubResource( 25 )
+[sub_resource type="GradientTexture" id=27]
+gradient = SubResource( 26 )
 
-[sub_resource type="Gradient" id=27]
+[sub_resource type="Gradient" id=28]
 offsets = PoolRealArray( 0, 0.227027, 0.675676, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 11.8167, 15.4896 )
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 150, 150 )
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 355.365, 78.4767 )
 
-[sub_resource type="RectangleShape2D" id=31]
+[sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 850.444, 131.358 )
 
-[sub_resource type="ShaderMaterial" id=32]
+[sub_resource type="ShaderMaterial" id=33]
 shader = ExtResource( 36 )
 shader_param/apply_ca = true
 shader_param/apply_fog = true
@@ -249,15 +281,11 @@ shader_param/desert_amount = 0.5
 shader_param/offset_texture = ExtResource( 47 )
 shader_param/desert_weather = ExtResource( 84 )
 
-[sub_resource type="DynamicFont" id=33]
+[sub_resource type="DynamicFont" id=34]
 size = 26
 extra_spacing_top = -4
 extra_spacing_bottom = 2
 extra_spacing_char = -2
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=34]
-size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=35]
@@ -265,19 +293,23 @@ size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=36]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=37]
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="CircleShape2D" id=37]
+[sub_resource type="CircleShape2D" id=38]
 radius = 874.088
 
-[sub_resource type="CircleShape2D" id=38]
+[sub_resource type="CircleShape2D" id=39]
 radius = 703.624
 
-[sub_resource type="CircleShape2D" id=39]
+[sub_resource type="CircleShape2D" id=40]
 radius = 1259.39
 
-[sub_resource type="CircleShape2D" id=40]
+[sub_resource type="CircleShape2D" id=41]
 radius = 976.967
 
 [node name="World" type="Node2D"]
@@ -305,6 +337,7 @@ format = 1
 tile_data = PoolIntArray( -5439504, 15, 0, -5439500, 15, 0, -5439496, 15, 0, -5439492, 15, 0, -5505024, 15, 0, -5177364, 15, 0, -5177360, 15, 0, -5177356, 15, 0, -5177352, 15, 0, -5177348, 15, 0, -5242880, 15, 0, -4980764, 23, 0, -4980760, 23, 0, -4915220, 15, 0, -4915216, 15, 0, -4915212, 15, 0, -4915208, 15, 0, -4915204, 15, 0, -4980736, 15, 0, -4784160, 23, 0, -4718617, 23, 0, -4653092, 23, 0, -4653086, 23, 0, -4653076, 15, 0, -4653072, 15, 0, -4653068, 15, 0, -4653060, 15, 0, -4718592, 15, 0, -4718588, 15, 0, -4718584, 15, 0, -4522017, 23, 0, -4522006, 23, 0, -4456491, 23, 0, -4456475, 23, 0, -4390916, 15, 0, -4456448, 15, 0, -4456444, 15, 0, -4456440, 15, 0, -4456436, 15, 0, -4325414, 23, 0, -4325413, 23, 0, -4325390, 23, 0, -4259859, 23, 0, -4259847, 536870927, 0, -4194337, 23, 0, -4128783, 23, 0, -4128772, 15, 0, -4194304, 15, 0, -4194300, 15, 0, -4194296, 15, 0, -4194292, 15, 0, -4063273, 23, 0, -4063260, 23, 0, -3997703, 536870927, 0, -3932207, 23, 0, -3932197, 23, 0, -3997687, 536870927, 0, -3866658, 23, 0, -3866628, 15, 0, -3932160, 15, 0, -3932156, 15, 0, -3932148, 15, 0, -3932144, 15, 0, -3932140, 15, 0, -3932136, 15, 0, -3801131, 23, 0, -3801117, 23, 0, -3801116, 23, 0, -3801111, 23, 0, -3735568, 23, 0, -3735559, 536870927, 0, -3801079, 536870927, 0, -3604528, 23, 0, -3604507, 23, 0, -3604499, 23, 0, -3604484, 15, 0, -3670016, 15, 0, -3670012, 15, 0, -3670004, 15, 0, -3670000, 15, 0, -3669996, 15, 0, -3669992, 15, 0, -3669988, 15, 0, -3538981, 23, 0, -3538977, 23, 0, -3538970, 23, 0, -3473425, 23, 0, -3473415, 536870927, 0, -3538935, 536870927, 0, -3407899, 23, 0, -3407895, 23, 0, -3473395, 536870927, 0, -3342379, 23, 0, -3342340, 15, 0, -3407872, 15, 0, -3407868, 15, 0, -3407856, 15, 0, -3407852, 15, 0, -3407848, 15, 0, -3407844, 15, 0, -3407840, 15, 0, -3276839, 23, 0, -3211303, 23, 0, -3211294, 23, 0, -3211271, 536870927, 0, -3276791, 536870927, 0, -3276787, 536870927, 0, -3145774, 23, 0, -3145749, 23, 0, -3145731, 536870927, 0, -3211263, 536870927, 0, -3211259, 536870927, 0, -3211248, 536870927, 0, -3211245, 536870927, 0, -3080228, 23, 0, -3080216, 23, 0, -3145708, 15, 0, -3145704, 15, 0, -3145700, 15, 0, -3145696, 15, 0, -3145692, 15, 0, -3145688, 15, 0, -2949127, 536870927, 0, -2949125, 536870947, 0, -2949124, 536870947, 0, -2949123, 536870947, 0, -2949122, 536870947, 0, -2949121, 536870947, 0, -3014654, 536870927, 0, -3014647, 536870935, 0, -2883595, 536870927, 0, -2883589, 536870947, 0, -2883588, 536870947, 0, -2883587, 536870947, 0, -2883586, 536870947, 0, -2883585, 536870947, 0, -2949116, 536870927, 0, -2949102, 536870927, 0, -2949098, 536870927, 0, -2818088, 23, 0, -2818082, 23, 0, -2818055, 536870927, 0, -2818053, 536870947, 0, -2818052, 536870947, 0, -2818051, 536870947, 0, -2818050, 536870947, 0, -2818049, 536870947, 0, -2883584, 536870947, 0, -2883559, 15, 0, -2883555, 15, 0, -2883551, 15, 0, -2883548, 15, 0, -2883544, 15, 0, -2883540, 15, 0, -2752517, 536870947, 0, -2752516, 536870947, 0, -2818035, 536870935, 0, -2818023, 15, 0, -2818019, 15, 0, -2818015, 15, 0, -2687001, 23, 0, -2686981, 536870947, 0, -2752509, 536870947, 0, -2752508, 536870947, 0, -2752507, 536870947, 0, -2752506, 536870947, 0, -2621451, 536870927, 0, -2686972, 536870947, 0, -2686971, 536870947, 0, -2686970, 536870947, 0, -2686966, 536870935, 0, -2686958, 536870927, 0, -2686954, 536870927, 0, -2555948, 23, 0, -2555943, 23, 0, -2555940, 23, 0, -2621436, 536870947, 0, -2621435, 536870947, 0, -2621434, 536870947, 0, -2621433, 536870947, 0, -2621404, 15, 0, -2621400, 15, 0, -2621396, 15, 0, -2621392, 15, 0, -2490398, 23, 0, -2490396, 23, 0, -2490375, 536870952, 0, -2490371, 536870952, 0, -2555903, 536870952, 0, -2555899, 536870947, 0, -2555898, 536870947, 0, -2555897, 536870947, 0, -2555896, 536870947, 0, -2555892, 536870935, 0, -2555879, 15, 0, -2555875, 15, 0, -2555871, 15, 0, -2424858, 34, 0, -2490362, 536870947, 0, -2490353, 536870947, 0, -2490350, 536870927, 0, -2490346, 536870927, 0, -2359320, 35, 0, -2359319, 536870947, 0, -2359316, 536870927, 0, -2359312, 536870927, 0, -2359309, 536870927, 0, -2359307, 536870927, 0, -2424829, 34, 0, -2424826, 34, 0, -2424823, 536870927, 0, -2424817, 536870947, 0, -2293785, 536870947, 0, -2293784, 35, 0, -2293783, 536870947, 0, -2293782, 536870947, 0, -2359291, 35, 0, -2359290, 35, 0, -2359282, 536870947, 0, -2359281, 536870947, 0, -2359260, 15, 0, -2359256, 15, 0, -2359252, 15, 0, -2359248, 15, 0, -2228253, 536870946, 0, -2228250, 536870947, 0, -2228249, 35, 0, -2228248, 35, 0, -2228247, 536870947, 0, -2228246, 536870947, 0, -2228245, 536870947, 0, -2228231, 536870952, 0, -2293759, 536870952, 0, -2293756, 34, 0, -2293755, 35, 0, -2293754, 35, 0, -2293748, 536870929, 0, -2293746, 536870947, 0, -2293745, 536870947, 0, -2293743, 15, 0, -2293739, 15, 0, -2293735, 15, 0, -2293731, 15, 0, -2293727, 15, 0, -2162732, 23, 0, -2162720, 35, 0, -2162713, 536870947, 0, -2162712, 35, 0, -2228221, 34, 0, -2228219, 35, 0, -2228218, 34, 0, -2228210, 536870947, 0, -2228209, 536870947, 0, -2097184, 35, 0, -2097183, 35, 0, -2097179, 536870947, 0, -2097178, 35, 0, -2097177, 35, 0, -2097176, 35, 0, -2097173, 536870927, 0, -2097169, 536870927, 0, -2097165, 536870927, 0, -2097163, 536870927, 0, -2162683, 35, 0, -2162682, 35, 0, -2162679, 536870927, 0, -2162674, 536870947, 0, -2162673, 536870947, 0, -2031648, 35, 0, -2031647, 35, 0, -2031646, 536870947, 0, -2031645, 536870947, 0, -2031643, 536870947, 0, -2031642, 536870947, 0, -2031641, 35, 0, -2031640, 35, 0, -2097147, 35, 0, -2097146, 35, 0, -2097138, 536870947, 0, -2097137, 536870947, 0, -2097115, 15, 0, -2097112, 15, 0, -2097108, 15, 0, -2097104, 15, 0, -1966112, 35, 0, -1966111, 35, 0, -1966110, 35, 0, -1966109, 35, 0, -1966108, 536870947, 0, -1966107, 536870947, 0, -1966106, 536870947, 0, -1966105, 536870947, 0, -1966104, 536870947, 0, -1966087, 536870952, 0, -1966083, 536870952, 0, -2031615, 536870952, 0, -2031611, 35, 0, -2031610, 35, 0, -2031604, 536870929, 0, -2031602, 536870947, 0, -2031601, 536870947, 0, -2031599, 15, 0, -2031595, 15, 0, -2031591, 15, 0, -2031587, 15, 0, -2031583, 15, 0, -1966075, 35, 0, -1966074, 35, 0, -1966066, 536870947, 0, -1966065, 536870947, 0, -1835023, 536870927, 0, -1835019, 536870927, 0, -1900535, 536870927, 0, -1900530, 536870947, 0, -1900529, 536870947, 0, -1769503, 15, 0, -1769499, 15, 0, -1769495, 15, 0, -1769491, 15, 0, -1834994, 536870947, 0, -1834993, 536870947, 0, -1834971, 15, 0, -1834968, 15, 0, -1834964, 15, 0, -1834960, 15, 0, -1703968, 536870927, 0, -1703966, 536870927, 0, -1703943, 536870927, 0, -1703939, 536870927, 0, -1769471, 536870927, 0, -1769467, 536870927, 0, -1769460, 536870929, 0, -1769458, 536870947, 0, -1769457, 536870947, 0, -1769455, 15, 0, -1769451, 15, 0, -1769447, 15, 0, -1769443, 15, 0, -1769439, 15, 0, -1638436, 536870927, 0, -1703927, 536870927, 0, -1572878, 536870927, 0, -1572874, 536870927, 0, -1507355, 15, 0, -1507351, 15, 0, -1507347, 15, 0, -1572852, 536870932, 0, -1572848, 536870931, 0, -1572844, 536870927, 0, -1572828, 15, 0, -1572824, 15, 0, -1572820, 15, 0, -1572816, 15, 0, -1441824, 536870927, 0, -1441820, 536870927, 0, -1441818, 536870927, 0, -1441798, 536870927, 0, -1441794, 536870927, 0, -1507326, 536870927, 0, -1507323, 536870927, 0, -1507307, 15, 0, -1507303, 15, 0, -1507299, 15, 0, -1507295, 15, 0, -1376296, 536870927, 0, -1376292, 536870927, 0, -1441783, 536870927, 0, -1310730, 536870927, 0, -1310726, 536870927, 0, -1310722, 536870927, 0, -1376243, 536870927, 0, -1245207, 15, 0, -1245203, 15, 0, -1245199, 15, 0, -1310711, 536870927, 0, -1310707, 536870927, 0, -1310704, 536870932, 0, -1310700, 536870930, 0, -1310696, 536870930, 0, -1310692, 536870931, 0, -1310684, 15, 0, -1310680, 15, 0, -1310676, 15, 0, -1310672, 15, 0, -1245183, 536870927, 0, -1245179, 536870927, 0, -1114152, 536870927, 0, -1114148, 536870927, 0, -1179633, 536870947, 0, -1179632, 536870947, 0, -1179631, 536870947, 0, -1179630, 536870947, 0, -1179629, 536870947, 0, -1179628, 536870947, 0, -1179627, 536870947, 0, -1179626, 536870947, 0, -1179625, 536870947, 0, -1179624, 536870947, 0, -1179623, 536870947, 0, -1048608, 12, 0, -1048604, 12, 0, -1048586, 536870927, 0, -1048582, 536870927, 0, -1048578, 536870927, 0, -983063, 15, 0, -983059, 15, 0, -983055, 15, 0, -1048574, 536870927, 0, -1048572, 536870927, 0, -1048569, 536870927, 0, -1048565, 536870927, 0, -1048561, 536870927, 0, -1048557, 536870927, 0, -1048553, 536870927, 0, -1048548, 536870932, 0, -1048544, 536870931, 0, -1048536, 15, 0, -1048532, 15, 0, -1048528, 15, 0, -917529, 35, 0, -852008, 536870927, 0, -852004, 536870927, 0, -851993, 35, 0, -851992, 35, 0, -786464, 12, 0, -786460, 12, 0, -786457, 35, 0, -786456, 35, 0, -851961, 536870927, 0, -720918, 15, 0, -720914, 15, 0, -720910, 15, 0, -720906, 15, 0, -720902, 15, 0, -720898, 15, 0, -786430, 15, 0, -786421, 536870927, 0, -786417, 536870927, 0, -786413, 536870927, 0, -589864, 536870927, 0, -589860, 536870927, 0, -524320, 12, 0, -524316, 12, 0, -524310, 536870927, 0, -524306, 536870927, 0, -524302, 536870927, 0, -524298, 536870927, 0, -524294, 536870927, 0, -524292, 536870927, 0, -458754, 15, 0, -524286, 15, 0, -524282, 15, 0, -524277, 536870927, 0, -524273, 536870927, 0, -327718, 536870927, 0, -327714, 536870927, 0, -327710, 536870927, 0, -327706, 536870927, 0, -262167, 536870927, 0, -262163, 536870927, 0, -262159, 536870927, 0, -262156, 536870927, 0, -262153, 536870927, 0, -262149, 536870927, 0, -262146, 536870927, 0, -327678, 536870927, 0, -327674, 536870927, 0, -262134, 536870927, 0, -262130, 536870927, 0, -65571, 536870927, 0, -65567, 536870927, 0, -65563, 536870927, 0, -23, 536870927, 0, -19, 536870927, 0, -65530, 536870927, 0, 10, 536870927, 0, 14, 536870927, 0, 18, 536870927, 0, 131094, 536870927, 0, 196618, 536870927, 0, 196620, 35, 0, 196621, 35, 0, 196622, 35, 0, 196625, 35, 0, 196626, 35, 0, 196627, 35, 0, 262156, 35, 0, 262157, 35, 0, 262159, 35, 0, 262162, 35, 0, 262163, 35, 0, 327692, 35, 0, 327696, 35, 0, 327699, 35, 0, 393229, 35, 0, 393231, 536870947, 0, 393232, 536870947, 0, 393238, 536870927, 0, 458762, 536870927, 0, 458766, 35, 0, 458767, 536870926, 0, 458768, 35, 0, 524300, 35, 0, 524303, 536870947, 0, 524304, 35, 0, 524305, 35, 0, 524307, 35, 0, 589836, 35, 0, 589837, 35, 0, 589840, 35, 0, 589842, 35, 0, 589843, 35, 0, 655370, 536870927, 0, 655372, 35, 0, 655373, 35, 0, 655374, 35, 0, 655377, 35, 0, 655378, 35, 0, 655379, 35, 0, 655382, 536870927, 0, 720911, 30, 0, 786446, 536870927, 0, 786450, 536870927, 0, 1048590, 536870927, 0, 1048594, 536870927, 0 )
 
 [node name="water" type="StaticBody2D" parent="Tilemaps_behind/Tiles"]
+visible = false
 
 [node name="water_south" type="CollisionPolygon2D" parent="Tilemaps_behind/Tiles/water"]
 polygon = PoolVector2Array( 7214.82, 5180.79, 8998.06, 2012.12, 7272.77, 2657.93, 6277.2, 2398.57, 5179.56, 1253.78, 5261.46, 1020.69, 5126.02, 803.358, 5264.61, 652.167, 5258.31, 504.127, 5625, 332.5, 5258.94, 459.213, 4820.35, 165.472, 4670, 56.25, 4532.43, 39.5264, 4424.81, 87.08, 4373.92, 162.999, 4403.95, 179.685, 4754.2, 603.295, 4678.61, 763.935, 4445.52, 848.979, 3188.75, 911.975, 2813.92, 1015.92, 2426.5, 1245.85, 2117.82, 1557.68, 1802.84, 1973.46, 1654.8, 2260.09, 1711.49, 2666.42, 954.034, 3015.25, -415.966, 3115.25, 1214.03, 5235.25 )
@@ -357,6 +390,7 @@ polygon = PoolVector2Array( -15.8241, 17.8058, -34.3647, 28.1356, -63.4999, 20.9
 light_mask = -2147483647
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
+frame = 1
 speed_scale = 0.25
 playing = true
 
@@ -373,7 +407,6 @@ polygon = PoolVector2Array( -15.8241, 17.8058, -34.3647, 28.1356, -63.4999, 20.9
 light_mask = -2147483647
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-frame = 1
 speed_scale = 0.25
 playing = true
 flip_h = true
@@ -508,7 +541,7 @@ texture = ExtResource( 41 )
 position = Vector2( -5.66602, -0.587891 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 4 )
-frame = 15
+frame = 16
 speed_scale = 0.5
 playing = true
 
@@ -649,7 +682,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 20
+frame = 17
 speed_scale = 1.3
 playing = true
 
@@ -673,7 +706,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar2"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 6
+frame = 22
 speed_scale = 1.5
 playing = true
 
@@ -697,7 +730,7 @@ shape = SubResource( 6 )
 [node name="Sprite" type="AnimatedSprite" parent="Interactives/NOQ_mullar3"]
 scale = Vector2( 0.04, 0.04 )
 frames = ExtResource( 27 )
-frame = 20
+frame = 8
 speed_scale = 1.8
 playing = true
 
@@ -1577,7 +1610,7 @@ position = Vector2( 717.956, -2020.56 )
 z_index = 1
 
 [node name="Player" parent="Tilemaps_front/Trees/YSort" instance=ExtResource( 2 )]
-position = Vector2( 644.186, -1695.74 )
+position = Vector2( 749.389, -1929.46 )
 z_index = 0
 mode = 2
 gravity_scale = 0.0
@@ -1597,6 +1630,14 @@ position = Vector2( 0, -400 )
 
 [node name="guide2" type="Node2D" parent="Tilemaps_front/Trees/YSort/Tumbleweed_spawner"]
 position = Vector2( 0, 156.531 )
+
+[node name="Snake" type="AnimatedSprite" parent="Tilemaps_front/Trees/YSort"]
+position = Vector2( 792.445, -1935.89 )
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 25 )
+frame = 8
+speed_scale = 3.0
+playing = true
 
 [node name="Spikes" type="Node2D" parent="."]
 visible = false
@@ -1652,7 +1693,7 @@ position = Vector2( 20.2043, 11.2246 )
 rotation = -1.5708
 scale = Vector2( 1, 2500 )
 z_index = -10
-texture = SubResource( 26 )
+texture = SubResource( 27 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 position = Vector2( -1033.34, -584.674 )
@@ -1678,7 +1719,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.03
 scale_amount_random = 0.15
-color_ramp = SubResource( 27 )
+color_ramp = SubResource( 28 )
 
 [node name="Inside_overlay" type="Node2D" parent="."]
 visible = false
@@ -1722,7 +1763,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent8/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent8/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1762,7 +1803,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent9/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent9/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1802,7 +1843,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent10/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent10/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1842,7 +1883,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent11/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent11/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1882,7 +1923,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent12/Area2D"]
 position = Vector2( 2.37329, 5.22113 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent12/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1922,7 +1963,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent13/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent13/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1962,7 +2003,7 @@ texture = ExtResource( 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inside_overlay/Tent14/Area2D"]
 position = Vector2( 2.37354, 5.22119 )
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Inside_overlay/Tent14/Area2D"]
 self_modulate = Color( 1, 1, 1, 0.796078 )
@@ -1982,7 +2023,7 @@ monologue = PoolStringArray( "And so I went, to the kingdom!", "I wonder what th
 position = Vector2( -326.268, -260.678 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_kingdom"]
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="To_forest" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 2054.98, -188.533 )
@@ -1995,7 +2036,7 @@ position = Vector2( 595.354, -94.1806 )
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_forest"]
 position = Vector2( -29.2603, 46.2498 )
 rotation = 0.688018
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="To_desert" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 310.951, -1543.61 )
@@ -2009,7 +2050,7 @@ position = Vector2( 495.32, -475.18 )
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_desert"]
 position = Vector2( -450.266, -38.6321 )
 rotation = 0.0331857
-shape = SubResource( 31 )
+shape = SubResource( 32 )
 
 [node name="To_village" type="Area2D" parent="Inner_monologue_areas"]
 position = Vector2( 3507.18, 1193.03 )
@@ -2020,16 +2061,18 @@ monologue = PoolStringArray( "And so" )
 position = Vector2( 287.934, -2831.35 )
 
 [node name="collider" type="CollisionShape2D" parent="Inner_monologue_areas/To_village"]
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="SHADERS" type="TextureRect" parent="UI"]
-material = SubResource( 32 )
+material = SubResource( 33 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -0.360808
-margin_bottom = -0.36084
+margin_left = -3.77972
+margin_top = 3.41898
+margin_right = -3.77979
+margin_bottom = 3.41895
 texture = ExtResource( 48 )
 expand = true
 stretch_mode = 7
@@ -2072,7 +2115,7 @@ anchor_left = 0.4
 anchor_top = 0.2
 anchor_right = 0.6
 anchor_bottom = 0.35
-custom_fonts/normal_font = SubResource( 33 )
+custom_fonts/normal_font = SubResource( 34 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=white]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -2100,7 +2143,7 @@ anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 4.0
 margin_bottom = 0.000244141
-custom_fonts/normal_font = SubResource( 34 )
+custom_fonts/normal_font = SubResource( 35 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]
@@ -2240,7 +2283,7 @@ anchor_left = 0.1
 anchor_top = 0.3
 anchor_right = 0.9
 anchor_bottom = 0.7
-custom_fonts/normal_font = SubResource( 35 )
+custom_fonts/normal_font = SubResource( 36 )
 bbcode_enabled = true
 bbcode_text = "
 [center][color=black]Oh hello! I really enjoy fishing, I hope to catch something![/color][/center]"
@@ -2302,7 +2345,7 @@ anchor_left = -0.1
 anchor_top = 1.0
 anchor_right = 1.1
 anchor_bottom = 1.5
-custom_fonts/normal_font = SubResource( 36 )
+custom_fonts/normal_font = SubResource( 37 )
 bbcode_enabled = true
 bbcode_text = "[center][color=black]\"Love card\"[/color][/center]"
 text = "\"Love card\""
@@ -2328,7 +2371,7 @@ area = "Start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="region_audio/Start"]
 visible = false
-shape = SubResource( 37 )
+shape = SubResource( 38 )
 
 [node name="spawn_ost" type="AudioStreamPlayer" parent="region_audio/Start"]
 stream = ExtResource( 70 )
@@ -2343,7 +2386,7 @@ area = "Forest"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="region_audio/Forest"]
 visible = false
 position = Vector2( -0.561035, 0 )
-shape = SubResource( 37 )
+shape = SubResource( 38 )
 
 [node name="forest_ost" type="AudioStreamPlayer" parent="region_audio/Forest"]
 stream = ExtResource( 68 )
@@ -2357,7 +2400,7 @@ area = "Garden"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Garden"]
 visible = false
-shape = SubResource( 38 )
+shape = SubResource( 39 )
 
 [node name="zen_ost" type="AudioStreamPlayer" parent="region_audio/Garden"]
 stream = ExtResource( 73 )
@@ -2371,7 +2414,7 @@ area = "Kingdom"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Kingdom"]
 visible = false
-shape = SubResource( 39 )
+shape = SubResource( 40 )
 
 [node name="kingdom_ost" type="AudioStreamPlayer" parent="region_audio/Kingdom"]
 stream = ExtResource( 72 )
@@ -2385,7 +2428,7 @@ area = "Desert"
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="region_audio/Desert"]
 visible = false
-shape = SubResource( 40 )
+shape = SubResource( 41 )
 
 [node name="desert_ost" type="AudioStreamPlayer" parent="region_audio/Desert"]
 stream = ExtResource( 71 )
@@ -2399,7 +2442,7 @@ area = "Village"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="region_audio/Village"]
 visible = false
-shape = SubResource( 37 )
+shape = SubResource( 38 )
 
 [node name="village_ost" type="AudioStreamPlayer" parent="region_audio/Village"]
 stream = ExtResource( 69 )
@@ -2454,4 +2497,13 @@ volume_db = -30.0
 [node name="CREDITS_OST" type="AudioStreamPlayer" parent="region_audio"]
 stream = ExtResource( 82 )
 volume_db = -20.0
+
+[node name="region_shader" type="Node2D" parent="."]
+
+[node name="Desert" type="Area2D" parent="region_shader"]
+script = ExtResource( 109 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="region_shader/Desert"]
+visible = false
+polygon = PoolVector2Array( 1984.05, -1778.08, 783.115, -1468.05, -720.722, -1852.92, 163.049, -2736.69, 857.95, -2882.79, 1435.25, -2925.56, 2639.75, -2615.53, 2240.63, -2330.44, 2347.53, -2177.2, 2625.49, -2123.75, 2415.24, -1867.17 )
 [connection signal="body_entered" from="Objects/Bridge_forest/Bridge_area" to="Objects/Bridge_forest/Bridge_area" method="_on_Bridge_area_body_entered"]
